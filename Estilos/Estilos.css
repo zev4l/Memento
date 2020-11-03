@@ -23,6 +23,14 @@ body {
 
 /* ------------------------------ HOMEPAGE ------------------------------*/
 
+#Titulo{
+    top: 2px;
+    display: flex;
+    justify-content: center;
+    border: solid green;
+}
+
+
 #containerAlbuns {
     width: 60%;
     height: 70%;
@@ -35,10 +43,15 @@ body {
     text-align: center;
     font-size: 25px;
     grid-gap: 70px;
-    /*border: solid red;*/
+    border: solid red;
 }
+
+
+
 
 .botaoAlbum {
     border: 4px solid black;
-
 }
+.botaoAlbum:hover{
+    background-color: #d5d507;
+  }
