@@ -1,0 +1,41 @@
+<!-- Interação com Computadores 2020/2021
+Grupo 23:
+Pedro Luís 
+Miguel Lages 54975
+José Almeida
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Estilos/Estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="Scripts/comportamento.js"></script>
+        <script src="Scripts/gameEngine.js"></script>
+        <title>Homepage</title>
+    </head>
+    <body id="HomePage">
+        <audio  loop src="backgroundsong.mp3" id="myAudio"></audio>
+        <button onclick="playSong()" class="play"><i class="fa fa-volume-up" aria-hidden="true" ></i></button>
+        <div class="page-container">
+            <div class="content-wrap">
+                <h1 id="HomePageWelcome">Welcome to</h1>
+                <h1 id="HomePageTitle">Memory Game 3000!</h1>
+               
+                <div class="center">
+                    <div class="homePageButtons" id="homeButtonsStyle">
+                        <div id="slide"></div><a href="PlayOffline.html" onclick="return myFunction();">Play without login</a></div>
+                    <div class="homePageButtons" id="homeButtonsStyle">
+                        <div id="slide"></div><a href="Login.html" onclick="return myFunction();">Login</a></div>
+                    <div class="homePageButtons" id="homeButtonsStyle">
+                        <div id="slide"></div><a href="HowToPlay.html" onclick="return myFunction();">How to play</a></div>
+                </div>
+                <div class="center">
+                    <div class="homePageButtons" id="homeButtonsStyle">
+                        <div id="slide"></div><a href="AboutUs.html" onclick="return myFunction();">About us</a></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
