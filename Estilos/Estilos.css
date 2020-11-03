@@ -16,18 +16,22 @@ body {
     background-color: navajowhite;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    /*display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
 }
 
 /* ------------------------------ HOMEPAGE ------------------------------*/
 
 #Titulo{
-    top: 2px;
     display: flex;
     justify-content: center;
-    border: solid green;
+    align-items: center;
+    /*border: solid green;*/
+    padding: 2%;
+    /*width: 10%;
+    height: 10%;*/
+    font-size: x-large;
 }
 
 
@@ -43,7 +47,7 @@ body {
     text-align: center;
     font-size: 25px;
     grid-gap: 70px;
-    border: solid red;
+    /*border: solid red;*/
 }
 
 
