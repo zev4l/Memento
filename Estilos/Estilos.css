@@ -1,9 +1,6 @@
-/* Interação com Computadores 2020/2021
-Grupo 23:
-Pedro Luís 
-Miguel Lages 54975
-José Almeida
-*/
+/* Grupo: 23, Número: 55373, Nome: José Almeida, PL: 12 /
+/ Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
+/ Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */
  
 body {
     font-family: sans-serif;
@@ -23,6 +20,11 @@ body {
 
 /* ------------------------------ HOMEPAGE ------------------------------*/
 
+@font-face {
+    font-family: titleMemento;
+    src: url(Fontes/PaybAck.ttf);
+  }
+
 #Titulo{
     display: flex;
     justify-content: center;
@@ -31,9 +33,9 @@ body {
     padding: 2%;
     /*width: 10%;
     height: 10%;*/
-    font-size: x-large;
+    font-family: titleMemento;
+    font-size: xx-large;
 }
-
 
 #containerAlbuns {
     width: 60%;
@@ -50,9 +52,6 @@ body {
     /*border: solid red;*/
     overflow:auto;
 }
-
-
-
 
 .botaoAlbum {
     border: 4px solid black;
