@@ -13,9 +13,9 @@ body {
     background-color: navajowhite;
     margin-left: auto;
     margin-right: auto;
-    /*display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;*/
+    align-items: center; */
 }
 
 /* ------------------------------ HOMEPAGE ------------------------------*/
@@ -25,19 +25,99 @@ body {
     src: url(Fontes/PaybAck.ttf);
   }
 
-#Titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*border: solid green;*/
+#title{
+    display: block;
+    width: 30%;
+    margin: auto;
     padding: 2%;
-    /*width: 10%;
-    height: 10%;*/
-    font-family: titleMemento;
-    font-size: xx-large;
+    /* font-family: titleMemento; */
+    font-size: 80px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
-#containerAlbuns {
+#container {
+    position: relative;
+}
+
+/* Coisas Login */
+
+#loginButton, #registerButton {
+    
+    display:block;
+    position: relative;
+    border:solid;
+    width:30%;
+    height: 10%;
+    margin-top:20%;
+    text-align: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#loginBox, #registerBox {
+    display: none;
+    position: absolute;
+    border: solid thick;
+    left: 37.1%;
+    top: 20%;
+    width: 25%;
+    height: 60%;
+    background-color: bisque;
+    transition: all 200ms linear;
+
+}
+
+/* #registerBox {
+    display: none;
+    position: absolute;
+    top: 10%;
+    height: 35%;
+} */
+
+.cross {
+    display: block;
+    position: absolute;
+    top: -25px;
+    right: 1px;
+    
+}
+
+#registerButton {
+    margin-top: 5%;
+}
+
+#loginButton:hover ,#registerButton:hover{
+    background-color: white;
+    transition: 600ms ease;  
+}
+
+#loginForm, #registerForm {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#loginForm input[type=text], #loginForm input[type=password],
+#registerForm input[type=text], #registerForm input[type=email],
+#registerForm input[type=password], .formButton {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgb(15, 2, 21);
+
+  /* Evitar borda azul que aparece ao clicar num campo de texto */
+  outline:0;
+}
+
+.formButton {
+    bottom: 2%;
+}
+
+/* Coisas Albums */
+
+#containerAlbums {
     width: 60%;
     height: 70%;
     gap: 5% 5%;
@@ -48,15 +128,15 @@ body {
     grid-auto-flow: dense;
     text-align: center;
     font-size: 25px;
-    grid-gap: 70px;
+    grid-gap: 80px;
     /*border: solid red;*/
     overflow:auto;
 }
 
-.botaoAlbum {
+.albumButton {
     border: 4px solid black;
     height: 170%;
 }
-.botaoAlbum:hover{
-    background-color: #d5d507;
-  }
+.albumButton:hover{
+    background-color: white;
+    transition: 600ms ease;  }

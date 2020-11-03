@@ -2,16 +2,47 @@
 / Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
 / Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */
 
+/* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
+
+
+const REGISTER_EMAIL = "email"
+
+const REGISTER_USERNAME = "username"
+
+const REGISTER_PASSWORD = "password"
+
+const LOGIN_USERNAME = "username"
+
+const LOGIN_PASSWORD = "password"
+
+let formularioRegister = null
+
+let formularioLogin = null
+
+let errorTimeoutID = null
+
+let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
+
+let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []; 
+
+
 class Account {
-    constructor(username, password, email, gender, ageGroup, stats, albuns) {
+    constructor(username, password, email) {
         this.username = username,
         this.password = password,
         this.email = email,
-        this.gender = gender,
-        this.ageGroup = ageGroup,
-        this.stats = stats,
-        this.albuns = albums
+        this.albums = []
     }
+}
+
+window.onload = initial
+
+function initial() {
+
+    menuElementToggle()
+    document.getElementById("loginButton").addEventListener("click", openLoginBox);
+    document.getElementById("registerButton").addEventListener("click", openRegisterBox);
+
 }
 
 /**
@@ -20,4 +51,185 @@ class Account {
 function updateAccounts() {
     localStorage.setItem("accountArray", JSON.stringify(accountArray))
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
+}
+
+// Funções relativas ao login
+
+function openLoginBox() {
+
+    let loginBox = document.getElementById("loginBox");
+    let cross = loginBox.getElementsByClassName("cross")[0];
+
+    setTimeout(function() {
+
+        loginBox.style.display = "block";
+        cross.style.display = "block"
+
+    },500)
+    
+}
+
+function closeLoginBox() {
+    let loginBox = document.getElementById("loginBox");
+
+    setTimeout(function() {
+        loginBox.style.display = "none"
+        
+
+    },200)
+    
+}
+
+function loginHandler() {
+
+    formularioLogin = document.forms["loginForm"]
+
+    let validInput = formularioLogin.reportValidity()
+
+    if (validInput){
+
+        if (accountArray.length == 0) {
+            showLoginErrorMessage()
+        }
+
+        for (let i = 0; i < accountArray.length; i++) {
+            if (accountArray[i].username == formularioLogin.elements[LOGIN_USERNAME].value) {
+                if (accountArray[i].password == formularioLogin.elements[LOGIN_PASSWORD].value) {
+                    currentAccount = accountArray[i]
+                    menuElementToggle()
+                    closeLoginBox()
+                    updateAccounts()
+                    location = location
+
+                    return
+                }
+            }
+        
+        }
+
+        showLoginErrorMessage()
+        
+    }
+}
+
+function openRegisterBox() {
+    let registerBox = document.getElementById("registerBox");
+
+    setTimeout(function() {
+
+        registerBox.style.display = "block";
+
+    },500)
+
+}
+
+function closeRegisterBox() {
+    let registerBox = document.getElementById("registerBox");
+
+    setTimeout(function() {
+        registerBox.style.display = "none"
+        
+
+    },200)
+}
+
+function registerHandler() {
+    formularioRegister = document.forms["registerForm"]
+
+    let validAccount = formularioRegister.reportValidity()
+
+    let used = usedCredentialChecker(formularioRegister.elements[REGISTER_USERNAME].value, 
+                          formularioRegister.elements[REGISTER_EMAIL].value)
+
+    if (validAccount && !used) {
+        let newAccount = new Account(formularioRegister.elements[REGISTER_USERNAME].value,
+                           formularioRegister.elements[REGISTER_PASSWORD].value,
+                           formularioRegister.elements[REGISTER_EMAIL].value)
+                           
+    formularioRegister.reset()
+    closeRegisterBox()
+    
+    accountArray.push(newAccount)
+
+    updateAccounts()
+    }
+}
+
+// Funções Ajudantes
+
+function usedCredentialChecker(username, email) {
+    for(let i=0;i<accountArray.length; i++) {
+        if (accountArray[i].username == username) {
+            showRegisterErrorMessage("username")
+            return true
+        }
+        if (accountArray[i].email == email) {
+            showRegisterErrorMessage("email")
+            return true
+        }
+    }
+}
+
+// Avisos
+
+function showLoginErrorMessage() {
+
+    if (errorTimeoutID) {
+        clearTimeout(errorTimeoutID)
+    }
+
+    let loginSubmitButton = document.getElementById("loginSubmit") 
+
+    loginSubmitButton.innerHTML = "NOME/PASSWORD INCORRETOS"
+    loginSubmitButton.style.backgroundColor = "red"
+
+    errorTimeoutID = setTimeout(function() {
+        loginSubmitButton.innerHTML = "Entrar"
+        loginSubmitButton.style.backgroundColor = "#4CAF50"
+        
+    },3000)
+
+}
+
+function showRegisterErrorMessage(reason) {
+
+    if (errorTimeoutID) {
+        clearTimeout(errorTimeoutID)
+    }
+
+    let registerSubmitButton = document.getElementById("registerSubmit") 
+
+    if (reason == "username"){
+        registerSubmitButton.innerHTML = "NOME DE UTILIZADOR INDISPONÍVEL"
+    }
+    if (reason == "email"){
+        registerSubmitButton.innerHTML = "E-MAIL INDISPONÍVEL"
+    }
+    
+
+    registerSubmitButton.style.backgroundColor = "red"
+
+    errorTimeoutID = setTimeout(function() {
+        registerSubmitButton.innerHTML = "Register"
+        registerSubmitButton.style.backgroundColor = "#4CAF50"
+        
+    },3000)
+
+}
+
+// Funções relativas a elementos estéticos
+
+function menuElementToggle() {
+
+
+    if (!currentAccount) {
+        document.getElementById("title").style.display ="none"
+        document.getElementById("containerAlbums").style.display = "none"
+    }
+
+    if (currentAccount) {
+        document.getElementById("loginButton").style.display = "none"
+        document.getElementById("registerButton").style.display = "none"
+
+    }
 }

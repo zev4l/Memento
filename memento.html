@@ -3,26 +3,71 @@
 / Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */ -->
 
 <!DOCTYPE html>
+
+
+
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="estilos/estilos.css">
-        <script src="scripts/comportamento.js"></script>
-        <title>memento</title>
+        <script src="Scripts/login.js"></script>
+        <script src="Scripts/comportamento.js"></script>
+        <script src="Scripts/photos.js"></script>
+
+        <title>Memento</title>
     </head>
-    <body id="homePage">
+    <!-- ESTA CENA SERVE PARA QUE O RESTO DO ECRÃ FIQUE ESCURO QUANDO SE ABREM POPUPS -->
+    <body id="homepage"> 
+ 
+       
         <div id="container">
-            <h3 id="Titulo">Albuns</h3>
-            <a id="titulo"></a>
-            <div id="containerAlbuns">
-                <a id="novoAlbum" class="botaoAlbum">Criar</a>
-                <a class="botaoAlbum">Album 1</a>
-                <a class="botaoAlbum">Album 2</a>
-                <a class="botaoAlbum">Album 3</a>
-                <a class="botaoAlbum">Album 4</a>
-                <a class="botaoAlbum">Album 5</a>
-                <a class="botaoAlbum">Album 6</a>
-                <a class="botaoAlbum">Album 7</a>
+            <h1 id="loginButton">LOGIN</h1>
+            <h1 id="registerButton">REGISTAR</h1>
+
+            <div id="loginBox">
+                <h1 class="cross" onclick="closeLoginBox()">X</h1>
+                <form id="loginForm">
+                    <h1 class="loginTitle">Login</h1>
+                    <label for="username"><b>Nome de Utilizador</b></label>
+                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Escrever password..." name="password" required>
+                    <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
+                  </form>
+            </div>
+
+            <div id="registerBox">
+                <h1 class="cross" onclick="closeRegisterBox()">X</h1>
+                <form id="registerForm">
+                    <h1 class="registerTitle">Registar</h1>
+            
+                    <label for="email"><b>E-mail</b></label>
+                    <input type="email" size="10" placeholder="Escrever e-mail..." name="email" required>
+
+                    <label for="username"><b>Username:</b></label>
+                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
+            
+                    <label for="password"><b>Password:</b></label>
+                    <input type="password" placeholder="Escrever password..." name="password" required>
+            
+                    <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Register</button>
+                  </form>
+
+            </div>
+           
+
+            <h3 id="title">Albuns</h3>
+
+            <div id="containerAlbums">
+                <a id="newAlbum" class="albumButton">Criar</a>
+                <a class="albumButton">Album 1</a>
+                <a class="albumButton">Album 2</a>
+                <a class="albumButton">Album 3</a>
+                <a class="albumButton">Album 4</a>
+                <a class="albumButton">Album 5</a>
+                <a class="albumButton">Album 6</a>
+                <a class="albumButton">Album 7</a>
 
             </div>
         </div>

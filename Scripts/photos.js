@@ -11,7 +11,8 @@ class Album {
 }
 
 class Photo {
-    constructor(path) {
-        this.path = path
+    constructor(path, flags) {
+        this.path = path,
+        this.flags = flags
     }
 }
