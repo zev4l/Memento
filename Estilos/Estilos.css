@@ -9,4 +9,12 @@ body {
     font-family: sans-serif;
 }
 
+#container {
+    width: 1280px;
+    height: 720px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ------------------------------ HOMEPAGE ------------------------------*/
