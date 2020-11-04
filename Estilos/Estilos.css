@@ -324,3 +324,9 @@ background: rgb(255, 255, 255);
 .logo:hover {
     transform: scale(1.3);
 }
+
+#unavailable {
+    position: absolute;
+    width: 30%;
+    left: 35%;
+}
