@@ -50,6 +50,17 @@ body {
     color: white;
 }
 
+#logo{
+    position: fixed;
+    /*border:solid;*/
+    width:10%;
+    height: 20%;
+    margin-top:1%;
+    margin-right: auto;
+    margin-left: 10px;
+    top: 10px;
+}
+
 #container {
     position: relative;
 }
