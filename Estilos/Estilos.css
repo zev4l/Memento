@@ -83,11 +83,13 @@ body {
 
 #registerButton {
     margin-top: 5%;
+    opacity: 0.5;
 }
 
 #loginButton:hover ,#registerButton:hover{
     background-color: white;
     transition: 600ms ease;  
+    opacity: 1;
 }
 
 #loginForm, #registerForm {
