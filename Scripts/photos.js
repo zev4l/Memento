@@ -11,8 +11,12 @@ class Album {
 }
 
 class Photo {
-    constructor(path, flags) {
+    // Flags podem ser tipo "duplicate, badQuality"
+    constructor(path, flags, event, date, local) {
         this.path = path,
-        this.flags = flags
+        this.flags = flags,
+        this.event = event,
+        this.date = date, // Data no formato DD/MM/YYYY,
+        this.local = local
     }
 }

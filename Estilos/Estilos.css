@@ -89,7 +89,6 @@ body {
     top: -20px;
     right: 5px;
     cursor: pointer;
-    
 }
 
 #loginBox, #registerBox, #importBox {
@@ -252,7 +251,8 @@ background: rgb(255, 255, 255);
 }
 
 #photosPreview {
-    margin-left: 10%;
+    margin: auto;
+    margin-top: 10%;
     grid-row-start: 1;
     grid-row-end: 4;
     border: 4px solid white;
@@ -260,6 +260,35 @@ background: rgb(255, 255, 255);
     background-color: rgba(179, 173, 173, 0.6);
     border-radius: 15px;
     
+    color: white;
+    width: 80%;
+    height: 90%;
+
+    /* EDITA A PARTIR DE AQUI POR FAVOR :) */
+    gap: 5% 5%;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-auto-flow: dense;
+    text-align: center;
+    grid-gap: 50px;
+    overflow:auto;
+    padding: 2%;
+}
+
+#photosPreview h4 {
+    position: absolute;
+    top: 15%;
+    left: 3%;
+}
+
+/* ESTES SÃO OS DIVZINHOS DE */
+#photosPreview div {
+    display: inline-block;
+    width: 100%;
+    height: 70%;
+    border: solid
 }
 
 #newAlbumName {
