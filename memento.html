@@ -22,6 +22,9 @@
  
        
         <div id="container">
+
+            <div id="dimmer"></div>
+
             <h1 id="loginButton">LOGIN</h1>
             <h1 id="registerButton">REGISTAR</h1>
 
@@ -29,9 +32,9 @@
                 <h1 class="cross" onclick="closeLoginBox()">X</h1>
                 <form id="loginForm">
                     <h1 class="loginTitle">Login</h1>
-                    <label for="username"><b>Nome de Utilizador</b></label>
+                    <label for="username"><b>Nome de Utilizador:</b></label>
                     <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
-                    <label for="password"><b>Password</b></label>
+                    <label for="password"><b>Password:</b></label>
                     <input type="password" placeholder="Escrever password..." name="password" required>
                     <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
                   </form>
@@ -42,22 +45,22 @@
                 <form id="registerForm">
                     <h1 class="registerTitle">Registar</h1>
             
-                    <label for="email"><b>E-mail</b></label>
+                    <label for="email"><b>E-mail:</b></label>
                     <input type="email" size="10" placeholder="Escrever e-mail..." name="email" required>
 
-                    <label for="username"><b>Username:</b></label>
+                    <label for="username"><b>Nome de utilizador:</b></label>
                     <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
             
                     <label for="password"><b>Password:</b></label>
                     <input type="password" placeholder="Escrever password..." name="password" required>
             
-                    <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Register</button>
+                    <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
                   </form>
 
             </div>
            
 
-            <h3 id="title">Albuns</h3>
+            <h3 class="title">Albuns</h3>
 
             <div id="containerAlbums">
                 <a id="newAlbumButton" class="albumButton" href="newAlbum.html"><img src="estilos/Imagens/newAlbumIcon.png" alt="create a new album"></a>

@@ -12,6 +12,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="Scripts/login.js"></script>
+        <script src="Scripts/newAlbum.js"></script>
         <script src="Scripts/comportamento.js"></script>
         <script src="Scripts/photos.js"></script>
 
@@ -22,15 +23,30 @@
        
         <div id="container">
 
-            <h3 id="title">Criar</h3>
+            <div id="dimmer"></div>
 
-            <div id="createNewAlbum">
-                <a id="photosPreview">Fotografias Disponíveis:</a>
-                <a id="newAlbumName">Nome: <input placeholder="text"></a>
-                <a id="importButton">Importar</a> 
+            <div id="importBox">
+                <h1 class="cross" onclick="closeImportBox()">X</h1>
+                <h2>Serviços Cloud:</h2>
+                <img class="logo" src="Recursos/oneDrive.png">
+                <img class="logo" src="Recursos/googleDrive.png">
+                <img class="logo" src="Recursos/dropbox.png">
+                <h2>Upload:</h2>
+                <img class="logo" src="Recursos/upload.png">
+                
+                
             </div>
 
+            <h3 class="title">NOVO ÁLBUM</h3>
 
+            <div id="createNewAlbum">
+                <div id="photosPreview">Fotografias Disponíveis:</div>
+                <a>Nome: </a>
+                <input id="newAlbumName" placeholder="Escreva um nome...">
+                <a id="importButton" onclick="openImportBox()">Importar Fotografias</a> 
+            </div>
+
+            <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
             <!--BOTÃO VOLTAR ATRAS
                 BOTÃO AVANÇAR
                 LOGOTIPO

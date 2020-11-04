@@ -39,9 +39,14 @@ window.onload = initial
 
 function initial() {
 
-    menuElementToggle()
-    document.getElementById("loginButton").addEventListener("click", openLoginBox);
-    document.getElementById("registerButton").addEventListener("click", openRegisterBox);
+    if (location.href.includes("memento.html")) {
+
+        menuElementToggle()
+        document.getElementById("loginButton").addEventListener("click", openLoginBox);
+        document.getElementById("registerButton").addEventListener("click", openRegisterBox);
+    
+    }
+
 
 }
 
@@ -58,22 +63,30 @@ function updateAccounts() {
 function openLoginBox() {
 
     let loginBox = document.getElementById("loginBox");
-    let cross = loginBox.getElementsByClassName("cross")[0];
+    let dimmer = document.getElementById("dimmer")
+
+    loginBox.style.display = "block";
+    dimmer.style.display = "block"
 
     setTimeout(function() {
-
-        loginBox.style.display = "block";
-        cross.style.display = "block"
-
-    },500)
+        dimmer.style.opacity = "1"
+        loginBox.style.opacity = "1"
+        
+        
+    },200)
     
 }
 
 function closeLoginBox() {
     let loginBox = document.getElementById("loginBox");
+    let dimmer = document.getElementById("dimmer")
+
+    loginBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
 
     setTimeout(function() {
         loginBox.style.display = "none"
+        dimmer.style.display="none"
         
 
     },200)
@@ -114,20 +127,30 @@ function loginHandler() {
 
 function openRegisterBox() {
     let registerBox = document.getElementById("registerBox");
+    let dimmer = document.getElementById("dimmer")
+
+    registerBox.style.display = "block";
+    dimmer.style.display = "block"
 
     setTimeout(function() {
+        dimmer.style.opacity = "1"
+        registerBox.style.opacity = "1"
+        
 
-        registerBox.style.display = "block";
-
-    },500)
+    },200)
 
 }
 
 function closeRegisterBox() {
     let registerBox = document.getElementById("registerBox");
+    let dimmer = document.getElementById("dimmer")
 
+    registerBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+    
     setTimeout(function() {
         registerBox.style.display = "none"
+        dimmer.style.display="none"
         
 
     },200)
@@ -223,7 +246,7 @@ function menuElementToggle() {
 
 
     if (!currentAccount) {
-        document.getElementById("title").style.display ="none"
+        document.getElementsByClassName("title")[0].style.display ="none"
         document.getElementById("containerAlbums").style.display = "none"
     }
 
