@@ -253,6 +253,7 @@ background: rgb(255, 255, 255);
 #photosPreview {
     margin: auto;
     margin-top: 10%;
+    margin-bottom: 10px;
     grid-row-start: 1;
     grid-row-end: 4;
     border: 4px solid white;
@@ -261,11 +262,11 @@ background: rgb(255, 255, 255);
     border-radius: 15px;
     
     color: white;
-    width: 80%;
-    height: 40%;
+    width: 410px;
+    height: 470px;
 
     /* EDITA A PARTIR DE AQUI POR FAVOR :) */
-   /* gap: 5% 5%;*/
+    gap: 5% 5%;
 
     display: grid;
     grid-template-columns: auto auto;
@@ -287,8 +288,8 @@ background: rgb(255, 255, 255);
 /* ESTES SÃO OS DIVZINHOS DE */
 #photosPreview div {
     display: inline-block;
-    width: 100%;
-    height: 250%;
+    width: 160px;
+    height: 120px;
     border: solid;
 }
 
