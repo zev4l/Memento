@@ -44,7 +44,7 @@ function initial() {
         menuElementToggle()
         document.getElementById("loginButton").addEventListener("click", openLoginBox);
         document.getElementById("registerButton").addEventListener("click", openRegisterBox);
-    
+
     }
 
 
@@ -276,6 +276,8 @@ function menuElementToggle() {
         document.getElementById("logoutButton").style.display = "block"
         document.getElementById("settingsButton").style.display = "block"
         document.getElementById("profileButton").style.display = "block"
+
+        fillAlbums()
         
 
     }
@@ -287,5 +289,25 @@ function signOutHandler(){
     updateAccounts()
     locatio=location
     menuElementToggle()
+
+}
+
+function fillAlbums() {
+    let albumBox = document.querySelector("#containerAlbums")
+
+    currentAlbumCount = albumBox.childElementCount
+
+    console.log(currentAlbumCount)
+
+    for (let i=1; i < currentAlbumCount; i++) {
+        albumBox.removeChild(albumBox.lastElementChild)
+    }
+
+    for (let i=0; i<currentAccount.albums.length; i++) {
+        newDiv = document.createElement("div")
+        newDiv.setAttribute("class","albumButton")
+        newDiv.innerHTML = currentAccount.albums[i].name
+        albumBox.appendChild(newDiv)
+    }
 
 }

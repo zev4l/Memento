@@ -38,8 +38,12 @@
 
             <h3 class="title">NOVO ÁLBUM</h3>
 
+            <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum criado com sucesso!</h1></div>
+
             <div id="photoViewer"><h1 class="cross" onclick="closePhotoViewer()">X</h1><img></div>
+
             <div id="warningBox"><img class="logo" src="Recursos/info.png"><h2>Já existe um album com esse nome!</h2></div>
+
             <div id="createNewAlbum">
                 <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
                 <div id="photosPreview">
@@ -50,7 +54,7 @@
 
                 </div>
                 <div id="newAlbumDetails">
-                    <form>
+                    <form autocomplete="off">
                         <a>Nome: </a>
                         <input id="newAlbumName" placeholder="Escreva um nome..." required>
                         <div id="newAlbumExtraDetails"> 
@@ -67,6 +71,7 @@
                         </div>
                     </form>
                 </div>
+                <a id="removeDuplicatesButton" onclick="removeDuplicates()">Remover Duplicadas</a>
                 <a id="importButton" onclick="openImportBox()">Importar Fotografias</a>
 
                 

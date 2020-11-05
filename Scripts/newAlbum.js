@@ -1,8 +1,12 @@
+/* Grupo: 23, Número: 55373, Nome: José Almeida, PL: 12 /
+/ Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
+/ Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */
+
+/* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
+
 // Importação das Fotografias
 
 
-
-window.onload = inicial
 
 let localPhotos = [
     new Photo("Recursos/Imagens/0.jpg", [], "Festa de Final de Curso", "2020-05-27", "Casa"),
@@ -36,10 +40,6 @@ let currentPhotos = []
 
 let warningTimeoutID = null;
 
-function inicial() {
-
-
-}
 
 function openImportBox() {
     let importBox = document.getElementById("importBox");
@@ -74,11 +74,13 @@ function closeImportBox() {
 function importHandler(source) {
     let importButton = document.querySelector("#importButton")
     let newAlbumExtraDetails = document.querySelector("#newAlbumExtraDetails")
+    let removeDuplicatesButton = document.querySelector("#removeDuplicatesButton")
 
 
 
     newAlbumExtraDetails.style.display = "block"
     importButton.style.display = "none"
+    removeDuplicatesButton.style.display = "block"
 
     if (source == "local") {
         for (let i = 0; i < localPhotos.length; i++) {
@@ -272,7 +274,12 @@ function saveAlbum() {
     
         currentAccount.albums.push(newAlbum)
         updateData()
-        goBack()
+        openSuccessBox()
+
+        setTimeout(function() {
+            goBack()
+            
+        },2000)
     }
 
 
@@ -319,4 +326,29 @@ function duplicateAlbumCheck() {
 
 function goBack() {
     window.history.back();
-  }
+}
+
+function openSuccessBox() {
+    let successBox = document.getElementById("successBox");
+    let dimmer = document.getElementById("dimmer")
+
+    successBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        successBox.style.opacity = "1"
+        
+        
+    },200)
+}
+
+function removeDuplicates() {
+    
+    for (let i = 0; i < currentPhotos.length; i++) {
+        if (currentPhotos[i].flags.includes("duplicate")) {
+            currentPhotos.splice(i, 1)
+            previewUpdater("subsequent")
+        }
+    } 
+}

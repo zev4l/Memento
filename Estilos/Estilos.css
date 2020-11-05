@@ -261,6 +261,7 @@ background: rgb(255, 255, 255);
     transition: 0.3s;
     /* border-radius: 15px; */
     background-color: rgba(0,0,0,0.2);
+    width: 320px;
 }
 
 
@@ -462,8 +463,21 @@ background: rgb(255, 255, 255);
     background-color: rgba(0,0,0,0.2);
 }
 
-#importButton:hover {
+#importButton:hover, #removeDuplicatesButton:hover {
     transform: scale(1.05);
+}
+
+#removeDuplicatesButton {
+    display: none;
+    right: 6.65em;
+    width: 150px;
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+    text-align:center;
+    border: solid thin;
+    bottom: 235px;
+    transition: 600ms ease;
 }
 
 .backArrow {
@@ -559,4 +573,23 @@ background: rgb(255, 255, 255);
     order: 1;
     margin-top:auto;
     margin-bottom: auto; 
+}
+
+#successBox {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: solid;
+    z-index: 9;
+    background-color: #635eff;
+    text-align: center;
+}
+
+#successBox img {
+    width: 200px;
 }
