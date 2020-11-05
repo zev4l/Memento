@@ -75,19 +75,19 @@ body {
     position: relative;
 }
 
-.proflieIcon {
+#profileButton {
     position: absolute;
     right: 120px;
-    top: 35px;
-    width: 5%;
+    top: 40px;
+    width: 4.5%;
     transition: 600ms ease;  
 }
 
-.proflieIcon:hover {
+#proflieButton:hover {
     transform: scale(1.2);
 }
 
-.settingsIcon {
+#settingsButton {
     position: absolute;
     right: 40px;
     top: 35px;
@@ -95,8 +95,17 @@ body {
     transition: 600ms ease;  
 }
 
-.settingsIcon:hover {
+#settingsButton:hover {
     transform: scale(1.2);
+}
+
+#logoutButton {
+    position: absolute;
+    right: 190px;
+    top: 40px;
+    width: 4.5%;
+    transition: 600ms ease;
+    cursor: pointer;
 }
 
 /* Coisas Login */
@@ -386,6 +395,7 @@ background: rgb(255, 255, 255);
     border: solid;
     align-self: auto;
     transition: 200ms ease;
+    cursor: pointer;
 
 }
 
@@ -518,4 +528,35 @@ background: rgb(255, 255, 255);
 #photoViewer img {
     display:block;
     transition: 300ms ease;
+}
+
+#warningBox {
+    width: 300px;
+    height: 0px;
+    opacity: 0;
+    display: flex;
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    transition: 300ms ease;
+    z-index: 9;
+    border: solid 5px;
+    background-color: #f5695b;
+    align-items: center;
+    justify-content: left;
+    overflow: hidden;
+}
+
+
+
+#warningBox h2 {
+    order: 2;
+    width: 200px;
+}
+
+
+#warningBox img {
+    order: 1;
+    margin-top:auto;
+    margin-bottom: auto; 
 }

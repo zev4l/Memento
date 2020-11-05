@@ -5,32 +5,36 @@
 window.onload = inicial
 
 let localPhotos = [
-    new Photo("Recursos/Imagens/0.jpg", [], "Festa de Final de Curso", "27/5/2020", "Casa"),
-    new Photo("Recursos/Imagens/1.jpg", ["landscape"], "Férias Verão", "28/8/2019", "Brasil"),
-    new Photo("Recursos/Imagens/2.png", ["bad_quality"], "Festa de Final de Curso", "27/5/20", "Parque das Nações"),
-    new Photo("Recursos/Imagens/3.jpg", [], "Festa de Final de Curso", "27/5/2020", "Casa"),
-    new Photo("Recursos/Imagens/4.jpg", [], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/5.jpg", ["bad_quality"], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/6.jpg", [], "Festa de Final de Curso", "27/5/2020", "Universidade de Lisboa"),
-    new Photo("Recursos/Imagens/7.jpg", ["faces"], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/8.jpg", ["faces"], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/9.jpg", ["faces"], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/10.jpg", ["faces", "duplicate"], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/11.jpg", [], "Festa de Final de Curso", "27/5/2020", "Parque das Nações"),
-    new Photo("Recursos/Imagens/12.jpg", [], "Festa de Final de Curso", "27/5/2020", "Universidade de Lisboa"),
-    new Photo("Recursos/Imagens/13.jpg", ["landscape"], "Passeio Rural", "12/3/2020", "Sintra"),
-    new Photo("Recursos/Imagens/14.jpg", ["landscape"], "Férias Noruega", "14/2/2020", "Oslo, Noruega"),
-    new Photo("Recursos/Imagens/15.jpg", [], "Festa de Final de Curso", "27/5/2020", "Universidade de Lisboa"),
-    new Photo("Recursos/Imagens/22.jpg", ["landscape"], "Férias Verão", "28/8/2019", "Brasil"),
-    new Photo("Recursos/Imagens/23.jpg", ["faces"], "Férias Verão", "28/8/2019", "Brasil"),
-    new Photo("Recursos/Imagens/24.jpg", ["faces"], "Festa de Final de Curso", "27/5/2020", "Universidade de Lisboa"),
-    new Photo("Recursos/Imagens/28.jpg", ["faces"], "Festa de Final de Curso", "27/5/2020", "Universidade de Lisboa"),
-    new Photo("Recursos/Imagens/29.jpg", ["faces"], "Festa de Final de Curso", "27/5/2020", "Universidade de Lisboa")
+    new Photo("Recursos/Imagens/0.jpg", [], "Festa de Final de Curso", "2020-05-27", "Casa"),
+    new Photo("Recursos/Imagens/1.jpg", ["landscape"], "Férias Verão", "2019-08-28", "Brasil"),
+    new Photo("Recursos/Imagens/2.png", ["bad_quality"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/3.jpg", [], "Festa de Final de Curso", "2020-05-27", "Casa"),
+    new Photo("Recursos/Imagens/4.jpg", [], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/5.jpg", ["bad_quality"], "Festa de Final de Curso", "2020-05-25", "Parque das Nações"),
+    new Photo("Recursos/Imagens/6.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/7.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/8.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/9.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/10.jpg", ["faces", "duplicate"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/11.jpg", [], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/12.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/13.jpg", ["landscape"], "Passeio Rural", "2020-03-12", "Sintra"),
+    new Photo("Recursos/Imagens/14.jpg", ["landscape"], "Férias Noruega", "2020-02-14", "Oslo, Noruega"),
+    new Photo("Recursos/Imagens/15.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/22.jpg", ["landscape"], "Férias Verão", "2019-08-28", "Brasil"),
+    new Photo("Recursos/Imagens/23.jpg", ["faces"], "Férias Verão", "2019-08-28", "Brasil"),
+    new Photo("Recursos/Imagens/24.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/28.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/29.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/32.jpg", [], "Férias Verão", "2020-07-24", "Parque das Nações"),
+    new Photo("Recursos/Imagens/33.jpg", [], "Festa de Final de Curso", "2020-05-28", "Parque das Nações")
+
+
 ]
 
 let currentPhotos = []
 
-
+let warningTimeoutID = null;
 
 function inicial() {
 
@@ -81,7 +85,7 @@ function importHandler(source) {
             currentPhotos.push(localPhotos[i])
 
         }
-        previewUpdater()
+        previewUpdater("initial")
     }
 
     
@@ -93,31 +97,116 @@ function importHandler(source) {
 
 
 
-function previewUpdater(){
+function previewUpdater(scope){
 
     let counter = document.querySelector("#previewPhotoCounter")
+    let previewBox = document.querySelector("#photosPreview")
+    let locationSelector = document.querySelector("#newAlbumLocation")
+    let eventSelector = document.querySelector("#newAlbumEvent")
+    let dateSelector = document.querySelector("#newAlbumDate")
     
     counter.innerHTML = currentPhotos.length
 
-    for (let i = 0; i < currentPhotos.length; i++) {
-        let newDiv = document.createElement("div")
-        let newImg = document.createElement("img")
-        let previewBox = document.querySelector("#photosPreview")
 
+    if (scope == "initial") {
+
+        fillOptions()
+        for (let i = 0; i < currentPhotos.length; i++) {
+            let newDiv = document.createElement("div")
+            let newImg = document.createElement("img")
+    
+            newImg.setAttribute("src", currentPhotos[i].path);
+    
+            newImg.addEventListener("click", openPhotoViewer)
+    
+            newDiv.appendChild(newImg)
+    
+            previewBox.appendChild(newDiv)
         
-        newImg.setAttribute("src", currentPhotos[i].path);
-
-        newImg.addEventListener("click", openPhotoViewer)
-
-        newDiv.appendChild(newImg)
-
-
-
-        previewBox.appendChild(newDiv)
-        
+        }
     }
 
+    if (scope=="subsequent") {
+        // remover fotos que estavam lá antes
+
+        while (previewBox.lastElementChild) {
+            previewBox.removeChild(previewBox.lastElementChild);
+        }
+
+        
+        let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
+        let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
+        let selectedDate = dateSelector.value
+
+        matchCounter = 0
+
+        for (let i = 0; i < currentPhotos.length; i++) {
+            let newDiv = document.createElement("div")
+            let newImg = document.createElement("img")
+            let currentPicture = currentPhotos[i];
+
+
+            if((selectedLocation == "Localização..." || currentPicture.local == selectedLocation) && 
+            (selectedEvent == "Evento..." || currentPicture.event == selectedEvent) && 
+            (selectedDate == "" || currentPicture.date == selectedDate)) {
+     
+                let newDiv = document.createElement("div");
+                let newImg = document.createElement("img");
+                    
+                // From here on it's simply adding the pictures to the preview box
+                newImg.setAttribute("src", currentPhotos[i].path);
+                newImg.addEventListener("click", openPhotoViewer)
+            
+                newDiv.appendChild(newImg)
+                previewBox.appendChild(newDiv)
+                matchCounter++
+            
+            }
+        
+        }
+
+        counter.innerHTML = matchCounter
+
+    }
     // TODO: DO NOT FORGET: Select field options have to be filled based on events/areas available from pictures
+}
+
+function fillOptions()  {
+    let locationSelector = document.querySelector("#newAlbumLocation")
+    let eventSelector = document.querySelector("#newAlbumEvent")
+    let locations = []
+    let events = []
+
+    // Lidar com as localizações
+
+    for (let i = 0; i < currentPhotos.length; i++) {
+        if (!locations.includes(currentPhotos[i].local)) {
+            locations.push(currentPhotos[i].local)
+        }
+    }
+    
+    for (let i = 0; i < locations.length; i++) {
+        let newOpt = document.createElement("option")
+        newOpt.setAttribute("value", locations[i])
+        newOpt.innerHTML = locations[i]
+        locationSelector.appendChild(newOpt)
+    }
+
+    // Lidar com os eventos
+
+    for (let i = 0; i < currentPhotos.length; i++) {
+        if (!events.includes(currentPhotos[i].event)) {
+            events.push(currentPhotos[i].event)
+        }
+    }
+
+    for (let i = 0; i < events.length; i++) {
+        let newOpt = document.createElement("option")
+        newOpt.setAttribute("value", events[i])
+        newOpt.innerHTML = events[i]
+        eventSelector.appendChild(newOpt)
+    }
+
 }
 
 
@@ -160,8 +249,72 @@ function closePhotoViewer() {
     
 }
 
-function currentPhotosTuner() {
-    // TODO: get form info and use it with a for cycle to tune pictures based on Photo.event, Photo., too sleepy :/
+function saveAlbum() {
+    let detailsForm = document.querySelector("#newAlbumDetails form")
+
+    let validInput = detailsForm.reportValidity();
+    let albumNameTaken = duplicateAlbumCheck()
+
+    let locationSelector = document.querySelector("#newAlbumLocation")
+    let eventSelector = document.querySelector("#newAlbumEvent")
+    let dateSelector = document.querySelector("#newAlbumDate")
+    let nameInput = document.querySelector("#newAlbumName")
+
+    let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
+    let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
+    let selectedDate = dateSelector.value
+    let selectedName = nameInput.value
+
+
+    if (validInput && !albumNameTaken) {
+
+        newAlbum = new Album(selectedName, [...currentPhotos], selectedLocation, selectedEvent, selectedDate)
+    
+        currentAccount.albums.push(newAlbum)
+        updateData()
+        goBack()
+    }
+
+
+}
+
+function duplicateAlbumCheck() {
+
+    let selectedName = document.querySelector("#newAlbumName").value
+
+    let isUsed = false
+
+    for (let i = 0; i<currentAccount.albums.length; i++) {
+        if (currentAccount.albums[i].name == selectedName) {
+
+            isUsed = true;
+        } 
+    }
+
+    if (isUsed) {
+
+        if (warningTimeoutID) {
+            clearTimeout(warningTimeoutID)
+        }
+
+        let warningBox = document.querySelector("#warningBox")
+
+        warningBox.style.opacity = "1"
+
+        warningBox.style.height = "80px"
+
+    
+        warningTimeoutID = setTimeout(function() {
+            
+            warningBox.style.opacity = "0"
+            warningBox.style.height = "0px"
+            
+            
+        },3000)
+    }
+
+    return isUsed;
+
 }
 
 function goBack() {

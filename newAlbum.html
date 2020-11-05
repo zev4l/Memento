@@ -39,6 +39,7 @@
             <h3 class="title">NOVO ÁLBUM</h3>
 
             <div id="photoViewer"><h1 class="cross" onclick="closePhotoViewer()">X</h1><img></div>
+            <div id="warningBox"><img class="logo" src="Recursos/info.png"><h2>Já existe um album com esse nome!</h2></div>
             <div id="createNewAlbum">
                 <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
                 <div id="photosPreview">
@@ -51,16 +52,16 @@
                 <div id="newAlbumDetails">
                     <form>
                         <a>Nome: </a>
-                        <input id="newAlbumName" placeholder="Escreva um nome...">
+                        <input id="newAlbumName" placeholder="Escreva um nome..." required>
                         <div id="newAlbumExtraDetails"> 
                             <a>Filtrar:</a>
-                            <select id="newAlbumLocation">
-                                <option value="" disabled selected hidden>Localização...</option>
+                            <select id="newAlbumLocation" onchange="previewUpdater('subsequent')">
+                                <option value="" selected>Localização...</option>
                             </select>
-                            <select id="newAlbumEvent" name="">
-                                <option value="" disabled selected hidden>Evento...</option>
+                            <select id="newAlbumEvent" onchange="previewUpdater('subsequent')">
+                                <option value="" selected>Evento...</option>
                             </select>
-                            <input type="date" id="newAlbumDate" name="newAlbumDate" placeholder="Data...">
+                            <input type="date" id="newAlbumDate" name="newAlbumDate" onchange="previewUpdater('subsequent')">
                             <button type="button" class="formButton"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
                             <button type="button" class="formButton"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
                         </div>

@@ -58,6 +58,19 @@ function updateAccounts() {
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
 }
 
+function updateData() {
+    found = false;
+    for (let i=0; i<accountArray.length && found==false; i++){
+        if (accountArray[i].username == currentAccount.username) {
+            found = true;
+            accountArray[i] = currentAccount
+			updateAccounts()
+		}
+
+	}
+	
+}
+
 // Funções relativas ao login
 
 function openLoginBox() {
@@ -248,11 +261,31 @@ function menuElementToggle() {
     if (!currentAccount) {
         document.getElementsByClassName("title")[0].style.display ="none"
         document.getElementById("containerAlbums").style.display = "none"
+        document.getElementById("logoutButton").style.display = "none"
+        document.getElementById("settingsButton").style.display = "none"
+        document.getElementById("profileButton").style.display = "none"
+        document.getElementById("loginButton").style.display = "block"
+        document.getElementById("registerButton").style.display = "block"
     }
 
     if (currentAccount) {
         document.getElementById("loginButton").style.display = "none"
         document.getElementById("registerButton").style.display = "none"
+        document.getElementsByClassName("title")[0].style.display ="block"
+        document.getElementById("containerAlbums").style.display = "grid"
+        document.getElementById("logoutButton").style.display = "block"
+        document.getElementById("settingsButton").style.display = "block"
+        document.getElementById("profileButton").style.display = "block"
+        
 
     }
+}
+
+function signOutHandler(){
+    updateData()
+    currentAccount = null
+    updateAccounts()
+    locatio=location
+    menuElementToggle()
+
 }

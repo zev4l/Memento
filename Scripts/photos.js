@@ -3,9 +3,12 @@
 / Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */
 
 class Album {
-    constructor(name, photos) {
+    constructor(name, photos, local, event, date) {
         this.name = name,
-        this.photos = photos
+        this.photos = photos,
+        this.local = local,
+        this.event = event,
+        this.date = date
 
     }
 }
