@@ -2,6 +2,16 @@
 / Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
 / Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */
  
+/* REFERENCIAS DE CORES */
+
+:root {
+--AZUL:#333ddd;
+--LARANJA:#f5695b;
+--ROXO:#645eff;
+}
+
+
+
 body {
     font-family: sans-serif;
 }
@@ -20,8 +30,8 @@ body {
 #container {
     width: 1280px;
     height: 720px;
-    border: 4px solid black;
-    background-color: rgba(109, 92, 55, 0.523);
+    border: 10px solid black;
+    background-color: #645eff;
     /* background-image: url(Imagens/mementoBackground.jpg); */
     margin-left: auto;
     margin-right: auto;
@@ -69,20 +79,34 @@ body {
 
 #loginButton, #registerButton {
     
-    display:block;
+    display:flex;
     position: relative;
-    border:solid;
+    border:solid #333ddd;
     width:30%;
     height: 10%;
     margin-top:20%;
     text-align: center;
     justify-content: center;
+    font-size: 40px;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 15px;
-
+    background-color: #333ddd;
+    color: #f5695b;
+    font-weight: bold;
+    border-radius: 5px;
+    line-height: 70px;
 }
 
+#registerButton {
+    margin-top: 5%;
+}
+
+#loginButton:hover, #registerButton:hover {
+    transition: 600ms ease;
+    background-color: #f5695b;
+    color: #645eff;
+    border-color: #f5695b;
+}
 .cross {
     display: block;
     position: absolute;
@@ -99,9 +123,9 @@ body {
     top: 20%;
     width: 25%;
     height: 60%;
-    background-color: bisque;
+    background-color: #645eff;
     transition: all 200ms linear;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     opacity: 0;
     z-index: 9;
 }
@@ -119,12 +143,13 @@ width: 10px;
 
 /* Track */
 ::-webkit-scrollbar-track {
-background: #00000084; 
+background: rgba(0,0,0,0.2); 
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
 background: rgb(255, 255, 255); 
+border-radius: 15px;
 }
 
 /* Handle on hover */
@@ -132,14 +157,7 @@ background: rgb(255, 255, 255);
 background: rgb(255, 255, 255); 
 }
 
-#registerButton {
-    margin-top: 5%;
-}
 
-#loginButton:hover ,#registerButton:hover{
-    background-color: white;
-    transition: 600ms ease;  
-}
 
 #loginForm, #registerForm {
     width: 100%;
@@ -160,9 +178,28 @@ background: rgb(255, 255, 255);
 }
 
 .formButton {
-    bottom: 2%;
     cursor: pointer;
+    bottom: -100px;
+    transition: 200ms ease;
+    font-weight: bold;
+}
+
+.formButton:hover {
+    transform: scale(1.1);
+}
+
+#saveAlbumButton {
     background-color: #4CAF50;
+    position: absolute;
+    
+    
+}
+
+#discardAlbumButton {
+    background-color: #c93122;
+    position: absolute;
+    left: 250px;
+
 }
 
 /* Coisas Albums */
@@ -189,7 +226,8 @@ background: rgb(255, 255, 255);
     height: 140px;
     font-size: 25px;
     transition: 0.3s;
-    border-radius: 15px;
+    /* border-radius: 15px; */
+    background-color: rgba(0,0,0,0.2);
 }
 
 
@@ -234,9 +272,6 @@ background: rgb(255, 255, 255);
 
 /* ------------------------------ newAlbum ------------------------------*/
 
-#newAlbum {
-    text-transform: uppercase;
-}
 
 #createNewAlbum {
     color: white;
@@ -246,51 +281,54 @@ background: rgb(255, 255, 255);
     grid-template-rows: auto auto;
     grid-row-gap: 200px;
     grid-column-gap: 10% ;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     font-weight: bold;
 }
 
 #photosPreview {
     margin: auto;
-    margin-top: 10%;
+    margin-top: 50px;
     margin-bottom: 10px;
-    grid-row-start: 1;
-    grid-row-end: 4;
     border: 4px solid white;
-    padding: 5%;
-    background-color: rgba(179, 173, 173, 0.6);
-    border-radius: 15px;
-    
-    color: white;
+    background-color: rgba(0,0,0,0.2);
+    /* border-radius: 15px; */
     width: 410px;
     height: 470px;
-
-    /* EDITA A PARTIR DE AQUI POR FAVOR :) */
-    gap: 5% 5%;
+    padding-top: 15px;
 
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    grid-auto-flow: dense;
-    text-align: center;
-    grid-gap: 70px;
-    overflow:auto;
-    padding: 2%;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    overflow: auto;
+    grid-gap: 1em;
 }
 
 
-#photosPreview h4 {
+#createNewAlbum h4 {
     position: absolute;
-    top: 15%;
-    left: 3%;
+    top: 105px;
+    left: 45px;
 }
 
 /* ESTES SÃO OS DIVZINHOS DE */
 #photosPreview div {
-    display: inline-block;
     width: 160px;
     height: 120px;
     border: solid;
+    align-self: auto;
+    transition: 200ms ease;
+
+}
+
+#photosPreview div:hover {
+    transform: scale(1.05);
+}
+
+#photosPreview div img {
+    object-fit: cover;
+    width: 100%;
+    height: 120px;
+
 }
 
 #newAlbumName {
@@ -298,22 +336,51 @@ background: rgb(255, 255, 255);
     top: 27%;
     left: 50%;
     height: 3%;
-    width: 20%;
+    width: 255px;
     padding: 10px;
     border: 3px solid rgb(15, 2, 21);
     font-size: large;
 }
 
+#newAlbumExtraDetails{
+    display: none;
+    /* display: block; */
+    position: absolute;
+    top: 270px;
+
+}
+
+#newAlbumExtraDetails a{
+    margin-bottom: 15px;
+    position: absolute;
+
+}
+
+#newAlbumDetails div input, #newAlbumDetails div select{
+    display: block;
+    margin-top: 20%;
+
+    height: 3%;
+    width: 255px;
+    padding: 10px;
+    border: 3px solid rgb(15, 2, 21);
+    font-size: large;
+}
 
 #importButton {
-    margin-right: 30%;
+    position: absolute;
+    top:15em;
+    right: 405px;
+
     border: 4px solid white;
     padding: 2%;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     text-align: center;
-    width:30%;
+    width:7em;
     cursor: pointer;
-    transition: 600ms ease;  
+    transition: 600ms ease;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0,0.2);
 }
 
 #importButton:hover {
@@ -360,4 +427,26 @@ background: rgb(255, 255, 255);
     position: absolute;
     width: 30%;
     left: 35%;
+}
+
+#photoViewer {
+    display: none;
+    border:solid;
+    position: absolute;
+    max-height: 600px;
+    max-width: 800px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: 300ms ease;
+    z-index: 9;
+    overflow: hidden;
+    opacity: 0;
+    background-color: black;
+}   
+
+#photoViewer img {
+    display:block;
+    transition: 300ms ease;
 }
