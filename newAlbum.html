@@ -10,9 +10,10 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="Scripts/login.js"></script>
+        <script src="Scripts/photos.js"></script>
         <script src="Scripts/newAlbum.js"></script>
         <script src="Scripts/comportamento.js"></script>
-        <script src="Scripts/photos.js"></script>
+        
 
         <title>Memento</title>
     </head>
@@ -30,46 +31,44 @@
                 <a href="notAvailable.html"><img class="logo" src="Recursos/googleDrive.png"></a>
                 <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
                 <h2>Upload:</h2>
-                <img class="logo" src="Recursos/upload.png">
+                <img class="logo" onclick="importHandler('local')" src="Recursos/upload.png">
                 
                 
             </div>
 
             <h3 class="title">NOVO ÁLBUM</h3>
 
+            <div id="photoViewer"><h1 class="cross" onclick="closePhotoViewer()">X</h1><img></div>
             <div id="createNewAlbum">
+                <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
                 <div id="photosPreview">
-                    <h4>Fotografias Disponíveis: <span>0</span></h4>
+                    <!-- Aqui são dinâmicamente adicionados novos divs  -->
+                    <!-- <div></div>
                     <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-
-
-                    <!-- Quando se adicionam mais divs, em vez de aparecer a scroll bar, aquilo simplesmente encolhe os divs :/ -->
-
+                    <div></div> -->
 
                 </div>
-                <a>Nome: </a>
-                <input id="newAlbumName" placeholder="Escreva um nome...">
-                <a id="importButton" onclick="openImportBox()">Importar Fotografias</a> 
+                <div id="newAlbumDetails">
+                    <form>
+                        <a>Nome: </a>
+                        <input id="newAlbumName" placeholder="Escreva um nome...">
+                        <div id="newAlbumExtraDetails"> 
+                            <a>Filtrar:</a>
+                            <select id="newAlbumLocation">
+                                <option value="" disabled selected hidden>Localização...</option>
+                            </select>
+                            <select id="newAlbumEvent" name="">
+                                <option value="" disabled selected hidden>Evento...</option>
+                            </select>
+                            <input type="date" id="newAlbumDate" name="newAlbumDate" placeholder="Data...">
+                            <button type="button" class="formButton"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
+                            <button type="button" class="formButton"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
+                        </div>
+                    </form>
+                </div>
+                <a id="importButton" onclick="openImportBox()">Importar Fotografias</a>
+
+                
             </div>
 
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
