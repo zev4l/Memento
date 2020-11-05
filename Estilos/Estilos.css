@@ -33,8 +33,8 @@ body {
 /* ------------------------------ homePage ------------------------------*/
 
 @font-face {
-    font-family: titleMemento;
-    src: url(Fontes/PaybAck.ttf);
+    font-family: titles;
+    src: url(Fontes/Bellania.otf);
   }
 
 .title{
@@ -43,7 +43,7 @@ body {
     margin: auto auto;
     text-align: center;
     padding: 2%;
-    /* font-family: titleMemento; */
+    /* font-family: titles; */
     font-size: 80px;
     letter-spacing: 5px;
     text-transform: uppercase;
