@@ -65,6 +65,30 @@ body {
     position: relative;
 }
 
+.proflieIcon {
+    position: absolute;
+    right: 120px;
+    top: 35px;
+    width: 5%;
+    transition: 600ms ease;  
+}
+
+.proflieIcon:hover {
+    transform: scale(1.2);
+}
+
+.settingsIcon {
+    position: absolute;
+    right: 40px;
+    top: 35px;
+    width: 5%;
+    transition: 600ms ease;  
+}
+
+.settingsIcon:hover {
+    transform: scale(1.2);
+}
+
 /* Coisas Login */
 
 #loginButton, #registerButton {
@@ -211,25 +235,26 @@ background: rgb(255, 255, 255);
 #newAlbumButton img {
     width: 110px;
     display: block;
+    /* Standard */
+	transition: all 1s ease;
    /* Firefox */
 	-moz-transition: all 1s ease;
 	/* WebKit */
 	-webkit-transition: all 1s ease;
 	/* Opera */
 	-o-transition: all 1s ease;
-	/* Standard */
-	transition: all 1s ease;
 }
 
 #newAlbumButton img:hover {
+    /* Standard */
+	transform: rotate(360deg);
     /* Firefox */
 	-moz-transform: rotate(360deg);
 	/* WebKit */
 	-webkit-transform:  rotate(360deg);
 	/* Opera */
 	-o-transform: rotate(360deg);
-	/* Standard */
-	transform: rotate(360deg);
+	
 }
 
 /* ------------------------------ newAlbum ------------------------------*/
