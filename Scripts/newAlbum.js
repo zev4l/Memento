@@ -6,8 +6,6 @@
 
 // Importação das Fotografias
 
-
-
 let localPhotos = [
     new Photo("Recursos/Imagens/0.jpg", [], "Festa de Final de Curso", "2020-05-27", "Casa"),
     new Photo("Recursos/Imagens/1.jpg", ["landscape"], "Férias Verão", "2019-08-28", "Brasil"),
