@@ -128,6 +128,7 @@ body {
     font-weight: bold;
     border-radius: 5px;
     line-height: 70px;
+    cursor: pointer;
 }
 
 #registerButton {
@@ -141,8 +142,9 @@ body {
 }
 .cross {
     display: block;
+    width:25px;
     position: absolute;
-    top: -20px;
+    top: 5px;
     right: 5px;
     cursor: pointer;
 }
@@ -538,8 +540,8 @@ background: rgb(255, 255, 255);
     background-color: black;
 }   
 
-#photoViewer img {
-    display:block;
+#selectedPhoto {
+    display: block;
     transition: 300ms ease;
 }
 
