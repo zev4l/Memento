@@ -30,14 +30,15 @@ body {
 #container {
     width: 1280px;
     height: 720px;
-    border: 10px solid black;
+    border: 10px solid white;
+    border-radius: 5px;
     background-color: #645eff;
     /* background-image: url(Imagens/mementoBackground.jpg); */
     margin-left: auto;
     margin-right: auto;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    position: relative;
+    overflow: hidden;
+
 }
 
 /* ------------------------------ homePage ------------------------------*/
@@ -61,19 +62,17 @@ body {
 }
 
 #logo{
-    position: fixed;
+    position: absolute;
     /*border:solid;*/
-    width:10%;
-    height: 20%;
+    width: 10%;
+    height: auto;
     margin-top:1%;
     margin-right: auto;
     margin-left: 10px;
-    top: 10px;
+    top: 5px;
+    left: 15px;
 }
 
-#container {
-    position: relative;
-}
 
 #profileButton {
     position: absolute;
@@ -83,7 +82,7 @@ body {
     transition: 600ms ease;  
 }
 
-#proflieButton:hover {
+#profileButton:hover {
     transform: scale(1.2);
 }
 
@@ -92,10 +91,10 @@ body {
     right: 40px;
     top: 35px;
     width: 5%;
-    transition: 600ms ease;  
+    transition: 600ms ease; 
 }
 
-#settingsButton:hover {
+#settingsButton:hover, #logoutButton:hover {
     transform: scale(1.2);
 }
 
@@ -111,10 +110,9 @@ body {
 /* Coisas Login */
 
 #loginButton, #registerButton {
-    
-    display:flex;
+
     position: relative;
-    border:solid #333ddd;
+    border:solid #524cfc;
     width:30%;
     height: 10%;
     margin-top:20%;
@@ -122,8 +120,7 @@ body {
     justify-content: center;
     font-size: 40px;
     margin-right: auto;
-    margin-left: auto;
-    background-color: #333ddd;
+    margin-left: 50%;
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -138,7 +135,7 @@ body {
 #loginButton:hover, #registerButton:hover {
     transition: 600ms ease;
     background-color:#645eff;
-    border-color: #f5695b;
+    border-color: white;
 }
 .cross {
     display: block;
@@ -152,7 +149,8 @@ body {
 #loginBox, #registerBox, #importBox {
     display: none;
     position: absolute;
-    border: solid thick;
+    border: solid 10px white;
+    border-radius: 5px;
     left: 37.1%;
     top: 20%;
     width: 25%;
@@ -197,6 +195,7 @@ background: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
     text-align: center;
+    color: white;
 }
 
 #loginForm input[type=text], #loginForm input[type=password],
@@ -205,7 +204,7 @@ background: rgb(255, 255, 255);
   width: 80%;
   padding: 10px;
   margin: 5px 0 22px 0;
-  border: 3px solid rgb(15, 2, 21);
+  border: 3px solid black;
 
   /* Evitar borda azul que aparece ao clicar num campo de texto */
   outline:0;
@@ -250,13 +249,13 @@ background: rgb(255, 255, 255);
     grid-auto-flow: dense;
     text-align: center;
     grid-gap: 50px;
-    /*border: solid red;*/
     overflow:auto;
     padding: 2%;
 }
 
 .albumButton {
-    border: 4px solid black;
+    border: 5px solid white;
+    border-radius: 5px;
     height: 140px;
     font-size: 25px;
     transition: 0.3s;
@@ -369,7 +368,8 @@ background: rgb(255, 255, 255);
     margin: auto;
     margin-top: 50px;
     margin-bottom: 10px;
-    border: 4px solid white;
+    border: 10px solid white;
+    border-radius: 5px;
     background-color: rgba(0,0,0,0.2);
     /* border-radius: 15px; */
     width: 410px;
@@ -381,6 +381,7 @@ background: rgb(255, 255, 255);
     justify-items: center;
     overflow: auto;
     grid-gap: 1em;
+    z-index: 1;
 }
 
 
@@ -525,7 +526,8 @@ background: rgb(255, 255, 255);
 
 #photoViewer {
     display: none;
-    border:solid;
+    border:solid 10px white;
+    border-radius: 5px;
     position: absolute;
     max-height: 600px;
     max-width: 800px;
@@ -569,6 +571,9 @@ background: rgb(255, 255, 255);
     width: 200px;
 }
 
+body {
+    background-color: rgb(155, 155, 155);
+}
 
 #warningBox img {
     order: 1;
@@ -593,4 +598,143 @@ background: rgb(255, 255, 255);
 
 #successBox img {
     width: 200px;
+}
+
+/* PROPRIEDADES DO BACKGROUND */
+
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+.context, .circles, .area, .circles li {
+    z-index: 0;
+    pointer-events: none;
+}
+
+.context {
+    width: 100%;
+    position: absolute;   
+}
+
+.context h1{
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+.area{
+    width: 100%;
+    height: 100%;
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
 }

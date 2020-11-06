@@ -5,5 +5,7 @@
 /*eslint-env es6*/
 /*eslint-env browser*/
 // Impede alguns erros fáceis de cometer.
-"use strict";
 
+function albumViewer() {
+    
+}
