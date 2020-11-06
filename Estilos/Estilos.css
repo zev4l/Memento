@@ -124,7 +124,7 @@ body {
     margin-right: auto;
     margin-left: auto;
     background-color: #333ddd;
-    color: #f5695b;
+    color: white;
     font-weight: bold;
     border-radius: 5px;
     line-height: 70px;
@@ -136,8 +136,7 @@ body {
 
 #loginButton:hover, #registerButton:hover {
     transition: 600ms ease;
-    background-color: #f5695b;
-    color: #645eff;
+    background-color:#645eff;
     border-color: #f5695b;
 }
 .cross {
