@@ -16,15 +16,21 @@ body {
     font-family: sans-serif;
 }
 
-#dimmer {
+#dimmer, #dimmer2 {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
     display: none;
-    z-index: 8;
+    z-index: 7;
     transition: all 200ms linear;
+}
+
+
+/* Z-Index usado para o visualizador de fotos dentro de albuns (stacked pop-up) */
+#dimmer2 {
+    z-index: 9;
 }
 
 #container {
@@ -126,6 +132,7 @@ body {
     border-radius: 5px;
     line-height: 70px;
     cursor: pointer;
+    background-color: #635eff;
 }
 
 #registerButton {
@@ -262,6 +269,8 @@ background: rgb(255, 255, 255);
     /* border-radius: 15px; */
     background-color: rgba(0,0,0,0.2);
     width: 320px;
+    cursor: pointer;
+    line-height: 140px;
 }
 
 
@@ -381,7 +390,6 @@ background: rgb(255, 255, 255);
     justify-items: center;
     overflow: auto;
     grid-gap: 1em;
-    z-index: 1;
 }
 
 
@@ -391,7 +399,7 @@ background: rgb(255, 255, 255);
     left: 45px;
 }
 
-/* ESTES SÃO OS DIVZINHOS DE */
+/* ESTES SÃO OS DIVZINHOS DA PREVIEW */
 #photosPreview div {
     width: 160px;
     height: 120px;
@@ -477,7 +485,8 @@ background: rgb(255, 255, 255);
     cursor: pointer;
     background-color: rgba(0,0,0,0.2);
     text-align:center;
-    border: solid thin;
+    border: solid 5px white;
+    border-radius: 5px;
     bottom: 235px;
     transition: 600ms ease;
 }
@@ -524,7 +533,7 @@ background: rgb(255, 255, 255);
     left: 35%;
 }
 
-#photoViewer {
+#photoViewer, #albumPhotoViewer {
     display: none;
     border:solid 10px white;
     border-radius: 5px;
@@ -541,6 +550,11 @@ background: rgb(255, 255, 255);
     opacity: 0;
     background-color: black;
 }   
+
+#albumPhotoViewer {
+    max-height: 570px;
+    z-index: 10;
+}
 
 #selectedPhoto {
     display: block;
@@ -598,6 +612,72 @@ body {
 
 #successBox img {
     width: 200px;
+}
+
+#albumViewer {
+    display: none;
+    border:solid 10px white;
+    border-radius: 5px;
+    position: absolute;
+    height: 600px;
+    width: 1000px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: 300ms ease;
+    z-index: 8;
+    overflow: hidden;
+    opacity: 0;
+    background-color: #635eff8e;
+}
+
+#albumViewerSlider {
+    color: white;
+    border-right: solid 10px white;
+    width: 100%;
+    height: 80%;
+    gap: 5% 5%;
+    position: absolute;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: auto;
+    grid-auto-flow: row dense;
+    text-align: center;
+    grid-gap: 10px;
+    overflow:auto;
+}
+
+#albumViewerSlider div {
+    width: 160px;
+    height: 120px;
+    border: solid;
+    align-self: auto;
+    transition: 200ms ease;
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+
+}
+
+#albumViewerSlider div:hover {
+    transform: scale(1.05);
+}
+
+#albumViewerSlider div img {
+    object-fit: cover;
+    width: 100%;
+    height: 120px;
+
+}
+
+#albumViewerTitle, #albumViewerPictureCount {
+    position: relative;
+    color: white;
+    text-align: center;
+    margin-bottom: 0px;
 }
 
 /* PROPRIEDADES DO BACKGROUND */
@@ -738,3 +818,19 @@ body {
     }
 
 }
+
+
+/* Acrylic Test */
+
+.acrylic {
+    /* Parent background + Gaussian blur */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  
+    /* Exclusion blend */
+    background-blend-mode: exclusion;
+  
+    /* Color/tint overlay + Opacity */
+    z-index: 1;
+
+  }

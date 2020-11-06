@@ -38,6 +38,8 @@ let localPhotos = [
 
 let currentPhotos = []
 
+let selectedPhotos = []
+
 let warningTimeoutID = null;
 
 
@@ -106,7 +108,7 @@ function previewUpdater(scope){
     let locationSelector = document.querySelector("#newAlbumLocation")
     let eventSelector = document.querySelector("#newAlbumEvent")
     let dateSelector = document.querySelector("#newAlbumDate")
-    
+
     counter.innerHTML = currentPhotos.length
 
 
@@ -140,11 +142,10 @@ function previewUpdater(scope){
         let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
         let selectedDate = dateSelector.value
 
-        matchCounter = 0
+        selectedPhotos = []
 
+        
         for (let i = 0; i < currentPhotos.length; i++) {
-            let newDiv = document.createElement("div")
-            let newImg = document.createElement("img")
             let currentPicture = currentPhotos[i];
 
 
@@ -155,19 +156,21 @@ function previewUpdater(scope){
                 let newDiv = document.createElement("div");
                 let newImg = document.createElement("img");
                     
-                // From here on it's simply adding the pictures to the preview box
-                newImg.setAttribute("src", currentPhotos[i].path);
+               
+                newImg.setAttribute("src", currentPicture.path);
                 newImg.addEventListener("click", openPhotoViewer)
             
                 newDiv.appendChild(newImg)
                 previewBox.appendChild(newDiv)
-                matchCounter++
+
+                selectedPhotos.push(currentPicture)
+
             
             }
         
         }
 
-        counter.innerHTML = matchCounter
+        counter.innerHTML = selectedPhotos.length
 
     }
     // TODO: DO NOT FORGET: Select field options have to be filled based on events/areas available from pictures
@@ -268,9 +271,10 @@ function saveAlbum() {
     let selectedName = nameInput.value
 
 
+
     if (validInput && !albumNameTaken) {
 
-        newAlbum = new Album(selectedName, [...currentPhotos], selectedLocation, selectedEvent, selectedDate)
+        newAlbum = new Album(selectedName, [...selectedPhotos], selectedLocation, selectedEvent, selectedDate)
     
         currentAccount.albums.push(newAlbum)
         updateData()

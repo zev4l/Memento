@@ -309,23 +309,3 @@ function signOutHandler(){
 
 }
 
-function fillAlbums() {
-    let albumBox = document.querySelector("#containerAlbums")
-
-    currentAlbumCount = albumBox.childElementCount
-
-    console.log(currentAlbumCount)
-
-    for (let i=1; i < currentAlbumCount; i++) {
-        albumBox.removeChild(albumBox.lastElementChild)
-    }
-
-    for (let i=0; i<currentAccount.albums.length; i++) {
-        newDiv = document.createElement("div")
-        newDiv.setAttribute("class","albumButton")
-        newDiv.innerHTML = currentAccount.albums[i].name
-        newDiv.addEventListener("click", albumViewer(currentAccount.albums[i].name))
-        albumBox.appendChild(newDiv)
-    }
-
-}
