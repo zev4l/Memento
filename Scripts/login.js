@@ -266,6 +266,15 @@ function menuElementToggle() {
         document.getElementById("profileButton").style.display = "none"
         document.getElementById("loginButton").style.display = "block"
         document.getElementById("registerButton").style.display = "block"
+
+        let logo = document.querySelector("#logo")
+        
+        // Alteração das características do Logo conforme se está logged in ou não
+
+        logo.style.left = "15%"
+        logo.style.top = "30%"
+        logo.style.width = "20%"
+
     }
 
     if (currentAccount) {
@@ -276,6 +285,14 @@ function menuElementToggle() {
         document.getElementById("logoutButton").style.display = "block"
         document.getElementById("settingsButton").style.display = "block"
         document.getElementById("profileButton").style.display = "block"
+
+        let logo = document.querySelector("#logo")
+        
+        // Alteração das características do Logo conforme se está logged in ou não
+
+        logo.style.left = "15px"
+        logo.style.top = "5px"
+        logo.style.width = "10%"
 
         fillAlbums()
         
@@ -292,22 +309,3 @@ function signOutHandler(){
 
 }
 
-function fillAlbums() {
-    let albumBox = document.querySelector("#containerAlbums")
-
-    currentAlbumCount = albumBox.childElementCount
-
-    console.log(currentAlbumCount)
-
-    for (let i=1; i < currentAlbumCount; i++) {
-        albumBox.removeChild(albumBox.lastElementChild)
-    }
-
-    for (let i=0; i<currentAccount.albums.length; i++) {
-        newDiv = document.createElement("div")
-        newDiv.setAttribute("class","albumButton")
-        newDiv.innerHTML = currentAccount.albums[i].name
-        albumBox.appendChild(newDiv)
-    }
-
-}

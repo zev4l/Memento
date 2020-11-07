@@ -12,7 +12,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="Scripts/login.js"></script>
-        <script src="Scripts/comportamento.js"></script>
+        <script src="Scripts/memento.js"></script>
         <script src="Scripts/photos.js"></script>
 
         <title>Memento</title>
@@ -24,9 +24,10 @@
         <div id="container">
 
             <div id="dimmer"></div>
+            <div id="dimmer2"></div>
 
-            <div id="loginButton">LOGIN</div> 
-            <div id="registerButton">REGISTAR</div>
+            <button id="loginButton" >LOGIN</button>
+            <button id="registerButton" >REGISTAR</button>
 
             <div id="loginBox">
                 <img class="cross" src="Recursos/cross.png" onclick="closeLoginBox()">
@@ -61,25 +62,48 @@
            
 
             <h3 class="title">Álbuns</h3>
-            <div id="logo">
-                <img src="Recursos/Imagens/MEMENTO.png" height="150px" width="150px">
-            </div>
+            
+            <img id="logo" src="Recursos/MEMENTO.png" height="150px" width="150px">
+            
             
             <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
             <a onclick="signOutHandler()"><img id = "logoutButton" src="Recursos/signOut.png"></a>
             <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
 
             <div id="containerAlbums">
-                <a id="newAlbumButton" class="albumButton" href="newAlbum.html"><img src="Recursos/newAlbumIcon.png" alt="create a new album"></a>
-                <a class="albumButton">Album 1</a>
-                <a class="albumButton">Album 2</a>
-                <a class="albumButton">Album 3</a>
-                <a class="albumButton">Album 4</a>
-                <a class="albumButton">Album 5</a>
-                <a class="albumButton">Album 6</a>
-                <a class="albumButton">Album 7</a>
+                <a id="newAlbumButton" class="acrylic albumButton" href="newAlbum.html"><img src="Recursos/newAlbumIcon.png" alt="create a new album"></a>
+                
+                <!-- Aqui são dinamicamente criados os botões para aceder a albuns que o utilizador tenha -->
 
             </div>
+
+            <div id="albumViewer" class="acrylic">
+                <img class="cross" src="Recursos/cross.png" onclick="closeAlbumViewer()">
+                <h1 id="albumViewerTitle"></h1>
+                <h2 id="albumViewerPictureCount"></h2>
+                <div id="albumViewerSlider"></div>
+            </div>
+            <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
+
+
+            <!-- BACKGROUND  -->
+
+            <div class="area" >
+                <ul class="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                </ul>
+            </div >
+
         </div>
+
     </body>
 </html>

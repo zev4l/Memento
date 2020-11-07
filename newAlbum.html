@@ -12,7 +12,6 @@
         <script src="Scripts/login.js"></script>
         <script src="Scripts/photos.js"></script>
         <script src="Scripts/newAlbum.js"></script>
-        <script src="Scripts/comportamento.js"></script>
         
 
         <title>Memento</title>
@@ -46,7 +45,7 @@
 
             <div id="createNewAlbum">
                 <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
-                <div id="photosPreview">
+                <div id="photosPreview" class="acrylic">
                     <!-- Aqui são dinâmicamente adicionados novos divs  -->
                     <!-- <div></div>
                     <div></div>
@@ -71,17 +70,36 @@
                         </div>
                     </form>
                 </div>
-                <a id="removeDuplicatesButton" onclick="removeDuplicates()">Remover Duplicadas</a>
-                <a id="importButton" onclick="openImportBox()">Importar Fotografias</a>
+                <a id="removeDuplicatesButton" class="acrylic" onclick="removeDuplicates()">Remover Duplicadas</a>
+                <a id="importButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
 
                 
             </div>
 
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
             
-            <!--BOTÃO AVANÇAR-->
+            <!-- BACKGROUND  -->
+
+            <div class="area" >
+                <ul class="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                </ul>
+            </div >
+
                 
         </div>
+
+
+
     </body>
 </html>
 
