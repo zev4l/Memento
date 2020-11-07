@@ -4,13 +4,25 @@
 
 /* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
 
-const USERNAME = "username";
 
-const PROFILE_PIC = "profilePic";
+window.onload = function profileStats() {
 
-const TOTAL_ALBUNS = "totalAlbuns";
+    let userAlbums = currentAccount.albums; 
 
-const TOTAL_PHOTOS = "totalPhotos";
+    let totalProfileAlbuns = document.querySelector("#totalProfileAlbuns");
 
-const TOTAL_SHARE = "totalShare";
+    totalProfileAlbuns.innerHTML = userAlbums.length;
 
+    let totalProfilePhotos = document.querySelector("#totalProfilePhotos");
+
+    let userPhotos = 0;
+
+    for (let i = 0; i<userAlbums.length; i++) {
+
+        userPhotos += userAlbums[i].photos.length;
+
+        console.log(userPhotos);
+    }
+
+    totalProfilePhotos.innerHTML = userPhotos;
+}
