@@ -304,7 +304,6 @@ function signOutHandler(){
     updateData()
     currentAccount = null
     updateAccounts()
-    locatio=location
     menuElementToggle()
 
 }
