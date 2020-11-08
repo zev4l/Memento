@@ -243,8 +243,8 @@ background: rgb(255, 255, 255);
 
 #containerAlbums {
     color: white;
-    width: 55%;
-    height: 70%;
+    width: 750px;
+    height: 550px;
     gap: 5% 5%;
     margin: auto;
     display: grid;
@@ -254,7 +254,7 @@ background: rgb(255, 255, 255);
     text-align: center;
     grid-gap: 50px;
     overflow:auto;
-    padding: 2%;
+    padding: 10px;
 }
 
 .albumButton {
@@ -498,7 +498,8 @@ background: rgb(255, 255, 255);
     left: 40px;
     top: 40px;
     width: 5%;
-    transition: 600ms ease;  
+    transition: 600ms ease; 
+    cursor: pointer; 
 }
 
 .backArrow:hover {
@@ -606,7 +607,8 @@ body {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    border: solid;
+    border: solid 10px white;
+    border-radius: 5px;
     z-index: 9;
     background-color: #635eff;
     text-align: center;
