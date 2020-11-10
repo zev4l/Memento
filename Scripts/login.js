@@ -221,7 +221,7 @@ function showLoginErrorMessage() {
 
     errorTimeoutID = setTimeout(function() {
         loginSubmitButton.innerHTML = "Entrar"
-        loginSubmitButton.style.backgroundColor = "#4CAF50"
+        loginSubmitButton.style.backgroundColor = "white"
         
     },3000)
 
@@ -247,7 +247,7 @@ function showRegisterErrorMessage(reason) {
 
     errorTimeoutID = setTimeout(function() {
         registerSubmitButton.innerHTML = "Register"
-        registerSubmitButton.style.backgroundColor = "#4CAF50"
+        registerSubmitButton.style.backgroundColor = "white"
         
     },3000)
 
