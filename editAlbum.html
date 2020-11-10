@@ -8,16 +8,17 @@
 
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="Estilos/estilos.css">
+        <link rel="stylesheet" href="estilos/estilos.css">
         <script src="Scripts/login.js"></script>
         <script src="Scripts/photos.js"></script>
         <script src="Scripts/newAlbum.js"></script>
+        <script src="Scripts/editAlbum.js"></script>
         
 
         <title>Memento</title>
     </head>
     <!-- ESTA CENA SERVE PARA QUE O RESTO DO ECRÃ FIQUE ESCURO QUANDO SE ABREM POPUPS -->
-    <body id="newAlbum"> 
+    <body> 
        
         <div id="container">
 
@@ -35,9 +36,9 @@
                 
             </div>
 
-            <h3 class="title">NOVO ÁLBUM</h3>
+            <h3 class="title">EDITAR ÁLBUM</h3>
 
-            <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum criado com sucesso!</h1></div>
+            <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum editado com sucesso!</h1></div>
 
             <div id="photoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
 

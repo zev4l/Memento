@@ -53,7 +53,7 @@ body {
 
 .title{
     display: block;
-    width: 50%;
+    width: 55%;
     margin: auto auto;
     text-align: center;
     padding: 2%;
@@ -695,6 +695,7 @@ body {
 
 .context {
     width: 100%;
+    height: 100%;
     position: absolute;   
 }
 
