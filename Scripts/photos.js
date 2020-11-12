@@ -51,6 +51,24 @@ let localPhotos = [
 
 ]
 
-// let googleDrivePhotos = [
-//     new Photo()...... como está em cima
-// ]
+let googleDrivePhotos = [
+    new Photo("Recursos/imagens/googleDrive/0.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/1.jpg", ["bad_quality"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/2.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/3.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/4.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/5.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/6.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/7.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/8.jpg", ["bad_quality"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/9.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/11.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/12.jpg", ["bad_quality"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/13.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/14.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/15.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/16.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/17.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/imagens/googleDrive/18.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+
+]

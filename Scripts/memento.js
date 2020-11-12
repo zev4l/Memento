@@ -149,7 +149,8 @@ function fillAlbums() {
     for (let i=0; i<currentAccount.albums.length; i++) {
         let newDiv = document.createElement("div")
         newDiv.setAttribute("class","albumButton")
-        newDiv.innerText = currentAccount.albums[i].name
+        newDivText = document.createElement("h4")
+        newDivText.innerText = currentAccount.albums[i].name
         newDiv.addEventListener("click", openAlbumViewer)
 
         let editButton = document.createElement("img")
@@ -167,6 +168,7 @@ function fillAlbums() {
         shareButton.addEventListener("click", function() {shareAlbum(currentAccount.albums[i].name)})
         
 
+        newDiv.appendChild(newDivText)
         newDiv.appendChild(editButton)
         newDiv.appendChild(shareButton)
 

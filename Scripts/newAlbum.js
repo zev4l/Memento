@@ -64,6 +64,13 @@ function importHandler(source) {
         previewUpdater("initial")
     }
 
+    if (source == "googleDrive") {
+        for (let i = 0; i < googleDrivePhotos.length; i++) {
+            currentPhotos.push(googleDrivePhotos[i])
+
+        }
+        previewUpdater("initial")
+    }
     
 
 

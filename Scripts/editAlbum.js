@@ -154,6 +154,13 @@ function importHandler(source) {
         previewUpdater("regular")
     }
 
+    if (source == "googleDrive")
+        for (let i = 0; i < googleDrivePhotos.length; i++) {
+            currentPhotos.push(googleDrivePhotos[i])
+
+        }
+        previewUpdater("regular")
+
 
     closeImportBox()
 }
@@ -295,4 +302,99 @@ function removeWorse() {
 
     previewUpdater("regular")
 
+}
+
+function saveAlbum() {
+    let detailsForm = document.querySelector("#newAlbumDetails form")
+
+    let validInput = detailsForm.reportValidity();
+    let albumNameTaken = duplicateAlbumCheck()
+
+    // let locationSelector = document.querySelector("#newAlbumLocation")
+    // let eventSelector = document.querySelector("#newAlbumEvent")
+    // let dateSelector = document.querySelector("#newAlbumDate")
+    let nameInput = document.querySelector("#newAlbumName")
+
+    // let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
+    // let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
+    // let selectedDate = dateSelector.value
+    let selectedName = nameInput.value
+
+
+
+    if (validInput && !albumNameTaken) {
+
+        for (let i = 0; i < currentAccount.albums.length; i++) {
+            if (currentAccount.albums[i].name == albumToEdit) {
+                currentAlbum = currentAccount.albums[i]
+                currentAlbum.name = selectedName
+                currentAlbum.photos = []
+                currentAlbum.photos = [...selectedPhotos]
+            }
+        }
+
+        updateData()
+        openSuccessBox()
+
+        setTimeout(function() {
+            location.href = "memento.html"
+            
+        },2000)
+    }
+
+
+}
+
+function duplicateAlbumCheck() {
+
+    let selectedName = document.querySelector("#newAlbumName").value
+
+    let isUsed = false
+
+    for (let i = 0; i<currentAccount.albums.length; i++) {
+        if (currentAccount.albums[i].name == selectedName && currentAccount.albums[i].name != albumToEdit) {
+
+            isUsed = true;
+        } 
+    }
+
+    if (isUsed) {
+
+        if (warningTimeoutID) {
+            clearTimeout(warningTimeoutID)
+        }
+
+        let warningBox = document.querySelector("#warningBox")
+
+        warningBox.style.opacity = "1"
+
+        warningBox.style.height = "80px"
+
+    
+        warningTimeoutID = setTimeout(function() {
+            
+            warningBox.style.opacity = "0"
+            warningBox.style.height = "0px"
+            
+            
+        },3000)
+    }
+
+    return isUsed;
+
+}
+
+function openSuccessBox() {
+    let successBox = document.getElementById("successBox");
+    let dimmer = document.getElementById("dimmer")
+
+    successBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        successBox.style.opacity = "1"
+        
+        
+    },200)
 }
