@@ -7,7 +7,8 @@
 // Impede alguns erros fáceis de cometer.
 
 function openAlbumViewer(event) {
-    let currentAlbumName = event.target.innerHTML
+    let currentAlbumName = event.target.innerText
+    console.log(currentAlbumName)
     let dimmer = document.getElementById("dimmer")
     let userAlbums = currentAccount.albums
 
@@ -23,6 +24,10 @@ function openAlbumViewer(event) {
         if (currentAlbumName == userAlbums[i].name) {
             currentAlbum = userAlbums[i]
         }
+    }
+
+    if (currentAlbum == null) {
+        return
     }
 
     // PREENCHER ALBUMVIEWER
@@ -142,13 +147,29 @@ function fillAlbums() {
     }
 
     for (let i=0; i<currentAccount.albums.length; i++) {
-        newDiv = document.createElement("div")
+        let newDiv = document.createElement("div")
         newDiv.setAttribute("class","albumButton")
-        newDiv.innerHTML = currentAccount.albums[i].name
+        newDiv.innerText = currentAccount.albums[i].name
         newDiv.addEventListener("click", openAlbumViewer)
+
+        let editButton = document.createElement("img")
+        editButton.setAttribute("class","editButton")
+        editButton.setAttribute("src", "Recursos/editIcon.png")
+        editButton.addEventListener("click", function() {
+
+            albumToEdit = sessionStorage.setItem('albumToEdit', currentAccount.albums[i].name);
+            location.href = "editAlbum.html"
+        })
+
+        let shareButton = document.createElement("img")
+        shareButton.setAttribute("class", "shareButton")
+        shareButton.setAttribute("src", "Recursos/shareIcon.png")
+        shareButton.addEventListener("click", function() {shareAlbum(currentAccount.albums[i].name)})
+        
+
+        newDiv.appendChild(editButton)
+        newDiv.appendChild(shareButton)
+
         albumBox.appendChild(newDiv)
     }
-
-    
-
 }

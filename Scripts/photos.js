@@ -19,8 +19,38 @@ class Photo {
         this.path = path,
         this.flags = flags,
         this.event = event,
-        this.date = date, // Data no formato DD/MM/YYYY,
+        this.date = date, // Data no formato YYYY-MM-DD
         this.local = local
     }
 }
 
+let localPhotos = [
+    new Photo("Recursos/Imagens/Local/0.jpg", [], "Festa de Final de Curso", "2020-05-27", "Casa"),
+    new Photo("Recursos/Imagens/Local/1.jpg", ["landscape"], "Férias Verão", "2019-08-28", "Brasil"),
+    new Photo("Recursos/Imagens/Local/2.png", ["bad_quality"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/3.jpg", [], "Festa de Final de Curso", "2020-05-27", "Casa"),
+    new Photo("Recursos/Imagens/Local/4.jpg", [], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/5.jpg", ["bad_quality"], "Festa de Final de Curso", "2020-05-25", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/6.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/Local/7.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/8.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/9.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/7.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/11.jpg", [], "Festa de Final de Curso", "2020-05-27", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/12.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/Local/13.jpg", ["landscape"], "Passeio Rural", "2020-03-12", "Sintra"),
+    new Photo("Recursos/Imagens/Local/14.jpg", ["landscape"], "Férias Noruega", "2020-02-14", "Oslo, Noruega"),
+    new Photo("Recursos/Imagens/Local/15.jpg", [], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/Local/22.jpg", ["landscape"], "Férias Verão", "2019-08-28", "Brasil"),
+    new Photo("Recursos/Imagens/Local/23.jpg", ["faces"], "Férias Verão", "2019-08-28", "Brasil"),
+    new Photo("Recursos/Imagens/Local/24.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/Local/28.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/Local/29.jpg", ["faces"], "Festa de Final de Curso", "2020-05-27", "Universidade de Lisboa"),
+    new Photo("Recursos/Imagens/Local/32.jpg", [], "Férias Verão", "2020-07-24", "Parque das Nações"),
+    new Photo("Recursos/Imagens/Local/33.jpg", [], "Festa de Final de Curso", "2020-05-28", "Parque das Nações")
+
+]
+
+// let googleDrivePhotos = [
+//     new Photo()...... como está em cima
+// ]

@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="Scripts/login.js"></script>
         <script src="Scripts/photos.js"></script>
-        <script src="Scripts/newAlbum.js"></script>
         <script src="Scripts/editAlbum.js"></script>
         
 
@@ -28,7 +27,7 @@
                 <img class="cross" src="Recursos/cross.png" onclick="closeImportBox()">
                 <h2>Serviços Cloud:</h2>
                 <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/googleDrive.png"></a>
+                <img class="logo" onclick="importHandler('googleDrive')" src="Recursos/googleDrive.png">
                 <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
                 <h2>Upload:</h2>
                 <img class="logo" onclick="importHandler('local')" src="Recursos/upload.png">
@@ -37,6 +36,9 @@
             </div>
 
             <h3 class="title">EDITAR ÁLBUM</h3>
+
+            <div id="deleteWarningBox"><img src="Recursos/warning.png"><h1>Deseja mesmo apagar o álbum?</h1>
+            <button id="deleteYesButton" onclick="deleteAlbum()">Apagar</button><button id="deleteNoButton" onclick="closeDeleteWarningBox()">Cancelar</button> </div>
 
             <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum editado com sucesso!</h1></div>
 
@@ -57,7 +59,7 @@
                     <form autocomplete="off">
                         <a>Nome: </a>
                         <input id="newAlbumName" placeholder="Escreva um nome..." required>
-                        <div id="newAlbumExtraDetails"> 
+                        <!-- <div id="newAlbumExtraDetails"> 
                             <a>Filtrar:</a>
                             <select id="newAlbumLocation" onchange="previewUpdater('subsequent')">
                                 <option value="" selected>Localização...</option>
@@ -68,11 +70,14 @@
                             <input type="date" id="newAlbumDate" name="newAlbumDate" onchange="previewUpdater('subsequent')">
                             <button type="button" class="formButton"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
                             <button type="button" class="formButton"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
-                        </div>
+                        </div> -->
                     </form>
                 </div>
-                <a id="removeDuplicatesButton" class="acrylic" onclick="removeDuplicates()">Remover Duplicadas</a>
-                <a id="importButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
+                <a id="editRemoveDuplicatesButton" class="acrylic" onclick="removeDuplicates()">Remover Duplicadas</a>
+                <a id="removeWorse" class="acrylic" onclick="removeWorse()">Remover Fotos de Má Qualidade</a>
+                <a id="deleteAlbumButton" class="acrylic" onclick="openDeleteWarningBox()">Apagar Album</a>
+                <a id="editSaveAlbumButton" class="acrylic" onclick="saveAlbum()">Guardar Album</a>
+                <a id="editImportButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
 
                 
             </div>

@@ -47,7 +47,6 @@ function initial() {
 
     }
 
-
 }
 
 /**
@@ -308,3 +307,6 @@ function signOutHandler(){
 
 }
 
+function goBack() {
+    window.history.back();
+}

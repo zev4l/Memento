@@ -56,7 +56,7 @@
                     <form autocomplete="off">
                         <a>Nome: </a>
                         <input id="newAlbumName" placeholder="Escreva um nome..." required>
-                        <div id="newAlbumExtraDetails"> 
+                        <div id="newAlbumExtraDetails" class="acrylic"> 
                             <a>Filtrar:</a>
                             <select id="newAlbumLocation" onchange="previewUpdater('subsequent')">
                                 <option value="" selected>Localização...</option>
@@ -65,9 +65,9 @@
                                 <option value="" selected>Evento...</option>
                             </select>
                             <input type="date" id="newAlbumDate" name="newAlbumDate" onchange="previewUpdater('subsequent')">
-                            <button type="button" class="formButton"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
-                            <button type="button" class="formButton"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
                         </div>
+                        <button type="button"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
+                        <button type="button"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
                     </form>
                 </div>
                 <a id="removeDuplicatesButton" class="acrylic" onclick="removeDuplicates()">Remover Duplicadas</a>

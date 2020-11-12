@@ -110,6 +110,29 @@ body {
     cursor: pointer;
 }
 
+.shareButton, .editButton {
+    position: absolute;
+    right: 5px;
+    width: 40px;
+    transition: 600ms ease;
+    z-index: 3;
+}
+
+.shareButton {
+    right: 10px;
+    width: 35px;
+    top: 4px;
+}
+.editButton {
+    bottom: 4px;
+}
+
+.shareButton:hover , .editButton:hover {
+    transform: scale(1.2);
+}
+
+
+
 /* Coisas Login */
 
 #loginButton, #registerButton {
@@ -164,6 +187,7 @@ body {
     /* border-radius: 15px; */
     opacity: 0;
     z-index: 9;
+    color: white;
 }
 
 #loginBox {
@@ -225,19 +249,48 @@ background: rgb(255, 255, 255);
     transform: scale(1.1);
 }
 
-#saveAlbumButton {
-    background-color: #4CAF50;
+#saveAlbumButton, #discardAlbumButton {
+    display: block;
+    right: 310px; /* Others: 480px*/
+    width: 130px;
     position: absolute;
-    
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+    text-align:center;
+    border-radius: 5px;
+    transition: 600ms ease;
+    height: 60px;
+    bottom: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#saveAlbumButton {
+    border: solid 5px white;
+    color: white;
+    position: absolute;
+    right: 512px;
     
 }
 
 #discardAlbumButton {
-    background-color: #c93122;
-    position: absolute;
-    left: 250px;
 
+    position: absolute;
+    right: 338px;
+    border: solid 5px red;
+    color: red;
 }
+
+#saveAlbumButton:hover {
+    transform: scale(1.05);
+}
+
+#discardAlbumButton:hover {
+    transform: scale(1.05);
+    background-color: red;
+    color: black;
+}
+
 
 /* Coisas Albums */
 
@@ -258,6 +311,7 @@ background: rgb(255, 255, 255);
 }
 
 .albumButton {
+    position: relative;
     border: 5px solid white;
     border-radius: 5px;
     height: 140px;
@@ -286,7 +340,7 @@ background: rgb(255, 255, 255);
     position: relative;
 }    
 
-#newAlbumButton img {
+#newAlbumIcon {
     width: 110px;
     display: block;
     /* Standard */
@@ -299,7 +353,7 @@ background: rgb(255, 255, 255);
 	-o-transition: all 1s ease;
 }
 
-#newAlbumButton img:hover {
+#newAlbumIcon:hover {
     /* Standard */
 	transform: rotate(360deg);
     /* Firefox */
@@ -434,29 +488,23 @@ background: rgb(255, 255, 255);
     font-size: large;
 }
 
-#newAlbumExtraDetails{
-    display: none;
-    /* display: block; */
-    position: absolute;
-    top: 270px;
-
-}
 
 #newAlbumExtraDetails a{
-    margin-bottom: 15px;
-    position: absolute;
+    margin-bottom: 25px;
+    position: relative;
 
 }
 
 #newAlbumDetails div input, #newAlbumDetails div select{
     display: block;
-    margin-top: 20%;
+    margin-top: 10%;
 
     height: 3%;
     width: 255px;
     padding: 10px;
     border: 3px solid rgb(15, 2, 21);
     font-size: large;
+    cursor: pointer;
 }
 
 #importButton {
@@ -464,14 +512,15 @@ background: rgb(255, 255, 255);
     top:15em;
     right: 405px;
 
-    border: 4px solid white;
+    border: 5px solid white;
+    border-radius: 5px;
     padding: 2%;
     /* border-radius: 15px; */
     text-align: center;
     width:7em;
     cursor: pointer;
     transition: 600ms ease;
-    text-transform: uppercase;
+
     background-color: rgba(0,0,0,0.2);
 }
 
@@ -480,8 +529,11 @@ background: rgb(255, 255, 255);
 }
 
 #removeDuplicatesButton {
+    line-height:30px;
     display: none;
-    right: 6.65em;
+    right: 6.1em;
+    height: 60px;
+    text-align: center;
     width: 150px;
     position: absolute;
     cursor: pointer;
@@ -489,8 +541,20 @@ background: rgb(255, 255, 255);
     text-align:center;
     border: solid 5px white;
     border-radius: 5px;
-    bottom: 235px;
+    top: 271px;
     transition: 600ms ease;
+    font-size: 20px;
+}
+
+#newAlbumExtraDetails {
+    border: solid 5px white;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+
+    position: absolute;
+    top: 270px;
 }
 
 .backArrow {
@@ -575,7 +639,7 @@ background: rgb(255, 255, 255);
     transition: 300ms ease;
     z-index: 9;
     border: solid 5px;
-    background-color: #f5695b;
+    background-color: red;
     align-items: center;
     justify-content: left;
     overflow: hidden;
@@ -598,7 +662,7 @@ body {
     margin-bottom: auto; 
 }
 
-#successBox {
+#successBox, #deleteWarningBox {
     display: none;
     opacity: 0;
     position: absolute;
@@ -611,11 +675,44 @@ body {
     border-radius: 5px;
     z-index: 9;
     background-color: #635eff;
+    color: white;
     text-align: center;
+    transition: 600ms ease;
+}
+
+#deleteWarningBox {
+    height: 350px;
 }
 
 #successBox img {
     width: 200px;
+}
+
+#deleteWarningBox img {
+    width: 150px;
+    margin-top: 20px;
+    
+}
+
+#deleteWarningBox button {
+    width: 30%;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    border: 3px solid black;
+    cursor: pointer;
+    transition: 600ms ease;
+    text-emphasis: bold;
+    font-weight: bold;
+}
+
+#deleteWarningBox button:hover {
+    transform: scale(1.05)
+} 
+
+#deleteYesButton {
+    background-color: red;
+
 }
 
 #albumViewer {
@@ -839,3 +936,59 @@ body {
     z-index: 1;
 
   }
+
+  /* EDIT ALBUM */
+
+#deleteAlbumButton, #editRemoveDuplicatesButton, #editImportButton, #removeWorse, #editSaveAlbumButton {
+    display: block; /* Others: 480px*/
+    width: 150px;
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+    text-align:center;
+    border-radius: 5px;
+    transition: 600ms ease;
+}
+
+#deleteAlbumButton {
+    bottom: 100px;
+    border: solid 5px red;
+    color: red;
+    right: 280px;
+}
+
+#editRemoveDuplicatesButton{
+    border: solid 5px white;
+    bottom: 235px;
+
+    right: 480px;
+}
+
+#editImportButton {
+    border: solid 5px white;
+    bottom: 330px;
+
+    right: 480px;
+}
+
+#deleteAlbumButton:hover, #editRemoveDuplicatesButton:hover, #editImportButton:hover, #removeWorse:hover, #editSaveAlbumButton:hover {
+    transform: scale(1.05);
+}
+
+#deleteAlbumButton:hover {
+    background-color: red;
+    color: black;
+}
+
+#removeWorse {
+    border: solid 5px white;
+    bottom: 301px;
+    right: 480px;
+    right: 280px;
+}
+
+#editSaveAlbumButton {
+    border: solid 5px white;
+    bottom: 100px;
+    right: 480px;
+}
