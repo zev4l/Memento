@@ -26,6 +26,24 @@
             <div id="dimmer"></div>
             <div id="dimmer2"></div>
 
+            <div id="exportBox">
+                <h1>Partilhar <span></span> fotografias:</h1>
+                <img class="cross" src="Recursos/cross.png" onclick="closeExportBox()">
+                <h2>Serviços Cloud:</h2>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
+                <a onclick="importHandler('googleDrive')"><img class="logo" src="Recursos/googleDrive.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
+                <h2>Redes Sociais:</h2>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/instagram.png"></a>
+                <a onclick="exportHandler('facebook')"><img class="logo" src="Recursos/facebook.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/twitter.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/pinterest.png"></a>
+                <h2>Download (.zip):</h2>
+                <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
+                <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
+                <img id="exportConfirmationImage" src="Recursos/check.png">
+            </div>
+
             <button id="loginButton" >LOGIN</button>
             <button id="registerButton" >REGISTAR</button>
 

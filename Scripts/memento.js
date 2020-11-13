@@ -8,7 +8,7 @@
 
 function openAlbumViewer(event) {
     let currentAlbumName = event.target.innerText
-    console.log(currentAlbumName)
+
     let dimmer = document.getElementById("dimmer")
     let userAlbums = currentAccount.albums
 
@@ -165,7 +165,7 @@ function fillAlbums() {
         let shareButton = document.createElement("img")
         shareButton.setAttribute("class", "shareButton")
         shareButton.setAttribute("src", "Recursos/shareIcon.png")
-        shareButton.addEventListener("click", function() {shareAlbum(currentAccount.albums[i].name)})
+        shareButton.addEventListener("click", function() {openExportBox(currentAccount.albums[i].name)})
         
 
         newDiv.appendChild(newDivText)
@@ -173,5 +173,72 @@ function fillAlbums() {
         newDiv.appendChild(shareButton)
 
         albumBox.appendChild(newDiv)
+    }
+}
+
+function openExportBox(albumName) {
+    let exportBox = document.getElementById("exportBox");
+    let dimmer = document.getElementById("dimmer")
+    let photoCount = exportBox.querySelector("span")
+    let currentAlbum = null
+    
+    for (let i = 0; i<currentAccount.albums.length; i++) {
+        if (currentAccount.albums[i].name == albumName) {
+            currentAlbum = currentAccount.albums[i]
+        }
+    }
+
+    photoCount.innerText = currentAlbum.photos.length
+
+    exportBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        exportBox.style.opacity = "1"
+        
+        
+    },200)
+}
+
+function closeExportBox() {
+    let exportBox = document.getElementById("exportBox");
+    let dimmer = document.getElementById("dimmer")
+
+    exportBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+    
+    setTimeout(function() {
+        exportBox.style.display = "none"
+        dimmer.style.display="none"
+        
+
+    },200)
+}
+
+function exportHandler(scope) {
+    let exportBox = document.querySelector("#exportBox")
+    let exportConfirmation = document.querySelector("#exportConfirmation")
+    let exportConfirmationImage = document.querySelector("#exportConfirmationImage")
+
+
+    if (scope == "facebook") {
+
+        for(let i = 0; i < exportBox.children.length; i++) {
+            exportBox.children[i].style.display = "none"
+        }
+
+        exportBox.style.height = "300px"
+        exportConfirmation.style.display = "block"
+        exportConfirmationImage.style.display = "block"
+
+        setTimeout(function() {
+            location.href = "memento.html"
+            
+        },2000)
+
+
+
+    
     }
 }
