@@ -417,6 +417,11 @@ background: rgb(255, 255, 255);
     text-align: center;
 }
 
+#escolhaAvatar{
+    height: 300px;
+    width: 250px;
+}
+
 .avatar {
     vertical-align: middle;
     width: 50px;

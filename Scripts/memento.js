@@ -19,6 +19,8 @@ function openAlbumViewer(event) {
 
     let currentAlbum = null
 
+    
+
 
     for (let i = 0; i<userAlbums.length; i++) {
         if (currentAlbumName == userAlbums[i].name) {
