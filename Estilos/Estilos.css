@@ -463,8 +463,8 @@ background: rgb(255, 255, 255);
     padding-top: 25px;
 }
 
-.toggle-btn {
-    position: fixed;
+#darkModeBtn {
+    position: absolute;
     width: 55px;
     height: 32px;
     margin: 0 auto;
@@ -485,7 +485,7 @@ input[type="checkbox"] {
     z-index: 2;
 }
 
-#_1st-toggle-btn span {
+#darkModeBtn span {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -499,7 +499,7 @@ input[type="checkbox"] {
     transition: 0.2s ease background-color, 0.2s ease opacity;
 }
 
-#_1st-toggle-btn span:before,#_1st-toggle-btn span:after {
+#darkModeBtn span:before,#darkModeBtn span:after {
     content: '';
     position: absolute;
     top: 7px;
@@ -509,39 +509,38 @@ input[type="checkbox"] {
     transition: 0.5s ease transform, 0.2s ease background-color;
 }
 
-#_1st-toggle-btn span:before {
+#darkModeBtn span:before {
     background-color: white;
     transform: translate(-22px,0px);
     z-index: 1;
 }
 
-#_1st-toggle-btn span:after {
+#darkModeBtn span:after {
     background-color:#4d49ca;
     transform: translate(8px,0px);
     z-index: 0;
 }
 
-#_1st-toggle-btn input[type="checkbox"]:checked + span {
+#darkModeBtn input[type="checkbox"]:checked + span {
     background-color: #4d49ca;
 }
 
-#_1st-toggle-btn input[type="checkbox"]:active + span {
+#darkModeBtn input[type="checkbox"]:active + span {
     opacity: 0.5;
 }
 
-#_1st-toggle-btn input[type="checkbox"]:checked + span:before {
+#darkModeBtn input[type="checkbox"]:checked + span:before {
     background-color: #4d49ca;
     transform: translate(35px,-4px);
 }
 
-#_1st-toggle-btn input[type="checkbox"]:checked + span:after {
+#darkModeBtn input[type="checkbox"]:checked + span:after {
     background-color: white;
     transform: translate(27px,0px);
 }
 
 
 /* ------------------------------ newAlbum ------------------------------*/
-
 
 #createNewAlbum {
     color: white;
