@@ -4,3 +4,13 @@
 
 /* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
 
+window.onload = function userSettings() {
+
+    let stgsUsername = document.querySelector("#stgsUserName");
+
+    stgsUsername.innerHTML = currentAccount.username;
+
+    let stgsEmail = document.querySelector("#stgsEmail");
+
+    stgsEmail.innerHTML = currentAccount.email;
+}

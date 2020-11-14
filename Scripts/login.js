@@ -46,7 +46,6 @@ function initial() {
         document.getElementById("registerButton").addEventListener("click", openRegisterBox);
 
     }
-
 }
 
 /**
@@ -67,7 +66,6 @@ function updateData() {
 		}
 
 	}
-	
 }
 
 // Funções relativas ao login
@@ -100,7 +98,6 @@ function closeLoginBox() {
         loginBox.style.display = "none"
         dimmer.style.display="none"
         
-
     },200)
     
 }
