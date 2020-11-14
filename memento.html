@@ -26,6 +26,24 @@
             <div id="dimmer"></div>
             <div id="dimmer2"></div>
 
+            <div id="exportBox">
+                <h1>Partilhar <span></span> fotografias:</h1>
+                <img class="cross" src="Recursos/cross.png" onclick="closeExportBox()">
+                <h2>Serviços Cloud:</h2>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
+                <a onclick="importHandler('googleDrive')"><img class="logo" src="Recursos/googleDrive.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
+                <h2>Redes Sociais:</h2>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/instagram.png"></a>
+                <a onclick="exportHandler('facebook')"><img class="logo" src="Recursos/facebook.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/twitter.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/pinterest.png"></a>
+                <h2>Download (.zip):</h2>
+                <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
+                <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
+                <img id="exportConfirmationImage" src="Recursos/check.png">
+            </div>
+
             <button id="loginButton" >LOGIN</button>
             <button id="registerButton" >REGISTAR</button>
 
@@ -54,6 +72,22 @@
             
                     <label for="password"><b>Password:</b></label>
                     <input type="password" placeholder="Escrever password..." name="password" required>
+
+                    <div id="escolhaAvatar"><h3>Escolhe o teu Avatar</h3>
+                
+                        <img src="./Recursos/Imagens/Avatares/1.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/2.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/3.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/4.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/5.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/6.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/7.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/8.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/9.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/10.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/11.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/12.png" alt ="Avatar" class="avatar">
+                    </div>
             
                     <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
                   </form>
@@ -86,6 +120,9 @@
                 <div id="albumViewerSlider"></div>
             </div>
             <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
+
+
+
 
 
             <!-- BACKGROUND  -->
