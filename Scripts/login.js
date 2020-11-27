@@ -178,13 +178,27 @@ function registerHandler() {
                            formularioRegister.elements[REGISTER_PASSWORD].value,
                            formularioRegister.elements[REGISTER_EMAIL].value)
                            
-    formularioRegister.reset()
-    closeRegisterBox()
-    
-    accountArray.push(newAccount)
+        formularioRegister.reset()
+        closeRegisterBox()
+        
+        accountArray.push(newAccount)
 
-    updateAccounts()
+        currentAccount = newAccount
+
+        updateAccounts()
+
+        openRegisterSuccessBox()
+
+        setTimeout(function() {
+                      
+            location = location
+
+        },3000)
+
+
     }
+
+
 }
 
 // Funções Ajudantes
@@ -306,4 +320,18 @@ function signOutHandler(){
 
 function goBack() {
     window.history.back();
+}
+
+function openRegisterSuccessBox() {
+    let successBox = document.getElementById("registerSuccessBox");
+    let dimmer = document.getElementById("dimmer2")
+
+    successBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        successBox.style.opacity = "1"
+        
+    },200)
 }

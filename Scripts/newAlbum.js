@@ -332,3 +332,31 @@ function removeDuplicates() {
     currentPhotos = unique
     previewUpdater("subsequent")
 }
+
+
+function photoCounter(scope) {
+
+
+
+    if (scope == "bad_quality") {
+
+        let counter = 0
+
+        for (let i = 0; i < selectedPhotos.length; i++) {
+            if (selectedPhotos[i].flags.includes("bad_quality")) {
+                counter ++
+            }
+        }
+
+        
+        return counter
+    }
+
+    if (scope == "duplicates") {
+        let unique = [...new Map(currentPhotos.map(item => [item.path, item])).values()]
+        return currentPhotos.length - unique.length 
+    }
+
+
+
+}

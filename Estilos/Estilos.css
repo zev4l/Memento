@@ -260,6 +260,7 @@ background: rgb(255, 255, 255);
     bottom: -100px;
     transition: 200ms ease;
     font-weight: bold;
+    background-color: white;
 }
 
 .formButton:hover {
@@ -803,7 +804,7 @@ body {
     margin-bottom: auto; 
 }
 
-#successBox, #deleteWarningBox {
+#successBox, #deleteWarningBox, #registerSuccessBox {
     display: none;
     opacity: 0;
     position: absolute;
@@ -819,6 +820,15 @@ body {
     color: white;
     text-align: center;
     transition: 600ms ease;
+}
+
+#registerSuccessBox {
+    width: 400px;
+    height: 350px;
+}
+
+#registerSuccessBox img {
+    width: 200px;
 }
 
 #deleteWarningBox {
