@@ -183,7 +183,7 @@ body {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 25%;
-    height: 90%; /*-------------------Alterei de 60 para 80---------------------*/
+    height: 60%;
     background-color: #645eff;
     transition: all 200ms linear;
     /* border-radius: 15px; */
@@ -191,12 +191,15 @@ body {
     z-index: 9;
     color: white;
 }
+
+
 /*------------------------------------ADICIONEI ISTO------------------------------------------------*/
 #escolhaAvatar{
     height: 210px;
     width: 250px;
     position: relative;
     left: 35px;
+    height: 60%;
 }
 
 .avatar {
