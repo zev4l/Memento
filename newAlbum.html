@@ -23,6 +23,12 @@
 
             <div id="dimmer"></div>
 
+            <div id="confirmationBox">
+                <h1></h1>
+                <button id="confirmationButton1"></button>
+                <button id="confirmationButton2"></button>
+            </div>
+
             <div id="importBox">
                 <img class="cross" src="Recursos/cross.png" onclick="closeImportBox()">
                 <h2>Serviços Cloud:</h2>
@@ -67,10 +73,10 @@
                             <input type="date" id="newAlbumDate" placeholder="yyyy-mm-dd" name="newAlbumDate" onchange="previewUpdater('subsequent')">
                         </div>
                         <button type="button"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
-                        <button type="button"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
+                        <button type="button"  id="discardAlbumButton" onclick="discardAlbum()">Descartar</button>    
                     </form>
                 </div>
-                <a id="removeDuplicatesButton" class="acrylic" onclick="removeDuplicates()">Remover Duplicadas</a>
+                <a id="removeDuplicatesButton" class="acrylic" onclick="removeDuplicatesHandler()">Remover Duplicadas</a>
                 <a id="importButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
 
                 

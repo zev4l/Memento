@@ -244,3 +244,43 @@ function exportHandler(scope) {
     
     }
 }
+
+function openConfirmationBox(text, button1Text, button2Text, button1Function) {
+    let confirmationBox = document.querySelector("#confirmationBox")
+    let confirmationText = confirmationBox.querySelector("h1")
+    let button1 = document.querySelector("#confirmationButton1")
+    let button2 = document.querySelector("#confirmationButton2")
+    let dimmer = document.getElementById("dimmer")
+
+    confirmationText.innerText = text
+    button1.innerText = button1Text
+    button2.innerText = button2Text
+    button1.addEventListener("click", button1Function)
+    button2.addEventListener("click", closeConfirmationBox)
+
+    confirmationBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        confirmationBox.style.opacity = "1"
+        
+        
+    },200)
+}   
+
+function closeConfirmationBox() {
+    let confirmationBox = document.querySelector("#confirmationBox")
+    let dimmer = document.getElementById("dimmer")
+
+    confirmationBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+    
+    setTimeout(function() {
+        confirmationBox.style.display = "none"
+        dimmer.style.display="none"
+        
+
+    },200)
+}
+

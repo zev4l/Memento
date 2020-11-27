@@ -310,7 +310,8 @@ function menuElementToggle() {
     }
 }
 
-function signOutHandler(){
+function signOut(){
+    closeConfirmationBox()
     updateData()
     currentAccount = null
     updateAccounts()
@@ -334,4 +335,8 @@ function openRegisterSuccessBox() {
         successBox.style.opacity = "1"
         
     },200)
+}
+
+function signOutHandler() {
+    openConfirmationBox("Deseja mesmo sair?", "Sim", "Não", signOut)
 }

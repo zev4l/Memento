@@ -23,6 +23,12 @@
 
             <div id="dimmer"></div>
 
+            <div id="confirmationBox">
+                <h1></h1>
+                <button id="confirmationButton1"></button>
+                <button id="confirmationButton2"></button>
+            </div>
+
             <div id="importBox">
                 <img class="cross" src="Recursos/cross.png" onclick="closeImportBox()">
                 <h2>Serviços Cloud:</h2>
@@ -73,8 +79,8 @@
                         </div> -->
                     </form>
                 </div>
-                <a id="editRemoveDuplicatesButton" class="acrylic" onclick="removeDuplicates()">Remover Duplicadas</a>
-                <a id="removeWorse" class="acrylic" onclick="removeWorse()">Remover Fotos de Má Qualidade</a>
+                <a id="editRemoveDuplicatesButton" class="acrylic" onclick="removeDuplicatesHandler()">Remover Duplicadas</a>
+                <a id="removeWorse" class="acrylic" onclick="removeWorseHandler()">Remover Fotos de Má Qualidade</a>
                 <a id="deleteAlbumButton" class="acrylic" onclick="openDeleteWarningBox()">Apagar Album</a>
                 <a id="editSaveAlbumButton" class="acrylic" onclick="saveAlbum()">Guardar Album</a>
                 <a id="editImportButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>

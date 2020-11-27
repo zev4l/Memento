@@ -109,6 +109,9 @@ function previewUpdater(scope){
         }
 
         selectedPhotos = [...currentPhotos]
+
+        actionToggler()
+
     }
 
     if (scope=="subsequent") {
@@ -152,6 +155,8 @@ function previewUpdater(scope){
         }
 
         counter.innerHTML = selectedPhotos.length
+
+        actionToggler()
 
     }
 }
@@ -331,6 +336,7 @@ function removeDuplicates() {
     
     currentPhotos = unique
     previewUpdater("subsequent")
+    closeConfirmationBox()
 }
 
 
@@ -357,6 +363,128 @@ function photoCounter(scope) {
         return currentPhotos.length - unique.length 
     }
 
+}
+
+function actionToggler() {
+
+    let duplicatesButton = document.querySelector("#removeDuplicatesButton")
+
+    if (photoCounter("duplicates") == 0) {
+        duplicatesButton.style.backgroundColor = "grey";
+        duplicatesButton.removeEventListener("click", removeDuplicates)
+        duplicatesButton.setAttribute("onclick", "")
+        duplicatesButton.style.cursor = "default"
+        
+    }
+    else {
+        duplicatesButton.style.backgroundColor = "rgba(0,0,0,0.2)";
+        duplicatesButton.addEventListener("click",removeDuplicates)
+        duplicatesButton.style.cursor = "pointer"
+    }
+}
+
+function discardAlbum() {
+    openConfirmationBox("Deseja mesmo descartar o álbum?\n Tudo o que fez será perdido.", "Sim", "Não", goBack)
+}
+
+function photoCounter(scope) {
 
 
+
+    if (scope == "bad_quality") {
+
+        let counter = 0
+
+        for (let i = 0; i < selectedPhotos.length; i++) {
+            if (selectedPhotos[i].flags.includes("bad_quality")) {
+                counter ++
+            }
+        }
+
+        
+        return counter
+    }
+
+    if (scope == "duplicates") {
+        let unique = [...new Map(currentPhotos.map(item => [item.path, item])).values()]
+        return currentPhotos.length - unique.length 
+    }
+
+}
+
+function actionToggler() {
+
+    console.trace()
+
+    let duplicatesButton = document.querySelector("#removeDuplicatesButton")
+
+    if (photoCounter("duplicates") == 0) {
+        duplicatesButton.style.backgroundColor = "grey";
+        duplicatesButton.removeEventListener("click", removeDuplicatesHandler)
+        duplicatesButton.setAttribute("onclick", "")
+        duplicatesButton.style.cursor = "default"
+        
+    }
+    else {
+        duplicatesButton.style.backgroundColor = "rgba(0,0,0,0.2)";
+        duplicatesButton.addEventListener("click",removeDuplicatesHandler)
+        duplicatesButton.style.cursor = "pointer"
+    }
+}
+
+
+function openConfirmationBox(text, button1Text, button2Text, button1Function) {
+    let confirmationBox = document.querySelector("#confirmationBox")
+    let confirmationText = confirmationBox.querySelector("h1")
+    let button1 = document.querySelector("#confirmationButton1")
+    let button2 = document.querySelector("#confirmationButton2")
+    let dimmer = document.getElementById("dimmer")
+
+    confirmationText.innerText = text
+    button1.innerText = button1Text
+    button2.innerText = button2Text
+    button1.addEventListener("click", button1Function)
+    button2.addEventListener("click", closeConfirmationBox)
+
+    confirmationBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        confirmationBox.style.opacity = "1"
+        
+        
+    },200)
+}   
+
+function closeConfirmationBox() {
+    let confirmationBox = document.querySelector("#confirmationBox")
+    let dimmer = document.getElementById("dimmer")
+
+    confirmationBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+    
+    setTimeout(function() {
+        confirmationBox.style.display = "none"
+        dimmer.style.display="none"
+        
+
+    },200)
+}
+
+
+function removeDuplicatesHandler() {
+
+    let photoCount = photoCounter("duplicates")
+
+    let message;
+
+    if (photoCount > 1) {
+        message = `Serão removidas ${photoCount} fotografias. Deseja continuar?`
+    }
+    else {
+        message = `Será removida ${photoCount} fotografia. Deseja continuar?`
+    }
+
+    openConfirmationBox(message, "Sim", "Não", removeDuplicates)
 }

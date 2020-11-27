@@ -804,7 +804,7 @@ body {
     margin-bottom: auto; 
 }
 
-#successBox, #deleteWarningBox, #registerSuccessBox {
+#successBox, #deleteWarningBox, #registerSuccessBox, #confirmationBox {
     display: none;
     opacity: 0;
     position: absolute;
@@ -820,6 +820,47 @@ body {
     color: white;
     text-align: center;
     transition: 600ms ease;
+}
+
+#confirmationBox {
+    max-width: 600px;
+    max-height: 300px;
+    overflow: hidden;
+    padding: 2%;
+}
+
+#confirmationButton1, #confirmationButton2 {
+    cursor: pointer;
+    font-weight: bold;
+    display: inline;
+    position: relative;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 100px;
+    height: 50px;
+    font-size: large;
+    transition: 600ms ease;
+}
+
+#confirmationButton1 {
+    color: black;
+    background-color: red;
+    border: solid red;
+    border-radius: 5px;
+}
+
+#confirmationButton2 {
+    color: black;
+    background-color: white;
+    border: solid;
+    border-color: white;
+    border-radius: 5px;
+}
+
+#confirmationButton1:hover, #confirmationButton2:hover {
+    transform: scale(1.05);
 }
 
 #registerSuccessBox {
@@ -850,11 +891,13 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     padding: 10px;
-    border: 3px solid black;
     cursor: pointer;
     transition: 600ms ease;
     text-emphasis: bold;
     font-weight: bold;
+    font-size: large;
+    border-radius: 5px;
+
 }
 
 #deleteWarningBox button:hover {
@@ -863,8 +906,15 @@ body {
 
 #deleteYesButton {
     background-color: red;
-
+    border-color: red;
 }
+
+#deleteNoButton {
+    background-color: white;
+    border-color: white;
+}
+
+
 
 #albumViewer {
     display: none;
