@@ -5,17 +5,21 @@
 /* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
 
 let passwordErrorTimeoutID;
+let usernameErrorTimeoutID;
+let emailErrorTimeoutID
 
 
-window.onload = function userSettings() {
+window.onload = userSettings
+
+function userSettings() {
 
     let stgsUserName = document.querySelector("#stgsUserName");
 
-    stgsUserName.innerHTML = currentAccount.username;
+    stgsUserName.innerText = currentAccount.username;
 
     let stgsEmail = document.querySelector("#stgsEmail");
 
-    stgsEmail.innerHTML = currentAccount.email;
+    stgsEmail.innerText = currentAccount.email;
 }
 
 function initial() {
@@ -59,9 +63,18 @@ function closeChangeUserNameBox() {
 
 function validateUserName(newUserName) {
 
-    if (newUserName = currentAccount.username) {
+
+    if (newUserName == currentAccount.username) {
         showChangeUserNameErrorMessage("NOVO NOME DE UTILIZADOR IGUAL AO ATUAL");
         return false
+    }
+  
+    for (let i=0; i<accountArray.length; i++){
+        if (accountArray[i].username == newUserName) {
+            showChangeUserNameErrorMessage("NOVO NOME DE UTILIZADOR INDISPONÍVEL")
+            return false
+        }
+
     }
 
     if (newUserName != currentAccount.username) {
@@ -71,8 +84,8 @@ function validateUserName(newUserName) {
 
 function showChangeUserNameErrorMessage(arg) {
 
-    if (UserNameErrorTimeoutID) {
-        clearTimeout(UserNameErrorTimeoutID)
+    if (usernameErrorTimeoutID) {
+        clearTimeout(usernameErrorTimeoutID)
     }
 
     let changeUserNameSubmit = document.getElementById("changeUserNameSubmitButton");
@@ -80,7 +93,7 @@ function showChangeUserNameErrorMessage(arg) {
     changeUserNameSubmit.innerText = arg;
     changeUserNameSubmit.style.backgroundColor = "red";
 
-    UserNameErrorTimeoutID = setTimeout(function() {
+    usernameErrorTimeoutID = setTimeout(function() {
 
         changeUserNameSubmit.innerText = "Confirmar";
         changeUserNameSubmit.style.backgroundColor = "white";
@@ -103,12 +116,21 @@ function changeUserNameHandler() {
 
     validInput = validateUserName(newUserName);
 
+    // Verificar se há outro utilizador com o nome desejado
+
+
+
     if (validInput) {
+        console.log("here")
+
+        console.log(currentAccount, newUserName)
+
         currentAccount.username = newUserName;
-        updateAccounts()
+        updateData(true)
         closeChangeUserNameBox()
         userNameForm.reset()
         showNotification("Nome de utilizador alterado!")
+        userSettings()
     }
 }
 
@@ -145,9 +167,18 @@ function closeChangeEmailBox() {
 
 function validateEmail(newEmail) {
 
-    if (newEmail = currentAccount.email) {
-        showChangeEmailErrorMessage("NOVO EMAIL IGUAL AO ATUAL");
+    if (newEmail == currentAccount.email) {
+        showChangeEmailErrorMessage("NOVO E-MAIL IGUAL AO ATUAL");
         return false
+    }
+
+    for (let i=0; i<accountArray.length; i++){
+        if (accountArray[i].email == newEmail) {
+            console.log("here")
+            showChangeEmailErrorMessage("NOVO E-MAIL INDISPONÍVEL")
+            return false
+        }
+
     }
 
     if (newEmail != currentAccount.email) {
@@ -157,8 +188,8 @@ function validateEmail(newEmail) {
 
 function showChangeEmailErrorMessage(arg) {
 
-    if (EmailErrorTimeoutID) {
-        clearTimeout(EmailErrorTimeoutID)
+    if (emailErrorTimeoutID) {
+        clearTimeout(emailErrorTimeoutID)
     }
 
     let changeEmailSubmit = document.getElementById("changeEmailSubmitButton");
@@ -166,7 +197,7 @@ function showChangeEmailErrorMessage(arg) {
     changeEmailSubmit.innerText = arg;
     changeEmailSubmit.style.backgroundColor = "red";
 
-    EmailErrorTimeoutID = setTimeout(function() {
+    emailErrorTimeoutID = setTimeout(function() {
 
         changeEmailSubmit.innerText = "Confirmar";
         changeEmailSubmit.style.backgroundColor = "white";
@@ -187,14 +218,15 @@ function changeEmailHandler() {
 
     newEmail = emailForm.newEmail.value;
 
-    validInput = validateEmal(newEmal);
+    validInput = validateEmail(newEmail);
 
     if (validInput) {
         currentAccount.email = newEmail;
-        updateAccounts()
+        updateData()
         closeChangeEmailBox()
         emailForm.reset()
         showNotification("Email alterado!")
+        userSettings()
     }
 }
 
@@ -291,7 +323,7 @@ function changePasswordHandler() {
 
     if (validInput) {
         currentAccount.password = newPassword;
-        updateAccounts()
+        updateData()
         closeChangePasswordBox()
         passwordForm.reset()
         showNotification("Palava-passe alterada!")

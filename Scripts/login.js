@@ -56,8 +56,22 @@ function updateAccounts() {
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
 }
 
-function updateData() {
+function updateData(arg) {
     found = false;
+
+    // Alt: username change
+    if (arg) {
+        for (let i=0; i<accountArray.length && found==false; i++){
+            if (accountArray[i].email == currentAccount.email) {
+                found = true;
+                accountArray[i] = currentAccount
+                updateAccounts()
+                return
+            }
+    
+        }
+    }
+
     for (let i=0; i<accountArray.length && found==false; i++){
         if (accountArray[i].username == currentAccount.username) {
             found = true;
