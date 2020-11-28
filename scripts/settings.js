@@ -14,3 +14,53 @@ window.onload = function userSettings() {
 
     stgsEmail.innerHTML = currentAccount.email;
 }
+
+function initial() {
+
+    if (location.href.includes("settings.html")) {
+
+        menuElementToggle()
+        document.getElementById("changePasswordButton").addEventListener("click", openChangePasswordBox);
+    }
+}
+
+function openChangePasswordBox() {
+
+    let changePasswordBox = document.getElementById("changePasswordBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changePasswordBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        changePasswordBox.style.opacity = "1"
+        
+    },200)
+}
+
+function closeChangePasswordBox() {
+    let changePasswordBox = document.getElementById("changePasswordBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changePasswordBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+
+    setTimeout(function() {
+        changePasswordBox.style.display = "none"
+        dimmer.style.display="none"
+        
+    },200)
+    
+}
+
+function validatePassword() {
+    var currentPassword, newPassword, confirmPassword, output = true;
+
+    currentPassword = document.changePasswordForm.currentPassword;
+    newPassword =
+    
+
+function changePassword() {
+
+}

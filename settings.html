@@ -21,6 +21,23 @@
     <body id="settings"> 
        
         <div id="container">
+            
+            <div id="dimmer"></div>
+
+            <div id="changePasswordBox">
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangePasswordBox()">
+                <form id="changePasswordForm" autocomplete="off">
+                    <h1 class="loginTitle">Mudar a palavra-passe</h1>
+                    <label for="currentPassword"><b>Palavra-passe atual:</b></label>
+                    <input type="password" placeholder="Escrever palavra-passe atual..." name="currentPassword" required>
+                    <label for="newPassword"><b>Nova palavra-passe:</b></label>
+                    <input type="password" placeholder="Escrever nova palvra-passe..." name="newPassword" required>
+                    <label for="confirmNewPassword"><b>Confirmar nova palavra-passe:</b></label>
+                    <input type="password" placeholder="Escrever nova palvra-passe..." name="confirmNewPassword" required>
+                    <button type="button" class="formButton" id="loginSubmit" onclick="closeChangePasswordBox()">Confirmar</button>
+                </form>
+
+            </div>
 
             <h3 class="title">Definições</h3>
 
@@ -36,15 +53,17 @@
                     </tr>
                     <tr>
                         <th id="stgsUserName"></th>
+                        <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" alt="editar nome de utilizador"></th>
                     </tr>
                     <tr>
                         <th id="settingsUserName">E-mail:</th>
                     </tr>
                     <tr>
                         <th id="stgsEmail"></th>
+                        <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" alt="editar email do utilizador" onclick=""></th>
                     </tr>
                     <tr>
-                        <th id="settingsPassword">Mudar a palavra-passe</th>
+                        <th><button id="changePasswordButton" onclick="openChangePasswordBox()">Mudar a palavra-passe</button></th>
                     </tr>
                     <tr>
                         <th id="darkMode">Dark Mode</th>
