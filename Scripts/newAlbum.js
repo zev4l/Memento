@@ -62,6 +62,7 @@ function importHandler(source) {
 
         }
         previewUpdater("initial")
+        showNotification(`Foram importadas ${localPhotos.length} fotografias.`)
     }
 
     if (source == "googleDrive") {
@@ -70,6 +71,7 @@ function importHandler(source) {
 
         }
         previewUpdater("initial")
+        showNotification(`Foram importadas ${googleDrivePhotos.length} fotografias.`)
     }
     
 
@@ -487,4 +489,24 @@ function removeDuplicatesHandler() {
     }
 
     openConfirmationBox(message, "Sim", "Não", removeDuplicates)
+}
+
+function showNotification(text) {
+    let notificationBox = document.querySelector("#notificationBox")
+    let notificationText = notificationBox.querySelector("h2")
+
+    notificationText.innerText = text
+
+    notificationBox.style.opacity = "1"
+
+    notificationBox.style.height = "100px"
+
+
+    notificationTimeoutID = setTimeout(function() {
+        
+        notificationBox.style.opacity = "0"
+        notificationBox.style.height = "0px"
+        
+        
+    },3000)
 }

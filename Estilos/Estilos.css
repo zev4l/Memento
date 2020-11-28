@@ -183,7 +183,7 @@ body {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 25%;
-    height: 70%;
+    height: 60%;
     background-color: #645eff;
     transition: all 200ms linear;
     /* border-radius: 15px; */
@@ -201,6 +201,7 @@ body {
     position: relative;
     left: 35px;
     height: 60%;
+    display:none;
 }
 
 .avatar {
@@ -793,7 +794,7 @@ input[type="checkbox"] {
     transition: 300ms ease;
 }
 
-#warningBox {
+#warningBox, #notificationBox {
     width: 300px;
     height: 0px;
     opacity: 0;
@@ -812,18 +813,26 @@ input[type="checkbox"] {
     color: white;
 }
 
+#notificationBox {
+    background-color: #524cfc;
+    width: 330px
+}
 
 
-#warningBox h2 {
+#warningBox h2, #notificationBox h2 {
     order: 2;
     width: 200px;
+}
+
+#notificationBox h2 {
+    width: 300px;
 }
 
 body {
     background-color: rgb(155, 155, 155);
 }
 
-#warningBox img {
+#warningBox img, #notificationBox img {
     order: 1;
     margin-top:auto;
     margin-bottom: auto; 
