@@ -231,6 +231,7 @@ body {
     transition: 600ms ease;
     background-color:#645eff;
     border-color: white;
+    transform: scale(1.2);
 }
 
 /*------------------------------------Ate aqui------------------------------------------------*/
