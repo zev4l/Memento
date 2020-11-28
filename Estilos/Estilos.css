@@ -195,6 +195,7 @@ body {
 
 /*------------------------------------ADICIONEI ISTO------------------------------------------------*/
 #escolhaAvatar{
+    display: none;
     height: 210px;
     width: 250px;
     position: relative;
