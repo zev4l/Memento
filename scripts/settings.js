@@ -67,24 +67,23 @@ function validateUserName(newUserName) {
     if (newUserName != currentAccount.username) {
         return true
     }
-
 }
 
 function showChangeUserNameErrorMessage(arg) {
 
-    if (passwordErrorTimeoutID) {
-        clearTimeout(passwordErrorTimeoutID)
+    if (UserNameErrorTimeoutID) {
+        clearTimeout(UserNameErrorTimeoutID)
     }
 
-    let changeUserNameSubmitButton = document.getElementById("changeUserNameSubmit");
+    let changeUserNameSubmit = document.getElementById("changeUserNameSubmitButton");
 
-    changeUserNameSubmitButton.innerText = arg;
-    changeUserNameSubmitButton.style.backgroundColor = "red";
+    changeUserNameSubmit.innerText = arg;
+    changeUserNameSubmit.style.backgroundColor = "red";
 
     UserNameErrorTimeoutID = setTimeout(function() {
 
-        changeUserNameSubmitButton.innerText = "Confirmar";
-        changeUserNameSubmitButton.style.backgroundColor = "white";
+        changeUserNameSubmit.innerText = "Confirmar";
+        changeUserNameSubmit.style.backgroundColor = "white";
 
     }, 3000)
 }
@@ -92,7 +91,7 @@ function showChangeUserNameErrorMessage(arg) {
 function changeUserNameHandler() {
 
     let newUserName;
-    let userNameForm = document.forms["changeUserNameForm"]
+    let userNameForm = document.forms["changeUserNameForm"];
 
     let validInput = userNameForm.reportValidity()
 
@@ -102,7 +101,7 @@ function changeUserNameHandler() {
 
     newUserName = userNameForm.newUserName.value;
 
-    validInput = validatePassword(newUsername);
+    validInput = validateUserName(newUserName);
 
     if (validInput) {
         currentAccount.username = newUserName;
@@ -142,6 +141,63 @@ function closeChangeEmailBox() {
         
     },200)
 }
+
+
+function validateEmail(newEmail) {
+
+    if (newEmail = currentAccount.email) {
+        showChangeEmailErrorMessage("NOVO EMAIL IGUAL AO ATUAL");
+        return false
+    }
+
+    if (newEmail != currentAccount.email) {
+        return true
+    }
+}
+
+function showChangeEmailErrorMessage(arg) {
+
+    if (EmailErrorTimeoutID) {
+        clearTimeout(EmailErrorTimeoutID)
+    }
+
+    let changeEmailSubmit = document.getElementById("changeEmailSubmitButton");
+
+    changeEmailSubmit.innerText = arg;
+    changeEmailSubmit.style.backgroundColor = "red";
+
+    EmailErrorTimeoutID = setTimeout(function() {
+
+        changeEmailSubmit.innerText = "Confirmar";
+        changeEmailSubmit.style.backgroundColor = "white";
+
+    }, 3000)
+}
+
+function changeEmailHandler() {
+
+    let newEmail;
+    let emailForm = document.forms["changeEmailForm"];
+
+    let validInput = emailForm.reportValidity()
+
+    if (!validInput) {
+        return 
+    }
+
+    newEmail = emailForm.newEmail.value;
+
+    validInput = validateEmal(newEmal);
+
+    if (validInput) {
+        currentAccount.email = newEmail;
+        updateAccounts()
+        closeChangeEmailBox()
+        emailForm.reset()
+        showNotification("Email alterado!")
+    }
+}
+
 
 function openChangePasswordBox() {
 
