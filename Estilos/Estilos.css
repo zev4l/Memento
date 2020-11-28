@@ -210,6 +210,15 @@ body {
     height: 50px;
     border-radius: 50%;
   }
+
+.help {
+    border-radius: 200px;
+    background-color: #645eff;
+    border-color: #d9d9d9;
+    position: absolute;
+    bottom: 10%;
+    left: 92%;
+}
 /*------------------------------------Ate aqui------------------------------------------------*/
 
 #loginBox {

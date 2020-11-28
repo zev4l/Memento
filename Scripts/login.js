@@ -201,6 +201,10 @@ function registerHandler() {
 
 }
 
+/*function escolheAvatar(){
+
+}*/
+
 // Funções Ajudantes
 
 function usedCredentialChecker(username, email) {
