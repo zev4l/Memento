@@ -283,4 +283,3 @@ function closeConfirmationBox() {
 
     },200)
 }
-

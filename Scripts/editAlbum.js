@@ -154,15 +154,20 @@ function importHandler(source) {
 
         }
         previewUpdater("regular")
+        showNotification(`Foram importadas ${localPhotos.length} fotografias.`)
+
     }
 
-    if (source == "googleDrive")
+    if (source == "googleDrive") {
         for (let i = 0; i < googleDrivePhotos.length; i++) {
             currentPhotos.push(googleDrivePhotos[i])
 
         }
         previewUpdater("regular")
+        showNotification(`Foram importadas ${googleDrivePhotos.length} fotografias.`)
 
+
+    }
 
     closeImportBox()
 }
@@ -324,6 +329,7 @@ function removeWorseHandler() {
 }
 
 function removeWorse() {
+    console.log("Here!")
     
     for (let i = 0; i < currentPhotos.length; i++) {
         if (currentPhotos[i].flags.includes("bad_quality")) {
@@ -440,8 +446,8 @@ function photoCounter(scope) {
 
         let counter = 0
 
-        for (let i = 0; i < selectedPhotos.length; i++) {
-            if (selectedPhotos[i].flags.includes("bad_quality")) {
+        for (let i = 0; i < currentPhotos.length; i++) {
+            if (currentPhotos[i].flags.includes("bad_quality")) {
                 counter ++
             }
         }
@@ -458,8 +464,6 @@ function photoCounter(scope) {
 }
 
 function actionToggler() {
-
-    console.trace()
 
     let duplicatesButton = document.querySelector("#editRemoveDuplicatesButton")
     let badQualityButton = document.querySelector("#removeWorse")
@@ -530,4 +534,24 @@ function closeConfirmationBox() {
         
 
     },200)
+}
+
+function showNotification(text) {
+    let notificationBox = document.querySelector("#notificationBox")
+    let notificationText = notificationBox.querySelector("h2")
+
+    notificationText.innerText = text
+
+    notificationBox.style.opacity = "1"
+
+    notificationBox.style.height = "100px"
+
+
+    notificationTimeoutID = setTimeout(function() {
+        
+        notificationBox.style.opacity = "0"
+        notificationBox.style.height = "0px"
+        
+        
+    },3000)
 }
