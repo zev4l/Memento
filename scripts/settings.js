@@ -6,7 +6,7 @@
 
 window.onload = function userSettings() {
 
-    let stgsUsername = document.querySelector("#stgsUserName");
+    let stgsUsername = document.querySelector("#stgsUsername");
 
     stgsUsername.innerHTML = currentAccount.username;
 
@@ -51,16 +51,29 @@ function closeChangePasswordBox() {
         dimmer.style.display="none"
         
     },200)
-    
 }
 
 function validatePassword() {
-    var currentPassword, newPassword, confirmPassword, output = true;
 
-    currentPassword = document.changePasswordForm.currentPassword;
-    newPassword =
-    
+    let currentPassword;
+    let newPassword;
+    let confirmNewPassword;
 
-function changePassword() {
+    currentPassword = document.getElementsByName("currentPassword");
+    newPassword = document.getElementsByName("newPassword");
+    confirmNewPassword = document.getElementsByName("confirmNewPassword");
+
+    if (currentPassword != currentAccount.password) {
+        showChangePasswordErrorMessage();
+    }
+
+}
+
+function showChangePasswordErrorMessage() {
+
+    let changePasswordSubmitButton = document.getElementById("changePasswordSubmit");
+
+    changePasswordSubmitButton.innerHTML = "PALAVRA-PASSE INCORRETA";
+    changePasswordSubmitButton.style.backgroundColor = "red";
 
 }
