@@ -212,13 +212,27 @@ body {
   }
 
 .help {
-    border-radius: 200px;
+    border-radius: 100px;
     background-color: #645eff;
     border-color: #d9d9d9;
+    height: 50px;
+    width: 50px;
     position: absolute;
     bottom: 10%;
     left: 92%;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
 }
+
+.help:hover{
+    transition: 600ms ease;
+    background-color:#645eff;
+    border-color: white;
+}
+
 /*------------------------------------Ate aqui------------------------------------------------*/
 
 #loginBox {
