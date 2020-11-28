@@ -29,7 +29,7 @@
             <div id="changePasswordBox">
                 <img class="cross" src="Recursos/cross.png" onclick="closeChangePasswordBox()">
                 <form id="changePasswordForm" autocomplete="off">
-                    <h1 class="loginTitle">Mudar a palavra-passe</h1>
+                    <h1 class="changePasswordTitle">Mudar a palavra-passe</h1>
                     <label for="currentPassword"><b>Palavra-passe atual:</b></label>
                     <input type="password" placeholder="Escrever palavra-passe atual..." name="currentPassword" required>
                     <label for="newPassword"><b>Nova palavra-passe:</b></label>
@@ -40,6 +40,26 @@
                 </form>
             </div>
 
+            <div id="changeUserNameBox">
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangeUserNameBox()">
+                <form id="changeUserNameForm" autocomplete="off">
+                    <h1 class="changeUserNameTitle">Mudar o nome de utilizador</h1>
+                    <label for="newUserName"><b>Novo nome de utilizador:</b></label>
+                    <input type="text" placeholder="Escrever o novo nome de utilizador..." name="newUserName" required>
+                    <button type="button" class="formButton" id="changeUserNameSubmit" onclick="changeUserNameHandler()">Confirmar</button>
+                </form>
+            </div>
+
+            <div id="changeEmailBox">
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangeEmailBox()">
+                <form id="changeEmailForm" autocomplete="off">
+                    <h1 class="changeEmailTitle">Mudar o email do utilizador</h1>
+                    <label for="currentEmail"><b>Palavra-passe atual:</b></label>
+                    <input type="email" placeholder="Escrever novo email..." name="newEmail" required>
+                    <button type="button" class="formButton" id="changeEmailSubmit" onclick="changeEmailHandler()">Confirmar</button>
+                </form>
+            </div>
+
             <h3 class="title">Definições</h3>
 
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
@@ -47,21 +67,21 @@
             <div id="settingsInformation">
                 
                 <a id="settingsPicture" class="acrylic"></a>
-                
+
                 <table id="settingsTable">
                     <tr>
                         <th id="settingsUserName">Nome de utilizador:</th>
                     </tr>
                     <tr>
-                        <th id="stgsUsername"></th>
-                        <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" alt="editar nome de utilizador"></th>
+                        <th id="stgsUserName"></th>
+                        <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" onclick="openChangeUserNameBox()"></th>
                     </tr>
                     <tr>
                         <th id="settingsUserName">E-mail:</th>
                     </tr>
                     <tr>
                         <th id="stgsEmail"></th>
-                        <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" alt="editar email do utilizador" onclick=""></th>
+                        <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" onclick="openChangeEmailBox()"></th>
                     </tr>
                     <tr>
                         <th><button id="changePasswordButton" onclick="openChangePasswordBox()">Mudar a palavra-passe</button></th>

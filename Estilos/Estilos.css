@@ -173,7 +173,7 @@ body {
     cursor: pointer;
 }
 
-#loginBox, #registerBox, #importBox, #exportBox, #changePasswordBox {
+#loginBox, #registerBox, #importBox, #exportBox, #changePasswordBox, #changeUserNameBox, #changeEmailBox {
     display: none;
     position: absolute;
     border: solid 10px white;
@@ -241,13 +241,14 @@ background: rgb(255, 255, 255);
 
 
 
-#loginForm, #registerForm, #changePasswordForm {
+#loginForm, #registerForm, #changePasswordForm, #changeUserNameForm, #changeEmailForm {
     width: 100%;
     height: 100%;
     text-align: center;
     color: white;
 }
 
+#changeUserNameForm input[type=text], #changeEmailForm input[type=email],
 #changePasswordForm input[type=password],
 #loginForm input[type=text], #loginForm input[type=password],
 #registerForm input[type=text], #registerForm input[type=email],
@@ -466,6 +467,17 @@ background: rgb(255, 255, 255);
     font-size: 20px;
 }
 
+#editSettingsIcon {
+    width: 30px;
+    margin-left: -40px;
+    cursor: pointer;
+}
+
+#changeUserNameBox, #changeEmailBox {
+    width: 25%;
+    height: 40%;
+}
+
 #settingsPassword {
     padding-top: 25px;
 }
@@ -483,11 +495,6 @@ background: rgb(255, 255, 255);
 #changePasswordBox {
     width: 25%;
     height: 70%;
-}
-
-#editSettingsIcon {
-    width: 30px;
-    margin-left: -40px;
 }
 
 #darkModeBtn {

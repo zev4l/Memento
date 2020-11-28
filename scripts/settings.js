@@ -9,9 +9,9 @@ let passwordErrorTimeoutID;
 
 window.onload = function userSettings() {
 
-    let stgsUsername = document.querySelector("#stgsUsername");
+    let stgsUserName = document.querySelector("#stgsUserName");
 
-    stgsUsername.innerHTML = currentAccount.username;
+    stgsUserName.innerHTML = currentAccount.username;
 
     let stgsEmail = document.querySelector("#stgsEmail");
 
@@ -25,6 +25,122 @@ function initial() {
         menuElementToggle()
         document.getElementById("changePasswordButton").addEventListener("click", openChangePasswordBox);
     }
+}
+
+function openChangeUserNameBox() {
+
+    let changeUserNameBox = document.getElementById("changeUserNameBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changeUserNameBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        changeUserNameBox.style.opacity = "1"
+        
+    },200)
+}
+
+function closeChangeUserNameBox() {
+
+    let changeUserNameBox = document.getElementById("changeUserNameBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changeUserNameBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+
+    setTimeout(function() {
+        changeUserNameBox.style.display = "none"
+        dimmer.style.display="none"
+        
+    },200)
+}
+
+function validateUserName(newUserName) {
+
+    if (newUserName = currentAccount.username) {
+        showChangeUserNameErrorMessage("NOVO NOME DE UTILIZADOR IGUAL AO ATUAL");
+        return false
+    }
+
+    if (newUserName != currentAccount.username) {
+        return true
+    }
+
+}
+
+function showChangeUserNameErrorMessage(arg) {
+
+    if (passwordErrorTimeoutID) {
+        clearTimeout(passwordErrorTimeoutID)
+    }
+
+    let changeUserNameSubmitButton = document.getElementById("changeUserNameSubmit");
+
+    changeUserNameSubmitButton.innerText = arg;
+    changeUserNameSubmitButton.style.backgroundColor = "red";
+
+    UserNameErrorTimeoutID = setTimeout(function() {
+
+        changeUserNameSubmitButton.innerText = "Confirmar";
+        changeUserNameSubmitButton.style.backgroundColor = "white";
+
+    }, 3000)
+}
+
+function changeUserNameHandler() {
+
+    let newUserName;
+    let userNameForm = document.forms["changeUserNameForm"]
+
+    let validInput = userNameForm.reportValidity()
+
+    if (!validInput) {
+        return 
+    }
+
+    newUserName = userNameForm.newUserName.value;
+
+    validInput = validatePassword(newUsername);
+
+    if (validInput) {
+        currentAccount.username = newUserName;
+        updateAccounts()
+        closeChangeUserNameBox()
+        userNameForm.reset()
+        showNotification("Nome de utilizador alterado!")
+    }
+}
+
+function openChangeEmailBox() {
+
+    let changeEmailBox = document.getElementById("changeEmailBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changeEmailBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        changeEmailBox.style.opacity = "1"
+        
+    },200)
+}
+
+function closeChangeEmailBox() {
+
+    let changeEmailBox = document.getElementById("changeEmailBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changeEmailBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+
+    setTimeout(function() {
+        changeEmailBox.style.display = "none"
+        dimmer.style.display="none"
+        
+    },200)
 }
 
 function openChangePasswordBox() {
@@ -43,6 +159,7 @@ function openChangePasswordBox() {
 }
 
 function closeChangePasswordBox() {
+
     let changePasswordBox = document.getElementById("changePasswordBox");
     let dimmer = document.getElementById("dimmer")
 
@@ -69,15 +186,13 @@ function validatePassword(currentPassword, newPassword, confirmNewPassword) {
     }
 
     if (newPassword == currentPassword) {
-        showChangePasswordErrorMessage("PALAVRA-PASSE NOVA IGUAL À ANTIGA");
+        showChangePasswordErrorMessage("PALAVRA-PASSE NOVA IGUAL À ATUAL");
         return false
     }
 
     if ((newPassword == confirmNewPassword) && (currentPassword != newPassword)) {
         return true
     }
-
-    console.log("here")
 }
 
 function showChangePasswordErrorMessage(arg) {
@@ -115,8 +230,6 @@ function changePasswordHandler() {
     currentPassword = passwordForm.currentPassword.value;
     newPassword = passwordForm.newPassword.value;
     confirmNewPassword = passwordForm.confirmNewPassword.value;
-
-    console.log(currentPassword, newPassword, confirmNewPassword)
 
     validInput = validatePassword(currentPassword, newPassword, confirmNewPassword);
 
