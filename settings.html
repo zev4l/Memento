@@ -22,6 +22,8 @@
        
         <div id="container">
             
+
+            <div id="notificationBox"><img class="logo" src="Recursos/info.png"><h2></h2></div>
             <div id="dimmer"></div>
 
             <div id="changePasswordBox">
@@ -34,7 +36,7 @@
                     <input type="password" placeholder="Escrever nova palvra-passe..." name="newPassword" required>
                     <label for="confirmNewPassword"><b>Confirmar nova palavra-passe:</b></label>
                     <input type="password" placeholder="Escrever nova palvra-passe..." name="confirmNewPassword" required>
-                    <button type="button" class="formButton" id="changePasswordSubmit" onclick="closeChangePasswordBox()">Confirmar</button>
+                    <button type="button" class="formButton" id="changePasswordSubmit" onclick="changePasswordHandler()">Confirmar</button>
                 </form>
             </div>
 
@@ -45,7 +47,7 @@
             <div id="settingsInformation">
                 
                 <a id="settingsPicture" class="acrylic"></a>
-
+                
                 <table id="settingsTable">
                     <tr>
                         <th id="settingsUserName">Nome de utilizador:</th>

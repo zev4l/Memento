@@ -4,6 +4,9 @@
 
 /* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
 
+let passwordErrorTimeoutID;
+
+
 window.onload = function userSettings() {
 
     let stgsUsername = document.querySelector("#stgsUsername");
@@ -53,27 +56,96 @@ function closeChangePasswordBox() {
     },200)
 }
 
-function validatePassword() {
+function validatePassword(currentPassword, newPassword, confirmNewPassword) {
+
+    if (currentPassword != currentAccount.password) {
+        showChangePasswordErrorMessage("PALAVRA-PASSE ATUAL ERRADA");
+        return false
+    }
+
+    if (newPassword != confirmNewPassword) {
+        showChangePasswordErrorMessage("PALAVRAS-PASSE NÃO COINCIDEM");
+        return false
+    }
+
+    if (newPassword == currentPassword) {
+        showChangePasswordErrorMessage("PALAVRA-PASSE NOVA IGUAL À ANTIGA");
+        return false
+    }
+
+    if ((newPassword == confirmNewPassword) && (currentPassword != newPassword)) {
+        return true
+    }
+
+    console.log("here")
+}
+
+function showChangePasswordErrorMessage(arg) {
+
+    if (passwordErrorTimeoutID) {
+        clearTimeout(passwordErrorTimeoutID)
+    }
+
+    let changePasswordSubmitButton = document.getElementById("changePasswordSubmit");
+
+    changePasswordSubmitButton.innerText = arg;
+    changePasswordSubmitButton.style.backgroundColor = "red";
+
+    passwordErrorTimeoutID = setTimeout(function() {
+
+        changePasswordSubmitButton.innerText = "Confirmar";
+        changePasswordSubmitButton.style.backgroundColor = "white";
+
+    }, 3000)
+}
+
+function changePasswordHandler() {
 
     let currentPassword;
     let newPassword;
     let confirmNewPassword;
+    let passwordForm = document.forms["changePasswordForm"]
 
-    currentPassword = document.getElementsByName("currentPassword");
-    newPassword = document.getElementsByName("newPassword");
-    confirmNewPassword = document.getElementsByName("confirmNewPassword");
+    let validInput = passwordForm.reportValidity()
 
-    if (currentPassword != currentAccount.password) {
-        showChangePasswordErrorMessage();
+    if (!validInput) {
+        return 
+    }
+    
+    currentPassword = passwordForm.currentPassword.value;
+    newPassword = passwordForm.newPassword.value;
+    confirmNewPassword = passwordForm.confirmNewPassword.value;
+
+    console.log(currentPassword, newPassword, confirmNewPassword)
+
+    validInput = validatePassword(currentPassword, newPassword, confirmNewPassword);
+
+    if (validInput) {
+        currentAccount.password = newPassword;
+        updateAccounts()
+        closeChangePasswordBox()
+        passwordForm.reset()
+        showNotification("Palava-passe alterada!")
     }
 
 }
 
-function showChangePasswordErrorMessage() {
+function showNotification(text) {
+    let notificationBox = document.querySelector("#notificationBox")
+    let notificationText = notificationBox.querySelector("h2")
 
-    let changePasswordSubmitButton = document.getElementById("changePasswordSubmit");
+    notificationText.innerText = text
 
-    changePasswordSubmitButton.innerHTML = "PALAVRA-PASSE INCORRETA";
-    changePasswordSubmitButton.style.backgroundColor = "red";
+    notificationBox.style.opacity = "1"
 
+    notificationBox.style.height = "100px"
+
+
+    notificationTimeoutID = setTimeout(function() {
+        
+        notificationBox.style.opacity = "0"
+        notificationBox.style.height = "0px"
+        
+        
+    },3000)
 }

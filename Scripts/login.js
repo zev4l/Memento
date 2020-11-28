@@ -340,3 +340,4 @@ function openRegisterSuccessBox() {
 function signOutHandler() {
     openConfirmationBox("Deseja mesmo sair?", "Sim", "Não", signOut)
 }
+
