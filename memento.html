@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 
 
-
 <html lang="en">
 
     <head>
@@ -18,21 +17,122 @@
 
         <title>Memento</title>
     </head>
-    <!-- ESTA CENA SERVE PARA QUE O RESTO DO ECRÃ FIQUE ESCURO QUANDO SE ABREM POPUPS -->
+
     <body id="homepage"> 
  
-       
         <div id="container">
 
+            <!-- Dimmers (usados para alternar entre popup e backrgound alternando a opacidade de cada um) -->
             <div id="dimmer"></div>
             <div id="dimmer2"></div>
-            <div id="registerSuccessBox" onclick="openRegisterSuccessBox()"><img src="Recursos/check.png"><h1>Conta criada com sucesso! A entrar...</h1></div>
+
+            <!-- Logo Memento -->
+            <img id="logo" src="Recursos/MEMENTO.png" height="150px" width="150px">
+
+            <!-- Botões Login e Registar-->
+            <button id="loginButton" >ENTRAR</button>
+            <button id="registerButton" >REGISTAR</button>
+
+            <!-- Botão Perfil -->
+            <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
+
+            <!-- Botão Logout -->
+            <a onclick="signOutHandler()"><img id = "logoutButton" src="Recursos/signOut.png"></a>
+
+            <!-- Caixa de confirmação de Logout (pergunta ao utilizador se tem a certeza que quer fazer logout -->
             <div id="confirmationBox">
                 <h1></h1>
                 <button id="confirmationButton1"></button>
                 <button id="confirmationButton2"></button>
             </div>
 
+            <!-- Botão Definições -->
+            <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
+            
+            <!-- Botão Ajuda-->
+            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
+
+            <!-- Caixa de Login (abre em popup) -->
+            <div id="loginBox">
+                <img class="cross" src="Recursos/cross.png" onclick="closeLoginBox()">
+                
+                <form id="loginForm" autocomplete="off">
+                    <h1 class="loginTitle">Entrar</h1>
+                    
+                    <label for="username"><b>Nome de Utilizador:</b></label>
+                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
+                    
+                    <label for="password"><b>Palavra-passe:</b></label> 
+                    <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
+                    
+                    <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
+                  
+                </form>
+            </div>
+
+            <!-- Caixa de Registo (abre em popup) -->
+            <div id="registerBox">
+                <img class="cross" src="Recursos/cross.png" onclick="closeRegisterBox()">
+                
+                <form id="registerForm" autocomplete="off">
+                    <h1 class="registerTitle">Registar</h1>
+            
+                    <label for="email"><b>E-mail:</b></label>
+                    <input type="email" size="10" placeholder="Escrever e-mail..." name="email" required>
+
+                    <label for="username"><b>Nome de utilizador:</b></label>
+                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
+            
+                    <label for="password"><b>Palavra-passe:</b></label>
+                    <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
+
+                    <!-- <button id="registerSubmit" class="formButton" onclick="escolheAvatar()">Escolhe o teu Avatar</button> -->
+                    <div id="escolhaAvatar"><h3>Escolhe o teu Avatar</h3>
+                        <img src="./Recursos/Imagens/Avatares/1.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/2.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/3.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/4.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/5.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/6.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/7.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/8.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/9.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/10.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/11.png" alt ="Avatar" class="avatar">
+                        <img src="./Recursos/Imagens/Avatares/12.png" alt ="Avatar" class="avatar">
+                    </div>
+                    
+                    <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
+                  
+                </form>
+            </div>
+            
+            <!-- Caixa de confirmação de registo (indica que o registo foi feito com successo e faz login automático -->
+            <div id="registerSuccessBox" onclick="openRegisterSuccessBox()"><img src="Recursos/check.png"><h1>Conta criada com sucesso! A entrar...</h1></div>
+
+            <!-- Titulo "Álbuns" que se aprenseta na página principal quando o utitlizador está logado na sua conta-->
+            <h3 class="title">Álbuns</h3>
+
+            <!-- TODO -->
+            <div id="containerAlbums">
+                <a id="newAlbumButton" class="acrylic albumButton" href="newAlbum.html">
+                    <img id ="newAlbumIcon" src="Recursos/newAlbumIcon.png" alt="create a new album">
+                </a>
+                
+                <!-- Aqui são dinamicamente criados os botões para aceder a albuns que o utilizador tenha -->
+
+            </div>
+
+            <!-- TODO -->
+            <div id="albumViewer" class="acrylic">
+                <img class="cross" src="Recursos/cross.png" onclick="closeAlbumViewer()">
+                <h1 id="albumViewerTitle"></h1>
+                <h2 id="albumViewerPictureCount"></h2>
+                <div id="albumViewerSlider"></div>
+            </div>
+            <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
+
+            <!-- Caixa de de partilha de fotografias (abre em popup) -->
             <div id="exportBox">
                 <h1>Partilhar <span></span> fotografias:</h1>
                 <img class="cross" src="Recursos/cross.png" onclick="closeExportBox()">
@@ -51,90 +151,7 @@
                 <img id="exportConfirmationImage" src="Recursos/check.png">
             </div>
 
-            <button id="loginButton" >LOGIN</button>
-            <button id="registerButton" >REGISTAR</button>
-
-            <div id="loginBox">
-                <img class="cross" src="Recursos/cross.png" onclick="closeLoginBox()">
-                <form id="loginForm" autocomplete="off">
-                    <h1 class="loginTitle">Login</h1>
-                    <label for="username"><b>Nome de Utilizador:</b></label>
-                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
-                    <label for="password"><b>Password:</b></label>
-                    <input type="password" placeholder="Escrever password..." name="password" required>
-                    <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
-                  </form>
-            </div>
-
-            <div id="registerBox">
-                <img class="cross" src="Recursos/cross.png" onclick="closeRegisterBox()">
-                <form id="registerForm" autocomplete="off">
-                    <h1 class="registerTitle">Registar</h1>
-            
-                    <label for="email"><b>E-mail:</b></label>
-                    <input type="email" size="10" placeholder="Escrever e-mail..." name="email" required>
-
-                    <label for="username"><b>Nome de utilizador:</b></label>
-                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
-            
-                    <label for="password"><b>Password:</b></label>
-                    <input type="password" placeholder="Escrever password..." name="password" required>
-
-                    <!-- <button id="registerSubmit" class="formButton" onclick="escolheAvatar()">Escolhe o teu Avatar</button> -->
-                    <div id="escolhaAvatar"><h3>Escolhe o teu Avatar</h3>
-                
-                        <img src="./Recursos/Imagens/Avatares/1.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/2.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/3.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/4.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/5.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/6.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/7.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/8.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/9.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/10.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/11.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Imagens/Avatares/12.png" alt ="Avatar" class="avatar">
-                    </div>
-            
-                    <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
-                  </form>
-
-            </div>
-           
-
-            <h3 class="title">Álbuns</h3>
-            
-            <img id="logo" src="Recursos/MEMENTO.png" height="150px" width="150px">
-            
-            
-            <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
-            <a onclick="signOutHandler()"><img id = "logoutButton" src="Recursos/signOut.png"></a>
-            <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
-
-            <div id="containerAlbums">
-                <a id="newAlbumButton" class="acrylic albumButton" href="newAlbum.html">
-                    <img id ="newAlbumIcon" src="Recursos/newAlbumIcon.png" alt="create a new album">
-                </a>
-                
-                <!-- Aqui são dinamicamente criados os botões para aceder a albuns que o utilizador tenha -->
-
-            </div>
-
-            <div id="albumViewer" class="acrylic">
-                <img class="cross" src="Recursos/cross.png" onclick="closeAlbumViewer()">
-                <h1 id="albumViewerTitle"></h1>
-                <h2 id="albumViewerPictureCount"></h2>
-                <div id="albumViewerSlider"></div>
-            </div>
-            <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
-
-
-            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
-
-
-            <!-- BACKGROUND  -->
-
+            <!-- BACKGROUND -->
             <div class="area" >
                 <ul class="circles">
                         <li></li>
