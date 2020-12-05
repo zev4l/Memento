@@ -31,7 +31,8 @@ class Account {
         this.username = username,
         this.password = password,
         this.email = email,
-        this.albums = []
+        this.albums = [],
+        this.sharedPhotos = 0
     }
 }
 

@@ -222,27 +222,32 @@ function exportHandler(scope) {
     let exportBox = document.querySelector("#exportBox")
     let exportConfirmation = document.querySelector("#exportConfirmation")
     let exportConfirmationImage = document.querySelector("#exportConfirmationImage")
-
-
-    if (scope == "facebook") {
-
-        for(let i = 0; i < exportBox.children.length; i++) {
-            exportBox.children[i].style.display = "none"
-        }
-
-        exportBox.style.height = "300px"
-        exportConfirmation.style.display = "block"
-        exportConfirmationImage.style.display = "block"
-
-        setTimeout(function() {
-            location.href = "memento.html"
-            
-        },2000)
-
-
+    let photoCount = document.querySelector("#exportBox span").innerText
+    let exportText = document.querySelector("#exportConfirmation")
 
     
+    if (scope == "download") {
+        exportText.innerText = "Fotografias Descarregadas!"
     }
+
+    for(let i = 0; i < exportBox.children.length; i++) {
+        exportBox.children[i].style.display = "none"
+    }
+
+    exportBox.style.height = "300px"
+    exportConfirmation.style.display = "block"
+    exportConfirmationImage.style.display = "block"
+
+    currentAccount.sharedPhotos += Number(photoCount)
+
+    updateData()
+
+    setTimeout(function() {
+        location.href = "memento.html"
+        
+    },2000)
+
+
 }
 
 function openConfirmationBox(text, button1Text, button2Text, button1Function) {

@@ -15,13 +15,15 @@ window.onload = function profileStats() {
 
     let totalProfilePhotos = document.querySelector("#totalProfilePhotos");
 
+    let sharedProfilePhotos = document.querySelector("#sharedProfilePhotos")
+
+    sharedProfilePhotos.innerText = currentAccount.sharedPhotos
+
     let userPhotos = 0;
 
     for (let i = 0; i<userAlbums.length; i++) {
 
         userPhotos += userAlbums[i].photos.length;
-
-        console.log(userPhotos);
     }
 
     totalProfilePhotos.innerHTML = userPhotos;
