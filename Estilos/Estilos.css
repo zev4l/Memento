@@ -5,9 +5,11 @@
 /* REFERENCIAS DE CORES */
 
 :root {
---AZUL:#333ddd;
---LARANJA:#f5695b;
---ROXO:#645eff;
+    --BACKGROUND1: #645eff;
+    --AZUL:#333ddd;
+    --LARANJA:#f5695b;
+    --ROXO:#645eff;
+    --DARKGREY: rgb(43, 39, 39);
 }
 
 body {

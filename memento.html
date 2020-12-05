@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 
 
-
 <html lang="en">
 
     <head>
@@ -18,15 +17,29 @@
 
         <title>Memento</title>
     </head>
-    <!-- ESTA CENA SERVE PARA QUE O RESTO DO ECRÃ FIQUE ESCURO QUANDO SE ABREM POPUPS -->
+
     <body id="homepage"> 
  
-       
         <div id="container">
 
+            <!-- Dimmers (usados para alternar entre popup e backrgound alternando a opacidade de cada um) -->
             <div id="dimmer"></div>
             <div id="dimmer2"></div>
-            <div id="registerSuccessBox" onclick="openRegisterSuccessBox()"><img src="Recursos/check.png"><h1>Conta criada com sucesso! A entrar...</h1></div>
+
+            <!-- Logo Memento -->
+            <img id="logo" src="Recursos/MEMENTO.png" height="150px" width="150px">
+
+            <!-- Botões Login e Registar-->
+            <button id="loginButton" >ENTRAR</button>
+            <button id="registerButton" >REGISTAR</button>
+
+            <!-- Botão Perfil -->
+            <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
+
+            <!-- Botão Logout -->
+            <a onclick="signOutHandler()"><img id = "logoutButton" src="Recursos/signOut.png"></a>
+
+            <!-- Caixa de confirmação de Logout (pergunta ao utilizador se tem a certeza que quer fazer logout -->
             <div id="confirmationBox">
                 <h1></h1>
                 <button id="confirmationButton1"></button>
@@ -53,21 +66,34 @@
 
             <button id="loginButton" >LOGIN</button>
             <button id="registerButton" >REGISTAR</button>
+            <!-- Botão Definições -->
+            <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
+            
+            <!-- Botão Ajuda-->
+            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
 
+            <!-- Caixa de Login (abre em popup) -->
             <div id="loginBox">
                 <img class="cross" src="Recursos/cross.png" onclick="closeLoginBox()">
+                
                 <form id="loginForm" autocomplete="off">
-                    <h1 class="loginTitle">Login</h1>
+                    <h1 class="loginTitle">Entrar</h1>
+                    
                     <label for="username"><b>Nome de Utilizador:</b></label>
                     <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
-                    <label for="password"><b>Password:</b></label>
-                    <input type="password" placeholder="Escrever password..." name="password" required>
+                    
+                    <label for="password"><b>Palavra-passe:</b></label> 
+                    <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
+                    
                     <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
-                  </form>
+                  
+                </form>
             </div>
 
+            <!-- Caixa de Registo (abre em popup) -->
             <div id="registerBox">
                 <img class="cross" src="Recursos/cross.png" onclick="closeRegisterBox()">
+                
                 <form id="registerForm" autocomplete="off">
                     <h1 class="registerTitle">Registar</h1>
             
@@ -77,8 +103,8 @@
                     <label for="username"><b>Nome de utilizador:</b></label>
                     <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
             
-                    <label for="password"><b>Password:</b></label>
-                    <input type="password" placeholder="Escrever password..." name="password" required>
+                    <label for="password"><b>Palavra-passe:</b></label>
+                    <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
 
                     <!-- WIP -->
                     <!-- <button id="registerSubmit" class="formButton" onclick="escolheAvatar()">Escolhe o teu Avatar</button>
@@ -99,20 +125,17 @@
                     </div> -->
             
                     <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
-                  </form>
-
+                  
+                </form>
             </div>
-           
+            
+            <!-- Caixa de confirmação de registo (indica que o registo foi feito com successo e faz login automático -->
+            <div id="registerSuccessBox" onclick="openRegisterSuccessBox()"><img src="Recursos/check.png"><h1>Conta criada com sucesso! A entrar...</h1></div>
 
+            <!-- Titulo "Álbuns" que se aprenseta na página principal quando o utitlizador está logado na sua conta-->
             <h3 class="title">Álbuns</h3>
-            
-            <img id="logo" src="Recursos/MEMENTO.png" height="150px" width="150px">
-            
-            
-            <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
-            <a onclick="signOutHandler()"><img id = "logoutButton" src="Recursos/signOut.png"></a>
-            <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
 
+            <!-- TODO -->
             <div id="containerAlbums">
                 <a id="newAlbumButton" class="acrylic albumButton" href="newAlbum.html">
                     <img id ="newAlbumIcon" src="Recursos/newAlbumIcon.png" alt="create a new album">
@@ -122,6 +145,7 @@
 
             </div>
 
+            <!-- TODO -->
             <div id="albumViewer" class="acrylic">
                 <img class="cross" src="Recursos/cross.png" onclick="closeAlbumViewer()">
                 <h1 id="albumViewerTitle"></h1>
@@ -130,12 +154,26 @@
             </div>
             <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
 
+            <!-- Caixa de de partilha de fotografias (abre em popup) -->
+            <div id="exportBox">
+                <h1>Partilhar <span></span> fotografias:</h1>
+                <img class="cross" src="Recursos/cross.png" onclick="closeExportBox()">
+                <h2>Serviços Cloud:</h2>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
+                <a onclick="importHandler('googleDrive')"><img class="logo" src="Recursos/googleDrive.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
+                <h2>Redes Sociais:</h2>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/instagram.png"></a>
+                <a onclick="exportHandler('facebook')"><img class="logo" src="Recursos/facebook.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/twitter.png"></a>
+                <a href="notAvailable.html"><img class="logo" src="Recursos/pinterest.png"></a>
+                <h2>Download (.zip):</h2>
+                <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
+                <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
+                <img id="exportConfirmationImage" src="Recursos/check.png">
+            </div>
 
-            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
-
-
-            <!-- BACKGROUND  -->
-
+            <!-- BACKGROUND -->
             <div class="area" >
                 <ul class="circles">
                         <li></li>
