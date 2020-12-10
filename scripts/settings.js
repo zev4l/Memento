@@ -350,3 +350,22 @@ function showNotification(text) {
         
     },3000)
 }
+
+function darkMode() {
+
+    var darkModeSwitch = document.getElementById("darkModeSwitch").checked;
+
+    var backgroundColor = document.querySelector(":root");
+        
+    if(darkModeSwitch){
+
+        backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+        darkModeSwitch.checked = "1";
+
+    } else {
+
+        backgroundColor.style.setProperty("--BACKGROUND1", "rgb(100, 94, 255)");
+    }
+
+
+}

@@ -1,10 +1,11 @@
-<!-- Grupo: 23, Número: 55373, Nome: José Almeida, PL: 12 /
-/ Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
-/ Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */ -->
+<!-- FCUL Interação com Computadores
+53469, Pedro Luís, PL12, Grupo 23
+54975, Miguel Lages, PL12, Grupo 23
+55373, José Almeida, PL12, Grupo 23 -->
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-pt">
 
     <head>
         <meta charset="utf-8">
@@ -15,92 +16,113 @@
         <script src="Scripts/memento.js"></script>
         <script src="Scripts/profile.js"></script>
         <script src="Scripts/settings.js"></script>
+        <script src="Scripts/help.js"></script>
         <link rel="icon" type="image/png" href="Recursos/favicon.png"/>
 
         <title>Settings</title>
     </head>
+
     <body id="settings"> 
        
         <div id="container">
             
             <div id="notificationBox"><img class="logo" src="Recursos/info.png"><h2></h2></div>
+
+            <!-- Dimmers (usados para alternar entre popup e backrgound alternando a opacidade de cada um) -->
             <div id="dimmer"></div>
 
-            <div id="changePasswordBox">
-                <img class="cross" src="Recursos/cross.png" onclick="closeChangePasswordBox()">
-                <form id="changePasswordForm" autocomplete="off">
-                    <h1 class="changePasswordTitle">Mudar a palavra-passe</h1>
-                    <label for="currentPassword"><b>Palavra-passe atual:</b></label>
-                    <input type="password" placeholder="Escrever palavra-passe atual..." name="currentPassword" required>
-                    <label for="newPassword"><b>Nova palavra-passe:</b></label>
-                    <input type="password" placeholder="Escrever nova palvra-passe..." name="newPassword" required>
-                    <label for="confirmNewPassword"><b>Confirmar nova palavra-passe:</b></label>
-                    <input type="password" placeholder="Escrever nova palvra-passe..." name="confirmNewPassword" required>
-                    <button type="button" class="formButton" id="changePasswordSubmit" onclick="changePasswordHandler()">Confirmar</button>
-                </form>
-            </div>
-
-            <div id="changeUserNameBox">
-                <img class="cross" src="Recursos/cross.png" onclick="closeChangeUserNameBox()">
-                <form id="changeUserNameForm" autocomplete="off">
-                    <h1 class="changeUserNameTitle">Mudar o nome de utilizador</h1>
-                    <label for="newUserName"><b>Novo nome de utilizador:</b></label>
-                    <input type="text" placeholder="Escrever o novo nome de utilizador..." name="newUserName" required>
-                    <button type="button" class="formButton" id="changeUserNameSubmitButton" onclick="changeUserNameHandler()">Confirmar</button>
-                </form>
-            </div>
-
-            <div id="changeEmailBox">
-                <img class="cross" src="Recursos/cross.png" onclick="closeChangeEmailBox()">
-                <form id="changeEmailForm" autocomplete="off">
-                    <h1 class="changeEmailTitle">Mudar o email do utilizador</h1>
-                    <label for="currentEmail"><b>Novo email:</b></label>
-                    <input type="email" placeholder="Escrever novo email..." name="newEmail" required>
-                    <button type="button" class="formButton" id="changeEmailSubmitButton" onclick="changeEmailHandler()">Confirmar</button>
-                </form>
-            </div>
-
+            <!-- Titulo da Página-->
             <h3 class="title">Definições</h3>
 
+            <!-- Botão que permite voltar à página anterior (Memento) -->
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
-            
-            <div id="settingsInformation">
-                
-                <a id="settingsAvatarContainer" class="acrylic" ><img id="settingsAvatar" src="Recursos/Avatares/defaultAvatar.png"></a>
 
+            <!-- Botão Ajuda-->
+            <a href="notAvailable.html"> <img id="helpButton" src ="Recursos/help.png"></a>
+
+            <!-- Tabela que apresenta os dados pessoais do utilizador (nome de utiilizador, email e palavra-pase) -->
+            <div id="settingsInformation">
+                <a id="settingsAvatarContainer" class="acrylic" ><img id="settingsAvatar" src="Recursos/Avatares/defaultAvatar.png"></a>
                 <table id="settingsTable">
                     <tr>
                         <th id="settingsUserName">Nome de utilizador:</th>
                     </tr>
                     <tr>
+                        <!-- Nome do utilizador -->
                         <th id="stgsUserName"></th>
+                        <!-- Botão para editar o nome de utilizador -->
                         <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" onclick="openChangeUserNameBox()"></th>
                     </tr>
                     <tr>
-                        <th id="settingsUserName">E-mail:</th>
+                        <th id="settingsEmail">E-mail:</th>
                     </tr>
                     <tr>
+                        <!-- Email do utilizador -->
                         <th id="stgsEmail"></th>
+                        <!-- Botão para editar o email do utilizador -->
                         <th><img id="editSettingsIcon" src="Recursos/editIcon2.png" onclick="openChangeEmailBox()"></th>
                     </tr>
                     <tr>
+                        <!-- Botão para mudar o email do utilizador -->
                         <th><button id="changePasswordButton" onclick="openChangePasswordBox()">Mudar a palavra-passe</button></th>
                     </tr>
                     <tr>
+                        <!-- Botão que permite alterar entre LightMode e DarkMode -->
                         <th id="darkMode">Dark Mode</th>
-                        <th id="darkModeBtn"><input type="checkbox"> <span></span> </th>
+                        <th id="darkModeBtn"><input id="darkModeSwitch" type="checkbox" onclick="darkMode()"><span></span></th>
                     </tr>
-                
                 </table>
-
             </div>
 
-            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
+            <!-- Caixa de mudança de nome de utilizador (abre em popup) -->
+            <div id="changeUserNameBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangeUserNameBox()">
+                <form id="changeUserNameForm" autocomplete="off">
+                    <h1 class="changeUserNameTitle">Mudar o nome de utilizador</h1>
+                    <!-- Novo nome de utilizador -->
+                    <label for="newUserName"><b>Novo nome de utilizador:</b></label>
+                    <input type="text" placeholder="Escrever o novo nome de utilizador..." name="newUserName" required>
+                    <!-- Botão que confirma a mudança de nome de utilizador, altera na localStorage e fecha a changeUserNameBox -->
+                    <button type="button" class="formButton" id="changeUserNameSubmitButton" onclick="changeUserNameHandler()">Confirmar</button>
+                </form>
+            </div>
 
+            <!-- Caixa de mudança de email de utilizador (abre em popup) -->
+            <div id="changeEmailBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangeEmailBox()">
+                <form id="changeEmailForm" autocomplete="off">
+                    <h1 class="changeEmailTitle">Mudar o email do utilizador</h1>
+                    <!-- Novo email do utilizador -->
+                    <label for="currentEmail"><b>Novo email:</b></label>
+                    <input type="email" placeholder="Escrever novo email..." name="newEmail" required>
+                    <!-- Botão que confirma a mudança de email, altera na localStorage e fecha a changeEmailBox -->
+                    <button type="button" class="formButton" id="changeEmailSubmitButton" onclick="changeEmailHandler()">Confirmar</button>
+                </form>
+            </div>
 
+            <!-- Caixa de mudança de palavra-passe (abre em popup) -->
+            <div id="changePasswordBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangePasswordBox()">
+                <form id="changePasswordForm" autocomplete="off">
+                    <h1 class="changePasswordTitle">Mudar a palavra-passe</h1>
+                    <!-- Palavra-passe atual -->
+                    <label for="currentPassword"><b>Palavra-passe atual:</b></label>
+                    <input type="password" placeholder="Escrever palavra-passe atual..." name="currentPassword" required>
+                    <!-- Nova palavra-passe -->
+                    <label for="newPassword"><b>Nova palavra-passe:</b></label>
+                    <input type="password" placeholder="Escrever nova palvra-passe..." name="newPassword" required>
+                    <!-- Nova palavra-passe -->
+                    <label for="confirmNewPassword"><b>Confirmar nova palavra-passe:</b></label>
+                    <input type="password" placeholder="Escrever nova palvra-passe..." name="confirmNewPassword" required>
+                    <!-- Botão que confirma a mudança de palavra-passe, altera na localStorage e fecha a changePasswordBox -->
+                    <button type="button" class="formButton" id="changePasswordSubmit" onclick="changePasswordHandler()">Confirmar</button>
+                </form>
+            </div>
 
             <!-- BACKGROUND  -->
-
             <div class="area" >
                 <ul class="circles">
                         <li></li>
@@ -114,8 +136,10 @@
                         <li></li>
                         <li></li>
                 </ul>
-            </div >
+            </div>
 
         </div>
+
     </body>
+
 </html>

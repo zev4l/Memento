@@ -1,10 +1,11 @@
-<!-- Grupo: 23, Número: 55373, Nome: José Almeida, PL: 12 /
-/ Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
-/ Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */ -->
+<!-- FCUL Interação com Computadores
+53469, Pedro Luís, PL12, Grupo 23
+54975, Miguel Lages, PL12, Grupo 23
+55373, José Almeida, PL12, Grupo 23 -->
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-pt">
 
     <head>
         <meta charset="utf-8">
@@ -12,91 +13,99 @@
         <script src="Scripts/login.js"></script>
         <script src="Scripts/photos.js"></script>
         <script src="Scripts/editAlbum.js"></script>
+        <script src="Scripts/help.js"></script>
         <link rel="icon" type="image/png" href="Recursos/favicon.png"/>
         
-
         <title>Memento</title>
     </head>
-    <!-- ESTA CENA SERVE PARA QUE O RESTO DO ECRÃ FIQUE ESCURO QUANDO SE ABREM POPUPS -->
+
     <body> 
        
         <div id="container">
 
+            <!-- Dimmers (usados para alternar entre popup e backrgound alternando a opacidade de cada um) -->
             <div id="dimmer"></div>
 
+            <!-- Titulo da Página-->
+            <h3 class="title">Editar Álbum</h3>
+            
+            <!-- Botão que permite voltar à página anterior (Memento) -->
+            <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
+
+            <!-- Botão Ajuda-->
+            <a href="notAvailable.html"> <img id="helpButton" src ="Recursos/help.png"></a>
+
+            <div id="createNewAlbum">
+                <!-- Total de fotografias -->
+                <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
+                <!-- Permite visualizar as fotos à medidas que são importdas/adicionadas/removidas ao álbum a ser editado -->
+                <div id="photosPreview" class="acrylic">
+                    <!-- Aqui são dinâmicamente adicionados novos divs  -->
+                    <!-- <div></div>
+                    <div></div>
+                    <div></div> -->
+                </div>
+
+                <!-- Onde estão definidos os detalhes do álbum a ser editado -->
+                <div id="newAlbumDetails">
+                    <form autocomplete="off">
+                        <a>Nome: </a>
+                        <input id="newAlbumName" placeholder="Escreva um nome..." required>
+                    </form>
+                </div>
+                
+                <!-- Botão que permite remover fotos duplicadas -->
+                <a id="editRemoveDuplicatesButton" class="acrylic" onclick="removeDuplicatesHandler()">Remover Duplicadas</a>
+                <!-- Botão que permite remover fotos que apresentam má qualidade -->
+                <a id="removeWorse" class="acrylic" onclick="removeWorseHandler()">Remover Fotos de Má Qualidade</a>
+                <!-- Botão que permite apagar álbum -->
+                <a id="deleteAlbumButton" class="acrylic" onclick="openDeleteWarningBox()">Apagar Album</a>
+                <!-- Botão para guardar alterações feitas ao álbum -->
+                <a id="editSaveAlbumButton" class="acrylic" onclick="saveAlbum()">Guardar Album</a>
+                <!-- Botão que permite importar fotografias para o álbum a ser editado -->
+                <a id="editImportButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
+            </div>
+
+             <!-- Caixa de importação de fotografias (dá a escolher ao utilizador qual a forma de importação que deseja utilizar) -->
+             <div id="importBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeImportBox()">
+                <h2>Serviços Cloud:</h2>
+                <!-- OneDrive -->
+                <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
+                <!-- Google Drive -->
+                <img class="logo" onclick="importHandler('googleDrive')" src="Recursos/googleDrive.png">
+                <!-- DropBox -->
+                <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
+                <h2>Upload:</h2>
+                <!-- Local -->
+                <img class="logo" onclick="importHandler('local')" src="Recursos/upload.png">
+            </div>
+
+            <!-- Permite ao utilizador visualizar uma foto que se encontra no álbum a ser editado -->
+            <div id="photoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
+
+            <!-- Caixa de confirmação de remover fotos (duplicadas ou com baixa qualidade) -->
             <div id="confirmationBox">
                 <h1></h1>
                 <button id="confirmationButton1"></button>
                 <button id="confirmationButton2"></button>
             </div>
 
+            <!-- Caixa de notificação (aparece no canto superior direto quando o utilizador efetua determinadas ações) -->
             <div id="notificationBox"><img class="logo" src="Recursos/info.png"><h2></h2></div>
 
-
-            <div id="importBox">
-                <img class="cross" src="Recursos/cross.png" onclick="closeImportBox()">
-                <h2>Serviços Cloud:</h2>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
-                <img class="logo" onclick="importHandler('googleDrive')" src="Recursos/googleDrive.png">
-                <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
-                <h2>Upload:</h2>
-                <img class="logo" onclick="importHandler('local')" src="Recursos/upload.png">
-                
-                
-            </div>
-
-            <h3 class="title">EDITAR ÁLBUM</h3>
-
-            <div id="deleteWarningBox"><img src="Recursos/warning.png"><h1>Deseja mesmo apagar o álbum?</h1>
-            <button id="deleteYesButton" onclick="deleteAlbum()">Apagar</button><button id="deleteNoButton" onclick="closeDeleteWarningBox()">Cancelar</button> </div>
-
-            <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum editado com sucesso!</h1></div>
-
-            <div id="photoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
-
+            <!-- Informa o utilizador que já existe um álbum criado com o nome do álbum a ser editado -->
             <div id="warningBox"><img class="logo" src="Recursos/info.png"><h2>Já existe um album com esse nome!</h2></div>
 
-            <div id="createNewAlbum">
-                <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
-                <div id="photosPreview" class="acrylic">
-                    <!-- Aqui são dinâmicamente adicionados novos divs  -->
-                    <!-- <div></div>
-                    <div></div>
-                    <div></div> -->
-
-                </div>
-                <div id="newAlbumDetails">
-                    <form autocomplete="off">
-                        <a>Nome: </a>
-                        <input id="newAlbumName" placeholder="Escreva um nome..." required>
-                        <!-- <div id="newAlbumExtraDetails"> 
-                            <a>Filtrar:</a>
-                            <select id="newAlbumLocation" onchange="previewUpdater('subsequent')">
-                                <option value="" selected>Localização...</option>
-                            </select>
-                            <select id="newAlbumEvent" onchange="previewUpdater('subsequent')">
-                                <option value="" selected>Evento...</option>
-                            </select>
-                            <input type="date" id="newAlbumDate" name="newAlbumDate" onchange="previewUpdater('subsequent')">
-                            <button type="button" class="formButton"  id="saveAlbumButton" onclick="saveAlbum()">Guardar Álbum</button>
-                            <button type="button" class="formButton"  id="discardAlbumButton" onclick="goBack()">Descartar</button>    
-                        </div> -->
-                    </form>
-                </div>
-                <a id="editRemoveDuplicatesButton" class="acrylic" onclick="removeDuplicatesHandler()">Remover Duplicadas</a>
-                <a id="removeWorse" class="acrylic" onclick="removeWorseHandler()">Remover Fotos de Má Qualidade</a>
-                <a id="deleteAlbumButton" class="acrylic" onclick="openDeleteWarningBox()">Apagar Album</a>
-                <a id="editSaveAlbumButton" class="acrylic" onclick="saveAlbum()">Guardar Album</a>
-                <a id="editImportButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
-
-                
-            </div>
-            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
-
-            <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
+            <!-- Caixa de confrimação de apagar álbum (pergunta ao utilizador se tem a certeza que quer apagar o álbum) -->
+            <div id="deleteWarningBox"><img src="Recursos/warning.png"><h1>Deseja mesmo apagar o álbum?</h1>
+            <button id="deleteYesButton" onclick="deleteAlbum()">Apagar</button><button id="deleteNoButton" onclick="closeDeleteWarningBox()">Cancelar</button> </div>
             
-            <!-- BACKGROUND  -->
+            <!-- Caixa de confirmação de álbum editado (informa  o utilizar que o álbum foi editado com sucesso) -->
+            <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum editado com sucesso!</h1></div>
 
+            <!-- BACKGROUND  -->
             <div class="area" >
                 <ul class="circles">
                         <li></li>
@@ -110,13 +119,10 @@
                         <li></li>
                         <li></li>
                 </ul>
-            </div >
-
+            </div>
                 
         </div>
 
-
-
     </body>
+    
 </html>
-

@@ -21,7 +21,6 @@ function openAlbumViewer(event) {
 
     
 
-
     for (let i = 0; i<userAlbums.length; i++) {
         if (currentAlbumName == userAlbums[i].name) {
             currentAlbum = userAlbums[i]
@@ -53,7 +52,6 @@ function openAlbumViewer(event) {
         newDiv.appendChild(newImg)
         albumViewerSlider.appendChild(newDiv)
     
-    
     }
 
     // ABRIR ALBUMVIEWER
@@ -64,17 +62,11 @@ function openAlbumViewer(event) {
         dimmer.style.opacity = "1"
         albumViewer.style.opacity = "1"
         
-        
     },200)
 
     albumViewerTitle.innerHTML = currentAlbum.name
 
-
-
     albumViewerPictureCount.innerHTML = "(" + currentAlbum.photos.length + " fotografias)"
-
-
-
 
 }
 
@@ -96,8 +88,7 @@ function openPhotoViewer(event) {
     setTimeout(function() {
         dimmer2.style.opacity = "1"
         photoViewer.style.opacity = "1"
-        
-        
+              
     },200)
     
 }
@@ -113,7 +104,6 @@ function closePhotoViewer() {
 
         dimmer2.style.display = "none"
         photoViewer.style.display = "none"
-        
         
     },200)
     
@@ -199,7 +189,6 @@ function openExportBox(albumName) {
         dimmer.style.opacity = "1"
         exportBox.style.opacity = "1"
         
-        
     },200)
 }
 
@@ -214,7 +203,6 @@ function closeExportBox() {
         exportBox.style.display = "none"
         dimmer.style.display="none"
         
-
     },200)
 }
 
@@ -246,7 +234,6 @@ function exportHandler(scope) {
         location.href = "memento.html"
         
     },2000)
-
 
 }
 
@@ -285,6 +272,5 @@ function closeConfirmationBox() {
         confirmationBox.style.display = "none"
         dimmer.style.display="none"
         
-
     },200)
 }

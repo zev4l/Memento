@@ -1,11 +1,11 @@
-<!-- Grupo: 23, Número: 55373, Nome: José Almeida, PL: 12 /
-/ Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
-/ Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */ -->
+<!-- FCUL Interação com Computadores
+53469, Pedro Luís, PL12, Grupo 23
+54975, Miguel Lages, PL12, Grupo 23
+55373, José Almeida, PL12, Grupo 23 -->
 
 <!DOCTYPE html>
 
-
-<html lang="en">
+<html lang="pt-pt">
 
     <head>
         <meta charset="utf-8">
@@ -13,6 +13,7 @@
         <script src="Scripts/login.js"></script>
         <script src="Scripts/memento.js"></script>
         <script src="Scripts/photos.js"></script>
+        <script src="Scripts/help.js"></script>
         <link rel="icon" type="image/png" href="Recursos/favicon.png"/>
 
         <title>Memento</title>
@@ -30,50 +31,34 @@
             <img id="logo" src="Recursos/MEMENTO.png" height="150px" width="150px">
 
             <!-- Botões Login e Registar-->
-            <button id="loginButton" >ENTRAR</button>
+            <button id="loginButton">ENTRAR</button>
             <button id="registerButton" >REGISTAR</button>
-
-            <!-- Botão Perfil -->
-            <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
 
             <!-- Botão Logout -->
             <a onclick="signOutHandler()"><img id = "logoutButton" src="Recursos/signOut.png"></a>
 
-            <!-- Caixa de confirmação de Logout (pergunta ao utilizador se tem a certeza que quer fazer logout -->
+            <!-- Caixa de confirmação de Logout (pergunta ao utilizador se tem a certeza que quer fazer logout) -->
             <div id="confirmationBox">
                 <h1></h1>
                 <button id="confirmationButton1"></button>
                 <button id="confirmationButton2"></button>
             </div>
 
-            <div id="exportBox">
-                <h1>Partilhar <span></span> fotografias:</h1>
-                <img class="cross" src="Recursos/cross.png" onclick="closeExportBox()">
-                <h2>Serviços Cloud:</h2>
-                <a onclick="exportHandler()"><img class="logo" src="Recursos/oneDrive.png"></a>
-                <a onclick="importHandler('googleDrive')"><img class="logo" src="Recursos/googleDrive.png"></a>
-                <a onclick="exportHandler()"><img class="logo" src="Recursos/dropbox.png"></a>
-                <h2>Redes Sociais:</h2>
-                <a onclick="exportHandler()"><img class="logo" src="Recursos/instagram.png"></a>
-                <a onclick="exportHandler()"><img class="logo" src="Recursos/facebook.png"></a>
-                <a onclick="exportHandler()"><img class="logo" src="Recursos/twitter.png"></a>
-                <a onclick="exportHandler()"><img class="logo" src="Recursos/pinterest.png"></a>
-                <h2>Download (.zip):</h2>
-                <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
-                <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
-                <img id="exportConfirmationImage" src="Recursos/check.png">
-            </div>
+            <!-- Nome de utilizar ao lado do botão perfil -->
+            <a id="userNameHome"></a>
+            
+            <!-- Botão Perfil -->
+            <a href="profile.html"><img id="profileButton" src="Recursos/profileIcon.png"></a>
 
-            <button id="loginButton" >LOGIN</button>
-            <button id="registerButton" >REGISTAR</button>
             <!-- Botão Definições -->
             <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
             
             <!-- Botão Ajuda-->
-            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
+            <img id="helpButton" src ="Recursos/help.png" onclick="openHelpBox()">
 
             <!-- Caixa de Login (abre em popup) -->
             <div id="loginBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeLoginBox()">
                 
                 <form id="loginForm" autocomplete="off">
@@ -85,6 +70,7 @@
                     <label for="password"><b>Palavra-passe:</b></label> 
                     <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
                     
+                    <!-- Botão para para verificar os dados do utilizador e efetuar o login ou mostrar mensagens de erro -->
                     <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
                   
                 </form>
@@ -92,6 +78,7 @@
 
             <!-- Caixa de Registo (abre em popup) -->
             <div id="registerBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeRegisterBox()">
                 
                 <form id="registerForm" autocomplete="off">
@@ -123,7 +110,8 @@
                         <img src="./Recursos/Avatares/11.png" alt ="Avatar" class="avatar">
                         <img src="./Recursos/Avatares/12.png" alt ="Avatar" class="avatar">
                     </div> -->
-            
+                    
+                    <!-- Botão para para verificar os dados do utilizador, registar/criar a contra e efetuar o login ou mostrar mensagens de erro -->
                     <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
                   
                 </form>
@@ -132,11 +120,12 @@
             <!-- Caixa de confirmação de registo (indica que o registo foi feito com successo e faz login automático -->
             <div id="registerSuccessBox" onclick="openRegisterSuccessBox()"><img src="Recursos/check.png"><h1>Conta criada com sucesso! A entrar...</h1></div>
 
-            <!-- Titulo "Álbuns" que se aprenseta na página principal quando o utitlizador está logado na sua conta-->
+            <!-- Título "Álbuns" que se aprenseta na página principal quando o utitlizador está logado na sua conta-->
             <h3 class="title">Álbuns</h3>
 
-            <!-- TODO -->
+            <!-- Espaço de dedicado à criação de um novo álbum -->
             <div id="containerAlbums">
+                <!-- Botão para criar um novo álbum -->
                 <a id="newAlbumButton" class="acrylic albumButton" href="newAlbum.html">
                     <img id ="newAlbumIcon" src="Recursos/newAlbumIcon.png" alt="create a new album">
                 </a>
@@ -145,35 +134,104 @@
 
             </div>
 
-            <!-- TODO -->
+            <!-- Caixa que permite visualizar um álbum e o seu conteúdo -->
             <div id="albumViewer" class="acrylic">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeAlbumViewer()">
                 <h1 id="albumViewerTitle"></h1>
                 <h2 id="albumViewerPictureCount"></h2>
                 <div id="albumViewerSlider"></div>
             </div>
+            <!-- Permite ao utilizador visualizar uma foto que se encontra no álbum -->
             <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
 
             <!-- Caixa de de partilha de fotografias (abre em popup) -->
             <div id="exportBox">
                 <h1>Partilhar <span></span> fotografias:</h1>
+                <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeExportBox()">
                 <h2>Serviços Cloud:</h2>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/oneDrive.png"></a>
+                <!-- OneDrive -->
+                <a onclick="exportHandler()"><img class="logo" src="Recursos/oneDrive.png"></a>
+                <!-- Google Drive -->
                 <a onclick="importHandler('googleDrive')"><img class="logo" src="Recursos/googleDrive.png"></a>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/dropbox.png"></a>
+                <!-- DropBox -->
+                <a onclick="exportHandler()"><img class="logo" src="Recursos/dropbox.png"></a>
                 <h2>Redes Sociais:</h2>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/instagram.png"></a>
-                <a onclick="exportHandler('facebook')"><img class="logo" src="Recursos/facebook.png"></a>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/twitter.png"></a>
-                <a href="notAvailable.html"><img class="logo" src="Recursos/pinterest.png"></a>
+                <!--Instagram -->
+                <a onclick="exportHandler()"><img class="logo" src="Recursos/instagram.png"></a>
+                <!--Facebook -->
+                <a onclick="exportHandler()"><img class="logo" src="Recursos/facebook.png"></a>
+                <!--Twitter -->
+                <a onclick="exportHandler()"><img class="logo" src="Recursos/twitter.png"></a>
+                <!--Pinterest -->
+                <a onclick="exportHandler()"><img class="logo" src="Recursos/pinterest.png"></a>
                 <h2>Download (.zip):</h2>
+                <!-- Local -->
                 <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
                 <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
                 <img id="exportConfirmationImage" src="Recursos/check.png">
             </div>
 
-            <!-- BACKGROUND -->
+            <!-- Caixa de Ajuda (abre em popup)-->
+            <div id="helpBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
+                <div class="dropdownMemento">
+                    <a class="helpTitle">• Como posso criar um álbum novo?</a>
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection1()" id="helpViewer1">
+                    <div id="dropdownContent1" class="dropdownContentMemento">
+                        <a>Para criar um álbum novo basta clicar no botão "+".</a>
+                    </div>
+                </div>
+                <div class="dropdownMemento">
+                    <a class="helpTitle">• Como posso editar um álbum já criado?</a>
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection2()" id="helpViewer2">
+                    <div id="dropdownContent2" class="dropdownContentMemento">
+                        <a>Para editar um áblum já criado basta clicar no botão "editar" 
+                            que se encontra dentro do álbum a que pretendo fazer alterações.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownMemento">
+                    <a class="helpTitle">• Como posso partilhar um álbum já criado?</a>
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection3()" id="helpViewer3">
+                    <div id="dropdownContent3" class="dropdownContentMemento">
+                        <a>Para partilhar um ábum já criado basta clicar no botão "partilhar"
+                            que se encontra dentro do álbum a que pretendo partilhar.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownMemento">
+                    <a class="helpTitle">• Como posso aceder ao meu perfil?</a>
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection4()" id="helpViewer4">
+                    <div id="dropdownContent4" class="dropdownContentMemento">
+                        <a>Para aceder ao seu perfil basta clicar no botão "perfil"
+                            que se encontra no canto superior direito do seu ecrã.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownMemento">
+                    <a class="helpTitle">• Como posso aceder às definições?</a>
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection5()" id="helpViewer5">
+                    <div id="dropdownContent5" class="dropdownContentMemento">
+                        <a>Para aceder às definições basta clicar no botão "definições"
+                            que se encontra no canto superior direito do seu ecrã.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownMemento">
+                    <a class="helpTitle">• Como posso sair da minha conta?</a>
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection6()" id="helpViewer6">
+                    <div id="dropdownContent6" class="dropdownContentMemento">
+                        <a>Para sair da sua conta basta clicar no botão "logout"
+                            que se encontra no canto inferior esquerdo do seu ecrã.
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BACKGROUND  -->
             <div class="area" >
                 <ul class="circles">
                         <li></li>
@@ -187,9 +245,10 @@
                         <li></li>
                         <li></li>
                 </ul>
-            </div >
+            </div>
 
         </div>
 
     </body>
+
 </html>

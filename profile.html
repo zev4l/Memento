@@ -1,10 +1,10 @@
-<!-- Grupo: 23, Número: 55373, Nome: José Almeida, PL: 12 /
-/ Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
-/ Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */ -->
-
+<!-- FCUL Interação com Computadores
+53469, Pedro Luís, PL12, Grupo 23
+54975, Miguel Lages, PL12, Grupo 23
+55373, José Almeida, PL12, Grupo 23 -->
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-pt">
 
     <head>
         <meta charset="utf-8">
@@ -14,27 +14,39 @@
         <script src="Scripts/newAlbum.js"></script>
         <script src="Scripts/memento.js"></script>
         <script src="Scripts/profile.js"></script>
+        <script src="Scripts/help.js"></script>
         <link rel="icon" type="image/png" href="Recursos/favicon.png"/>
 
         <title>Profile</title>
     </head>
+
     <body id="profile"> 
        
         <div id="container">
 
+             <!-- Titulo da Página-->
             <h3 class="title">Perfil</h3>
-
+            
+            <!-- Botão que permite voltar à página anterior (Memento) -->
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
 
+            <!-- Botão Ajuda-->
+            <a href="notAvailable.html"> <img id="helpButton" src ="Recursos/help.png"></a>
+
+            <!-- Local onde se encontra o Avatar do utilizador -->
             <a id="profileAvatarContainer" class="acrylic"><img id ="profileAvatar" src="Recursos/Avatares/defaultAvatar.png"></a>
 
-
+            <!-- Tabela que disponibiliza a informação sobre o utilizador (álbuns criados, total de fotografias, total de fotografias partilhadas -->
             <table id="profileStatsTable">
                 <tr id="profileTableData">
+                    <!-- Número de albuns criados -->
                     <th id="totalProfileAlbuns"></th>
+                    <!-- Número de fotografias -->
                     <th id="totalProfilePhotos"></th>
+                    <!-- Número de fotografias partilhadas -->
                     <th id="sharedProfilePhotos"></th>
                 </tr>
+                <!-- Legenda/indicador dos números apresentados -->
                 <tr id="profileTableSubtitle">
                     <th>Álbuns criados </th>
                     <th>Total de fotografias</th>
@@ -42,12 +54,7 @@
                 </tr>
             </table>
             
-
-            <a href="notAvailable.html"> <img class="help" src ="Recursos/help.png"></a>
-
-
             <!-- BACKGROUND  -->
-
             <div class="area" >
                 <ul class="circles">
                         <li></li>
@@ -61,9 +68,10 @@
                         <li></li>
                         <li></li>
                 </ul>
-            </div >
+            </div>
 
         </div>
-    </body>
-</html>
 
+    </body>
+
+</html>
