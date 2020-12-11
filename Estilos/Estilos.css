@@ -1085,6 +1085,7 @@ input[type="checkbox"] {
     cursor: pointer;
     width: 27px;
     margin-left: 89%;
+    transition: all 200ms linear;
 }
 
 .dropdownMemento, .dropdownNewAlbum {
@@ -1092,6 +1093,7 @@ input[type="checkbox"] {
     margin-top: 50px;
     width: 100%;
     display: inline-block;
+    transition: all 200ms linear;
 }
 
 .dropdownNewAlbum {
@@ -1099,7 +1101,6 @@ input[type="checkbox"] {
 }
 
 .dropdownContentMemento, .dropdownContentNewAlbum {
-    display: none;
     position: absolute;
     width: 85%;
     height: 310%;
@@ -1108,6 +1109,9 @@ input[type="checkbox"] {
     border: solid 4px white;
     border-radius: 5px;
     background-color: var(--HELP);
+    transition: all 200ms linear;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .dropdownContentNewAlbum {
@@ -1119,11 +1123,14 @@ input[type="checkbox"] {
     text-decoration: none;
     text-align: justify;
     display: block;
-    padding: 12px 30px;    
+    padding: 12px 30px;
 }
 
 .show {
-    display:block;}
+    display: block;
+    transition: all 200ms linear;
+    opacity: 1;
+}
 
 /*--------------------------------------------------------------------
 ---------------------------- BACKGROUND ------------------------------

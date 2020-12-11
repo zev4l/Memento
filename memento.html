@@ -191,29 +191,30 @@
                 <img id="exportConfirmationImage" src="Recursos/check.png">
             </div>
 
+                        <!-- Caixa de Ajuda (abre em popup)-->
             <!-- Caixa de Ajuda (abre em popup)-->
             <div id="helpBox">
                 <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso criar um álbum novo?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection()" id="helpViewer1">
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(1)" id="helpViewer1">
                     <div id="dropdownContent1" class="dropdownContentMemento">
                         <a>Para criar um álbum novo basta clicar no botão "+".</a>
                     </div>
                 </div>
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso editar um álbum já criado?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection2()" id="helpViewer2">
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(2)" id="helpViewer2">
                     <div id="dropdownContent2" class="dropdownContentMemento">
-                        <a>Para editar um áblum já criado basta clicar no botão "editar" 
+                        <a>Para editar um álbum já criado basta clicar no botão "editar" 
                             que se encontra dentro do álbum a que pretendo fazer alterações.
                         </a>
                     </div>
                 </div>
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso partilhar um álbum já criado?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection3()" id="helpViewer3">
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(3)" id="helpViewer3">
                     <div id="dropdownContent3" class="dropdownContentMemento">
                         <a>Para partilhar um ábum já criado basta clicar no botão "partilhar"
                             que se encontra dentro do álbum que pretendo partilhar.
@@ -222,7 +223,7 @@
                 </div>
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso aceder ao meu perfil?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection4()" id="helpViewer4">
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(4)" id="helpViewer4">
                     <div id="dropdownContent4" class="dropdownContentMemento">
                         <a>Para aceder ao seu perfil basta clicar no botão "perfil"
                             que se encontra no canto superior direito do seu ecrã.
@@ -231,7 +232,7 @@
                 </div>
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso aceder às definições?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection5()" id="helpViewer5">
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(5)" id="helpViewer5">
                     <div id="dropdownContent5" class="dropdownContentMemento">
                         <a>Para aceder às definições basta clicar no botão "definições"
                             que se encontra no canto superior direito do seu ecrã.
@@ -240,7 +241,7 @@
                 </div>
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso sair da minha conta?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection6()" id="helpViewer6">
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(6)" id="helpViewer6">
                     <div id="dropdownContent6" class="dropdownContentMemento">
                         <a>Para sair da sua conta basta clicar no botão "logout"
                             que se encontra no canto inferior esquerdo do seu ecrã.

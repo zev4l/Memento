@@ -34,32 +34,18 @@ function closeHelpBox() {
     },200)
 }
 
-function openHelpSelection1() {
-    document.getElementById("dropdownContent1").classList.toggle("show");
-    document.getElementById("helpViewer1").style.transform = "rotate(180deg)";
-}
+function toggleHelpSection(arg) {
 
-function openHelpSelection2() {
-    document.getElementById("dropdownContent2").classList.toggle("show");
-    document.getElementById("helpViewer2").style.transform = "rotate(180deg)";
-}
+    let dropdownContent = document.querySelector(`#dropdownContent${arg}`)
+    let helpViewer = document.querySelector(`#helpViewer${arg}`)
 
-function openHelpSelection3() {
-    document.getElementById("dropdownContent3").classList.toggle("show");
-    document.getElementById("helpViewer3").style.transform = "rotate(180deg)";
-}
+    dropdownContent.classList.toggle("show");
 
-function openHelpSelection4() {
-    document.getElementById("dropdownContent4").classList.toggle("show");
-    document.getElementById("helpViewer4").style.transform = "rotate(180deg)";
-}
-
-function openHelpSelection5() {
-    document.getElementById("dropdownContent5").classList.toggle("show");
-    document.getElementById("helpViewer5").style.transform = "rotate(180deg)";
-}
-
-function openHelpSelection6() {
-    document.getElementById("dropdownContent6").classList.toggle("show");
-    document.getElementById("helpViewer6").style.transform = "rotate(180deg)";
+    if (helpViewer.style.transform != "rotate(180deg)") {
+        helpViewer.style.transform = "rotate(180deg)";
+    }
+    else {
+        helpViewer.style.transform = "rotate(0deg)";
+    }
+        
 }

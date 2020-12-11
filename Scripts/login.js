@@ -338,6 +338,14 @@ function signOut(){
     updateAccounts()
     menuElementToggle()
 
+    var backgroundColor = document.querySelector(":root");
+
+    backgroundColor.style.setProperty("--BACKGROUND1", "rgb(100, 94, 255)");
+    backgroundColor.style.setProperty("--NOTIFICATION", "rgb(82, 76, 252)");
+    backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(97, 92, 255, 0.55)");
+    backgroundColor.style.setProperty("--NEWALBUMNAME", "rgb(15, 2, 21)");
+    backgroundColor.style.setProperty("--HELP", "rgb(51, 61, 221)");
+
 }
 
 function goBack() {
