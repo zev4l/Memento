@@ -10,7 +10,6 @@
 :root {
     --BACKGROUND1: rgb(100, 94, 255); /* darkMode: rgb(43, 39, 39) */
     --NOTIFICATION: rgb(82, 76, 252);
-    --CONFIRMATIONBOX: rgb(99, 94, 255);
     --ALBUMVIEWER: rgb(97, 92, 255, 0.55); 
     --NEWALBUMNAME: rgb(15, 2, 21); /*darkMode: white */
     --HELP: rgb(51, 61, 221);
@@ -282,7 +281,7 @@ body {
     border-radius: 5px;
     line-height: 70px;
     cursor: pointer;
-    background-color: var(--CONFIRMATIONBOX);
+    background-color: var(--BACKGROUND1);
     display: none;
 }
 
@@ -300,7 +299,7 @@ body {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 25%;
-    height: 60%;
+    height: 62%;
     background-color: var(--BACKGROUND1);
     transition: all 200ms linear;
     opacity: 0;
@@ -328,7 +327,13 @@ body {
 */
 
 #loginBox {
-    height: 50%;
+    height: 51%;
+}
+
+#login2Register, #register2Login {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #loginForm, #registerForm, #changePasswordForm, #changeUserNameForm, #changeEmailForm {
@@ -352,15 +357,15 @@ body {
 
 .formButton {
     cursor: pointer;
+    width: 88%;
+    height: 50px;
+    font-size: 15px;
     bottom: -100px;
     transition: 200ms ease;
     font-weight: bold;
     background-color: white;
 }
 
-.formButton:hover {
-    transform: scale(1.1);
-}
 
 /*--------------------------------------------------------------------
 ------------------------------ MEMENTO -------------------------------
@@ -533,8 +538,7 @@ body {
 }
 
 #changePasswordButton {
-    background: none;
-    border: none;
+    margin-left: 22.5%;
     color: white;
     font-size: 23px;
     cursor: pointer;
@@ -959,7 +963,7 @@ input[type="checkbox"] {
     border: solid 10px white;
     border-radius: 5px;
     z-index: 9;
-    background-color: var(--CONFIRMATIONBOX);
+    background-color: var(--BACKGROUND1);
     color: white;
     text-align: center;
     transition: 600ms ease;

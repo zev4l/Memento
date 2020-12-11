@@ -361,3 +361,14 @@ function openRegisterSuccessBox() {
 function signOutHandler() {
     openConfirmationBox("Deseja mesmo sair?", "Sim", "Não", signOut)
 }
+
+
+function login2Register() {
+    closeLoginBox();
+    openRegisterBox();
+}
+
+function register2Login() {
+    closeRegisterBox();
+    openLoginBox();
+}

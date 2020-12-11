@@ -73,13 +73,13 @@ function validateUserName(newUserName) {
 
 
     if (newUserName == currentAccount.username) {
-        showChangeUserNameErrorMessage("NOVO NOME DE UTILIZADOR IGUAL AO ATUAL");
+        showChangeUserNameErrorMessage("NOVO NOME IGUAL AO ATUAL");
         return false
     }
   
     for (let i=0; i<accountArray.length; i++){
         if (accountArray[i].username == newUserName) {
-            showChangeUserNameErrorMessage("NOVO NOME DE UTILIZADOR INDISPONÍVEL")
+            showChangeUserNameErrorMessage("NOVO NOME INDISPONÍVEL")
             return false
         }
 
@@ -177,13 +177,14 @@ function validateEmail(newEmail) {
 
     if (newEmail == currentAccount.email) {
         showChangeEmailErrorMessage("NOVO E-MAIL IGUAL AO ATUAL");
+
         return false
     }
 
     for (let i=0; i<accountArray.length; i++){
         if (accountArray[i].email == newEmail) {
-            console.log("here")
             showChangeEmailErrorMessage("NOVO E-MAIL INDISPONÍVEL")
+
             return false
         }
 
@@ -204,6 +205,7 @@ function showChangeEmailErrorMessage(arg) {
 
     changeEmailSubmit.innerText = arg;
     changeEmailSubmit.style.backgroundColor = "red";
+
 
     emailErrorTimeoutID = setTimeout(function() {
 
@@ -368,6 +370,10 @@ function darkMode() {
     if(darkModeSwitch){
 
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+        backgroundColor.style.setProperty("--NOTIFICATION", "rgb(26, 23, 23)");
+        backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(29, 28, 28)");
+        backgroundColor.style.setProperty("--NEWALBUMNAME", "rgb(255, 255, 255)");
+        backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
         darkModeSwitch.checked = "1";
         currentAccount.darkmode = true;
         updateData()
@@ -375,6 +381,10 @@ function darkMode() {
     } else {
 
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(100, 94, 255)");
+        backgroundColor.style.setProperty("--NOTIFICATION", "rgb(82, 76, 252)");
+        backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(97, 92, 255, 0.55)");
+        backgroundColor.style.setProperty("--NEWALBUMNAME", "rgb(15, 2, 21)");
+        backgroundColor.style.setProperty("--HELP", "rgb(51, 61, 221)");
         currentAccount.darkmode = false;
         updateData()
     }

@@ -24,7 +24,12 @@
             var backgroundColor = document.querySelector(":root");
             if(currentAccount.darkmode == true){
                 backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+                backgroundColor.style.setProperty("--NOTIFICATION", "rgb(26, 23, 23)");
+                backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(29, 28, 28)");
+                backgroundColor.style.setProperty("--NEWALBUMNAME", "rgb(255, 255, 255)");
+                backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
             }
+
 
 
         </script>
@@ -74,7 +79,7 @@
                     </tr>
                     <tr>
                         <!-- Botão para mudar o email do utilizador -->
-                        <th><button id="changePasswordButton" onclick="openChangePasswordBox()">Mudar a palavra-passe</button></th>
+                        <th><a id="changePasswordButton" onclick="openChangePasswordBox()">Mudar a palavra-passe</a></th>
                     </tr>
                     <tr>
                         <!-- Botão que permite alterar entre LightMode e DarkMode -->
@@ -89,7 +94,7 @@
                 <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeChangeUserNameBox()">
                 <form id="changeUserNameForm" autocomplete="off">
-                    <h1 class="changeUserNameTitle">Mudar o nome de utilizador</h1>
+                    <h1 class="changeUserNameTitle">Mudar o<br>nome de utilizador</h1>
                     <!-- Novo nome de utilizador -->
                     <label for="newUserName"><b>Novo nome de utilizador:</b></label>
                     <input type="text" placeholder="Escrever o novo nome de utilizador..." name="newUserName" required>
@@ -103,7 +108,7 @@
                 <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeChangeEmailBox()">
                 <form id="changeEmailForm" autocomplete="off">
-                    <h1 class="changeEmailTitle">Mudar o email do utilizador</h1>
+                    <h1 class="changeEmailTitle">Mudar o <br> email do utilizador</h1>
                     <!-- Novo email do utilizador -->
                     <label for="currentEmail"><b>Novo email:</b></label>
                     <input type="email" placeholder="Escrever novo email..." name="newEmail" required>
@@ -117,7 +122,7 @@
                 <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeChangePasswordBox()">
                 <form id="changePasswordForm" autocomplete="off">
-                    <h1 class="changePasswordTitle">Mudar a palavra-passe</h1>
+                    <h1 class="changePasswordTitle">Mudar a<br>palavra-passe</h1>
                     <!-- Palavra-passe atual -->
                     <label for="currentPassword"><b>Palavra-passe atual:</b></label>
                     <input type="password" placeholder="Escrever palavra-passe atual..." name="currentPassword" required>

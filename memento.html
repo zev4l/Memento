@@ -22,6 +22,10 @@
             var backgroundColor = document.querySelector(":root");
             if(currentAccount.darkmode == true){
                 backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+                backgroundColor.style.setProperty("--NOTIFICATION", "rgb(26, 23, 23)");
+                backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(29, 28, 28)");
+                backgroundColor.style.setProperty("--NEWALBUMNAME", "rgb(255, 255, 255)");
+                backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
             }
 
         </script>
@@ -82,7 +86,8 @@
                     
                     <!-- Botão para para verificar os dados do utilizador e efetuar o login ou mostrar mensagens de erro -->
                     <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Entrar</button>
-                  
+                    
+                    <a id="login2Register" onclick="login2Register()"> Não tem conta? Registe-se!</a>
                 </form>
             </div>
 
@@ -123,7 +128,8 @@
                     
                     <!-- Botão para para verificar os dados do utilizador, registar/criar a contra e efetuar o login ou mostrar mensagens de erro -->
                     <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
-                  
+                    
+                    <a id="login2Register" onclick="register2Login()"> Já tem conta? Entre aqui!</a>
                 </form>
             </div>
             
@@ -191,7 +197,7 @@
                 <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
                 <div class="dropdownMemento">
                     <a class="helpTitle">• Como posso criar um álbum novo?</a>
-                    <img src="Recursos/dropdown.png" onclick="openHelpSelection1()" id="helpViewer1">
+                    <img src="Recursos/dropdown.png" onclick="openHelpSelection()" id="helpViewer1">
                     <div id="dropdownContent1" class="dropdownContentMemento">
                         <a>Para criar um álbum novo basta clicar no botão "+".</a>
                     </div>

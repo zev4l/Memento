@@ -37,7 +37,6 @@ function closeHelpBox() {
 function openHelpSelection1() {
     document.getElementById("dropdownContent1").classList.toggle("show");
     document.getElementById("helpViewer1").style.transform = "rotate(180deg)";
-
 }
 
 function openHelpSelection2() {
