@@ -86,6 +86,11 @@ body {
     color: white;
 }
 
+@font-face {
+    font-family: Bebas;
+    src: url('BebasNeue-Regular');
+}
+
 #logo{
     position: absolute;
     width: 10%;
