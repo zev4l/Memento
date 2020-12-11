@@ -460,7 +460,7 @@ body {
     overflow: hidden;
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 8%;
+    margin-bottom: 10%;
     font-size: 25px;
 }
 
@@ -468,8 +468,10 @@ body {
     vertical-align: middle;
     width: 65px;
     height: 65px;
-    margin-top: 5px;
     border-radius: 50%;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 #profileStatsTable {
@@ -526,6 +528,7 @@ body {
     position: relative;
     object-fit: cover;
     width: 100%;
+    transition: all 200ms linear;
 }
 
 #changeAvatar {
@@ -1169,7 +1172,8 @@ input[type="checkbox"] {
     transition: all 200ms linear;
 }
 
-.dropdownMemento, .dropdownNewAlbum, .dropdownEditAlbum, .dropdownSettings {
+.dropdownMemento, .dropdownNewAlbum, .dropdownEditAlbum, 
+.dropdownSettings, .dropdownProfile {
     position: relative;
     margin-top: 50px;
     width: 100%;
@@ -1182,7 +1186,7 @@ input[type="checkbox"] {
 }
 
 .dropdownContentMemento, .dropdownContentNewAlbum, .dropdownContentEditAlbum,
-.dropdownContentSettings {
+.dropdownContentSettings, .dropdownContentProfile {
     position: absolute;
     width: 85%;
     height: 310%;
@@ -1201,7 +1205,7 @@ input[type="checkbox"] {
 }
 
 .dropdownContentMemento a, .dropdownContentNewAlbum a, .dropdownContentEditAlbum a,
-.dropdownContentSettings a {
+.dropdownContentSettings a, .dropdownContentProfile a {
     font-size: 22px;
     text-decoration: none;
     text-align: justify;

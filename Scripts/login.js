@@ -33,7 +33,8 @@ class Account {
         this.email = email,
         this.albums = [],
         this.sharedPhotos = 0,
-        this.darkmode = false
+        this.darkmode = false,
+        this.avatar = "default"
     }
 }
 
@@ -310,6 +311,10 @@ function menuElementToggle() {
     }
 
     if (currentAccount) {
+
+        let userNameHome = document.querySelector("#userNameHome");
+        userNameHome.innerText = currentAccount.username;
+
         document.getElementById("loginButton").style.display = "none"
         document.getElementById("registerButton").style.display = "none"
         document.getElementsByClassName("title")[0].style.display ="block"

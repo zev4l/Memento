@@ -66,55 +66,10 @@ function previewUpdater(scope){
         
         }
 
-        // selectedPhotos = [...currentPhotos]
-
         actionToggler()
 
     }
 
-    // if (scope=="filtered") {
-    //     // remover fotos que estavam lá antes
-
-    //     while (previewBox.lastElementChild) {
-    //         previewBox.removeChild(previewBox.lastElementChild);
-    //     }
-
-        
-    //     let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
-    //     let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
-    //     let selectedDate = dateSelector.value
-
-    //     selectedPhotos = []
-
-        
-    //     for (let i = 0; i < currentPhotos.length; i++) {
-    //         let currentPicture = currentPhotos[i];
-
-
-    //         if((selectedLocation == "Localização..." || currentPicture.local == selectedLocation) && 
-    //         (selectedEvent == "Evento..." || currentPicture.event == selectedEvent) && 
-    //         (selectedDate == "" || currentPicture.date == selectedDate)) {
-     
-    //             let newDiv = document.createElement("div");
-    //             let newImg = document.createElement("img");
-                    
-               
-    //             newImg.setAttribute("src", currentPicture.path);
-    //             newImg.addEventListener("click", openPhotoViewer)
-            
-    //             newDiv.appendChild(newImg)
-    //             previewBox.appendChild(newDiv)
-
-    //             selectedPhotos.push(currentPicture)
-
-            
-    //         }
-        
-    //     }
-
-    //     counter.innerHTML = selectedPhotos.length
-
-    // }
 }
 
 function openImportBox() {
@@ -169,6 +124,25 @@ function importHandler(source) {
 
 
     }
+
+    if (source == "oneDrive") {
+        for (let i = 0; i < oneDrivePhotos.length; i++) {
+            currentPhotos.push(oneDrivePhotos[i])
+
+        }
+        previewUpdater("regular")
+        showNotification(`Foram importadas ${oneDrivePhotos.length} fotografias.`)
+    }
+
+    if (source == "dropbox") {
+        for (let i = 0; i < dropboxPhotos.length; i++) {
+            currentPhotos.push(dropboxPhotos[i])
+
+        }
+        previewUpdater("regular")
+        showNotification(`Foram importadas ${dropboxPhotos.length} fotografias.`)
+    }
+    
 
     closeImportBox()
 }
@@ -644,32 +618,20 @@ function removeSelected() {
         indexesToRemove.push(index)
     }
 
-    console.log(selectedDivs)
-    openConfirmationBox("Deseja mesmo sair?\n Todas as alteraçõs que fez serão perdidas.", "Sim", "Não", function() {
-        location.href = "memento.html"
-    })
-
-}
-   indexesToRemove.sort((a, b) => b - a)
+    indexesToRemove.sort((a, b) => b - a)
 
     for (let i = 0; i < indexesToRemove.length; i++) {
         currentPhotos.splice(indexesToRemove[i], 1)
     }
 
-    console.log(indexesToRemove)
-
 
     selection = true
     toggleSelection()
     closeConfirmationBox()
-<<<<<<< Updated upstream
-    previewUpdater("regular")
-=======
     previewUpdater("regular") 
 }
 
 function exitHandler() {
->>>>>>> Stashed changes
     
 }
 
@@ -682,4 +644,10 @@ function recreateNode(el, withChildren) {
       while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
       el.parentNode.replaceChild(newEl, el);
     }
-  }
+}
+
+function exitHandler() {
+    openConfirmationBox("Deseja mesmo sair?\n Todas as alteraçõs que fez serão perdidas.", "Sim", "Não", function() {
+        location.href = "memento.html"
+    })
+}

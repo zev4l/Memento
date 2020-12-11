@@ -28,8 +28,6 @@
                 backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
             }
 
-
-
         </script>
 
         <title>Profile</title>
@@ -39,14 +37,21 @@
        
         <div id="container">
 
-             <!-- Titulo da Página-->
+            <!-- Dimmers (usados para alternar entre popup e backrgound alternando a opacidade de cada um) -->
+            <div id="dimmer"></div>
+            <div id="dimmer2"></div>
+
+            <!-- Titulo da Página-->
             <h3 class="title">Perfil</h3>
             
             <!-- Botão que permite voltar à página anterior (Memento) -->
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
 
-            <!-- Botão Ajuda-->
-            <a href="notAvailable.html"> <img id="helpButton" src ="Recursos/help.png"></a>
+            <!-- Botão Definições -->
+            <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
+
+            <!-- Botão Ajuda (abre em popup) -->
+            <img id="helpButton" src ="Recursos/help.png" onclick="openHelpBox()">
 
             <!-- Local onde se encontra o Avatar do utilizador -->
             <a id="profileAvatarContainer" class="acrylic"><img id ="profileAvatar" src="Recursos/Avatares/defaultAvatar.png"></a>
@@ -69,6 +74,22 @@
                 </tr>
             </table>
             
+            <!-- Caixa de Ajuda (abre em popup)-->
+            <div id="helpBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
+                <div class="dropdownProfile">
+                    <a class="helpTitle">• Como faço para mudar o meu avatar?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(1)" id="helpViewer1">
+                    <div id="dropdownContent1" class="dropdownContentProfile">
+                        <a>Para mudar o avatar é necessário direcionar-se às definições. Para tal, basta
+                            clicar no botão <img class="helpIcon" src="Recursos/settingsIcon.png"> que se encontra
+                            no canto superior de direito do seu ecrã.
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- BACKGROUND  -->
             <div class="area" >
                 <ul class="circles">

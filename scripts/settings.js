@@ -13,6 +13,8 @@ window.onload = userSettings
 
 function userSettings() {
 
+    updateAvatarView()
+
     let stgsUserName = document.querySelector("#stgsUserName");
 
     stgsUserName.innerText = currentAccount.username;
@@ -28,6 +30,13 @@ function userSettings() {
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
         
     }
+
+    let avatars = document.getElementsByClassName("avatar")
+
+    for (let i = 0; i < avatars.length; i++) {
+        avatars[i].addEventListener("click", toggleSelectClass)
+    }
+
 }
 
 function initial() {
@@ -363,6 +372,17 @@ function showNotification(text) {
 
 function openChangeAvatarBox() {
 
+    if (currentAccount.avatar != "default") {
+        let avatars = document.getElementsByClassName("avatar")
+
+        for (let i = 0; i < avatars.length; i++) {
+            if (avatars[i].src.includes(currentAccount.avatar)) {
+                avatars[i].classList.add("selected")
+            }
+            
+        }
+    }
+
     let changeAvatarBox = document.getElementById("changeAvatarBox");
     let dimmer = document.getElementById("dimmer")
 
@@ -417,4 +437,43 @@ function darkMode() {
         updateData()
     }
 
+}
+
+function changeAvatarHandler() {
+
+    let selectedAvatar = document.getElementsByClassName("selected")[0]
+
+    let selectedAvatarPath = selectedAvatar.src
+
+    selectedAvatarPath = selectedAvatarPath.substr(selectedAvatarPath.indexOf("Recursos/Avatares/"))
+
+    currentAccount.avatar = selectedAvatarPath
+
+    updateData()
+
+    closeChangeAvatarBox()
+
+    updateAvatarView()
+
+    showNotification("O seu Avatar foi alterado!")
+}
+
+function toggleSelectClass() {
+
+    let avatars = document.getElementsByClassName("avatar")
+
+    for (let i = 0; i < avatars.length; i++) {
+        avatars[i].classList.remove("selected")
+    }
+
+    this.classList.toggle("selected")
+}
+
+function updateAvatarView() {
+
+    if (currentAccount.avatar != "default") {
+        let avatarBox = document.querySelector("#settingsAvatar")
+
+        avatarBox.src = currentAccount.avatar
+    }
 }

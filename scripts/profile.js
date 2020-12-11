@@ -7,6 +7,15 @@
 
 window.onload = function profileStats() {
 
+
+    if (currentAccount.avatar != "default") {
+        let avatarBox = document.querySelector("#profileAvatar")
+        avatarBox.src = currentAccount.avatar
+    }
+    
+
+    
+
     let userAlbums = currentAccount.albums; 
 
     let totalProfileAlbuns = document.querySelector("#totalProfileAlbuns");

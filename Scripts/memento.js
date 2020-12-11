@@ -150,9 +150,6 @@ function closeAlbumViewer() {
 
 function fillAlbums() {
 
-    let userNameHome = document.querySelector("#userNameHome");
-    userNameHome.innerText = currentAccount.username;
-
     let albumBox = document.querySelector("#containerAlbums")
 
     currentAlbumCount = albumBox.childElementCount
@@ -186,6 +183,8 @@ function fillAlbums() {
         newDiv.appendChild(newDivText)
         newDiv.appendChild(editButton)
         newDiv.appendChild(shareButton)
+
+        newDiv.classList.add("acrylic")
 
         albumBox.appendChild(newDiv)
 

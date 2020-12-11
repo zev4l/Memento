@@ -55,7 +55,7 @@
 
             <!-- Tabela que apresenta os dados pessoais do utilizador (nome de utiilizador, email e palavra-pase) -->
             <div id="settingsInformation">
-                <a id="settingsAvatarContainer" class="acrylic" ><img id="settingsAvatar" src="Recursos/Avatares/2.png"></a>
+                <a id="settingsAvatarContainer" class="acrylic" ><img id="settingsAvatar" src="Recursos/Avatares/defaultAvatar.png"></a>
                 <a id="changeAvatar" onclick="openChangeAvatarBox()">Editar <img id="editAvatarIcon" src="Recursos/editIcon2.png"></a>
                 <table id="settingsTable">
                     <tr>
@@ -140,7 +140,6 @@
             <div id="changeAvatarBox">
                 <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeChangeAvatarBox()">
-                <form id="changeEmailForm" autocomplete="off">
                     <div id="escolhaAvatar"><h3>Selecione o avatar</h3>
                         <img src="./Recursos/Avatares/1.png" class="avatar">
                         <img src="./Recursos/Avatares/2.png" class="avatar">
@@ -155,9 +154,7 @@
                         <img src="./Recursos/Avatares/11.png" class="avatar">
                         <img src="./Recursos/Avatares/12.png" class="avatar">
                     </div>
-
-                    <button type="button" class="formButton" id="changePasswordSubmit" onclick="changePasswordHandler()">Confirmar</button>
-                </form>
+                    <button type="button" class="formButton" id="changeAvatarSubmit" onclick="changeAvatarHandler()">Confirmar</button>
             </div>
 
             <!-- Caixa de Ajuda (abre em popup)-->
@@ -186,7 +183,7 @@
                     <a class="helpTitle">• Como mudar a minha a palavra-passe?</a>
                     <img src="Recursos/dropdown.png" onclick="toggleHelpSection(3)" id="helpViewer3">
                     <div id="dropdownContent3" class="dropdownContentSettings">
-                        <a>Para mudar a palavra-passe basta clicar no botão "Mudar a palavra-pase". É necessário
+                        <a>Para mudar a palavra-passe basta clicar no botão "Mudar a palavra-passe". É necessário
                             que tenha conhecimento da sua palavra-pase atual para efetuar esta alteração.
                         </a>
                     </div>
@@ -195,7 +192,7 @@
                     <a class="helpTitle">• Como faço para mudar o meu avatar?</a>
                     <img src="Recursos/dropdown.png" onclick="toggleHelpSection(4)" id="helpViewer4">
                     <div id="dropdownContent4" class="dropdownContentSettings">
-                        <a>Para mudar o avatar basta carregar no botão "Editar <img class="helpIcon" src="Recursos/editIcon2.png">"
+                        <a>Para mudar o avatar basta carregar no botão "Editar. <img class="helpIcon" src="Recursos/editIcon2.png">"
                         </a>
                     </div>
                 </div>

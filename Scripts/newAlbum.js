@@ -76,6 +76,24 @@ function importHandler(source) {
         showNotification(`Foram importadas ${googleDrivePhotos.length} fotografias.`)
     }
     
+    if (source == "oneDrive") {
+        for (let i = 0; i < oneDrivePhotos.length; i++) {
+            currentPhotos.push(oneDrivePhotos[i])
+
+        }
+        previewUpdater("initial")
+        showNotification(`Foram importadas ${oneDrivePhotos.length} fotografias.`)
+    }
+
+    if (source == "dropbox") {
+        for (let i = 0; i < dropboxPhotos.length; i++) {
+            currentPhotos.push(dropboxPhotos[i])
+
+        }
+        previewUpdater("initial")
+        showNotification(`Foram importadas ${dropboxPhotos.length} fotografias.`)
+    }
+    
 
 
     closeImportBox()
