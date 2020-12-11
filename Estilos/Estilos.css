@@ -84,12 +84,9 @@ body {
     letter-spacing: 5px;
     text-transform: uppercase;
     color: white;
+
 }
 
-@font-face {
-    font-family: Bebas;
-    src: url('BebasNeue-Regular');
-}
 
 #logo{
     position: absolute;
