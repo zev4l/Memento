@@ -149,6 +149,10 @@ function closeAlbumViewer() {
 }
 
 function fillAlbums() {
+
+    let userNameHome = document.querySelector("#userNameHome");
+    userNameHome.innerText = currentAccount.username;
+
     let albumBox = document.querySelector("#containerAlbums")
 
     currentAlbumCount = albumBox.childElementCount
@@ -185,8 +189,7 @@ function fillAlbums() {
 
         albumBox.appendChild(newDiv)
 
-        let userNameHome = document.querySelector("#userNameHome");
-        userNameHome.innerText = currentAccount.username;
+
     }
 }
 

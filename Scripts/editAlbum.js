@@ -645,8 +645,12 @@ function removeSelected() {
     }
 
     console.log(selectedDivs)
+    openConfirmationBox("Deseja mesmo sair?\n Todas as alteraçõs que fez serão perdidas.", "Sim", "Não", function() {
+        location.href = "memento.html"
+    })
 
-    indexesToRemove.sort((a, b) => b - a)
+}
+   indexesToRemove.sort((a, b) => b - a)
 
     for (let i = 0; i < indexesToRemove.length; i++) {
         currentPhotos.splice(indexesToRemove[i], 1)
@@ -658,7 +662,14 @@ function removeSelected() {
     selection = true
     toggleSelection()
     closeConfirmationBox()
+<<<<<<< Updated upstream
     previewUpdater("regular")
+=======
+    previewUpdater("regular") 
+}
+
+function exitHandler() {
+>>>>>>> Stashed changes
     
 }
 

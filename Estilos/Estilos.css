@@ -468,6 +468,7 @@ body {
     vertical-align: middle;
     width: 65px;
     height: 65px;
+    margin-top: 5px;
     border-radius: 50%;
 }
 
@@ -571,8 +572,8 @@ body {
 }
 
 #changeAvatarBox {
-    width: 28%;
-    height: 55%;
+    width: 30%;
+    height: 58%;
 }
 
 #settingsPassword {
@@ -727,7 +728,7 @@ input[type="checkbox"] {
 }
 
 .selected {
-    border: solid cyan !important;
+    border: solid rgb(255, 170, 34) !important;
 }
 
 #newAlbumName {
