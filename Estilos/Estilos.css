@@ -726,6 +726,10 @@ input[type="checkbox"] {
     height: 120px;
 }
 
+.selected {
+    border: solid cyan !important;
+}
+
 #newAlbumName {
     position: absolute;
     top: 27%;
@@ -780,6 +784,7 @@ input[type="checkbox"] {
     overflow: hidden;
     opacity: 0;
     background-color: black;
+    transition: 600ms ease;
 }   
 
 #albumPhotoViewer {
@@ -832,11 +837,11 @@ input[type="checkbox"] {
     height: 120px;
     border: solid;
     align-self: auto;
-    transition: 200ms ease;
     cursor: pointer;
     margin: auto;
     margin-bottom: 5%;
     margin-top: 5%;
+    transition: 600ms ease;
 }
 
 #albumViewerSlider div h4{
@@ -880,15 +885,22 @@ input[type="checkbox"] {
     right: 150px;
 }
 
-#deleteAlbumButton, #editRemoveDuplicatesButton, #editImportButton, #removeWorse, #editSaveAlbumButton {
+#deleteAlbumButton, #editRemoveDuplicatesButton, #editImportButton, #removeWorse, #editSaveAlbumButton, #editSelectButton, #editRemoveSelectedButton {
     display: block; /* Others: 480px*/
-    width: 150px;
+    width: 160px;
     position: absolute;
     cursor: pointer;
     background-color: rgba(0,0,0,0.2);
     text-align:center;
     border-radius: 5px;
     transition: 600ms ease;
+}
+
+#editSelectButton {
+    left: 300px;
+    top: 138px;
+    background-color: rgba(0,0,0,0.2);
+    border: solid 5px white;
 }
 
 #deleteAlbumButton {
@@ -900,15 +912,20 @@ input[type="checkbox"] {
 
 #editRemoveDuplicatesButton{
     border: solid 5px white;
-    bottom: 235px;
+    bottom: 200px;
 
+    right: 280px;
+}
+
+#editRemoveSelectedButton {
+    border: solid 5px white;
+    bottom: 200px;
     right: 480px;
 }
 
 #editImportButton {
     border: solid 5px white;
     bottom: 330px;
-
     right: 480px;
 }
 
@@ -920,7 +937,6 @@ input[type="checkbox"] {
 #removeWorse {
     border: solid 5px white;
     bottom: 301px;
-    right: 480px;
     right: 280px;
 }
 

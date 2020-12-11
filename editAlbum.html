@@ -51,7 +51,9 @@
             <div id="createNewAlbum">
                 <!-- Total de fotografias -->
                 <h4>Fotografias: <span id="previewPhotoCounter">0</span></h4>
-                <!-- Permite visualizar as fotos à medidas que são importdas/adicionadas/removidas ao álbum a ser editado -->
+                <!-- Permite visualizar as fotos à medidas que são importadas/adicionadas/removidas ao/do álbum a ser editado -->
+                <a id="editSelectButton" class="acrylic" onclick="toggleSelection()">Selecionar</a>
+                <!--  Permite selecionar as fotografias que irão ser removidas -->
                 <div id="photosPreview" class="acrylic">
                     <!-- Aqui são dinâmicamente adicionados novos divs  -->
                     <!-- <div></div>
@@ -69,6 +71,8 @@
 
                 <!-- Botão que permite remover fotos duplicadas -->
                 <a id="editRemoveDuplicatesButton" class="acrylic" onclick="removeDuplicatesHandler()">Remover Duplicadas</a>
+                <!-- Botão que permite remover fotos selecionadas -->
+                <a id="editRemoveSelectedButton" class="acrylic" onclick="removeSelected()">Remover Selecionadas</a>
                 <!-- Botão que permite remover fotos que apresentam má qualidade -->
                 <a id="removeWorse" class="acrylic" onclick="removeWorseHandler()">Remover Fotos de Má Qualidade</a>
                 <!-- Botão que permite apagar álbum -->

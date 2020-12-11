@@ -15,6 +15,8 @@ let selectedPhotos = []
 let warningTimeoutID = null;
 
 
+
+
 function openImportBox() {
     let importBox = document.getElementById("importBox");
     let dimmer = document.getElementById("dimmer")
@@ -510,3 +512,4 @@ function showNotification(text) {
         
     },3000)
 }
+

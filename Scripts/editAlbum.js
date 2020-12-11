@@ -4,6 +4,7 @@
 
 let albumToEdit = sessionStorage.getItem('albumToEdit');
 
+currentAlbum = null
 
 let currentPhotos = []
 
@@ -11,14 +12,14 @@ let selectedPhotos = []
 
 let warningTimeoutID = null;
 
+let selection = false;
+
 
 window.onload = initial
 
 function initial() {
     albumNameField = document.querySelector("#newAlbumName")
     albumNameField.setAttribute("value", albumToEdit)
-
-    let currentAlbum = null 
 
     for (let i = 0; i < currentAccount.albums.length && currentAlbum == null; i++) {
         if (currentAccount.albums[i].name == albumToEdit) {
@@ -329,7 +330,6 @@ function removeWorseHandler() {
 }
 
 function removeWorse() {
-    console.log("Here!")
     
     for (let i = 0; i < currentPhotos.length; i++) {
         if (currentPhotos[i].flags.includes("bad_quality")) {
@@ -467,6 +467,7 @@ function actionToggler() {
 
     let duplicatesButton = document.querySelector("#editRemoveDuplicatesButton")
     let badQualityButton = document.querySelector("#removeWorse")
+    let removeSelectedButton = document.querySelector("#editRemoveSelectedButton")
 
     if (photoCounter("duplicates") == 0) {
         duplicatesButton.style.backgroundColor = "grey";
@@ -492,6 +493,20 @@ function actionToggler() {
         badQualityButton.style.backgroundColor = "rgba(0,0,0,0.2)";
         badQualityButton.addEventListener("click",removeWorseHandler)
         badQualityButton.style.cursor = "pointer"
+    }
+
+    let selected = document.getElementsByClassName("selected")
+    if (selection && selected.length > 0) {
+        removeSelectedButton.addEventListener("click",removeSelectedHandler)
+        removeSelectedButton.style.backgroundColor = "rgba(0,0,0,0.2)";
+        removeSelectedButton.style.cursor = "pointer";
+        
+    }
+    else {
+        removeSelectedButton.removeEventListener("click", removeSelectedHandler)
+        removeSelectedButton.setAttribute("onclick", "")
+        removeSelectedButton.style.backgroundColor = "grey";
+        removeSelectedButton.style.cursor = "default"
     }
     
 }
@@ -554,4 +569,79 @@ function showNotification(text) {
         
         
     },3000)
+}
+
+function toggleSelection() {
+    let selectionButton = document.querySelector("#editSelectButton")
+    let previewSlider = document.querySelector("#photosPreview")
+
+    if (!selection) {
+        selectionButton.innerText = "Deselecionar"
+        selection = true;
+
+        for (let i = 0; i < previewSlider.children.length; i++) {
+            previewSlider.children[i].children[0].style.pointerEvents = "none"
+
+            previewSlider.children[i].addEventListener("click", toggleSelectClass)
+        }
+
+    }
+    else {
+        selectionButton.innerText = "Selecionar"
+        selection = false;
+
+        for (let i = 0; i < previewSlider.children.length; i++) {
+            if (previewSlider.children[i].classList.contains("selected")) {
+                previewSlider.children[i].classList.toggle("selected")
+            }
+            previewSlider.children[i].children[0].style.pointerEvents = "auto"
+            previewSlider.children[i].removeEventListener("click", toggleSelectClass)
+        }
+    }
+
+    actionToggler()
+}
+
+function toggleSelectClass() {
+    this.classList.toggle("selected")
+    actionToggler()
+}
+
+function removeSelectedHandler() {
+    let selectedAmount = document.getElementsByClassName("selected").length
+    
+    let message
+
+    if (selectedAmount > 1) {
+        message = `Serão removidas ${selectedAmount} fotografias. Deseja continuar?`
+    }
+    else {
+        message = `Será removida ${selectedAmount} fotografia. Deseja continuar?`
+    }
+
+    openConfirmationBox(message, "Sim", "Não", removeSelected)
+}
+
+function removeSelected() {
+    let selectedDivs = document.getElementsByClassName("selected")
+    let selectedPaths = []
+    
+
+    for (let i = 0; i < selectedDivs.length; i++) {
+        src = selectedDivs[i].children[0].src
+        selectedPaths.push(src.substr(src.indexOf("Recursos/Imagens/")))
+    }
+
+    for (let i = 0; i < currentPhotos.length; i++) {
+        if (selectedPaths.includes(currentPhotos[i].path)) {
+            currentPhotos.splice(i, 1)
+        }
+    }
+
+    selection = true
+    toggleSelection()
+    closeConfirmationBox()
+    previewUpdater("regular") // OR FILTERED???
+
+    
 }
