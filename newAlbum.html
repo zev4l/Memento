@@ -27,8 +27,6 @@
                 backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
             }
 
-
-
         </script>
 
         <title>Memento</title>
@@ -126,55 +124,45 @@
                 <div id="helpBox">
                 <!-- Botão para fechar a caixa que se encontra aberta -->
                 <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
-                <div class="dropdownMemento">
-                    <a class="helpTitle">• Como posso criar um álbum novo?</a>
-                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(1))" id="helpViewer1">
-                    <div id="dropdownContent1" class="dropdownContentMemento">
-                        <a>Para criar um álbum novo basta clicar no botão "+".</a>
+                <div class="dropdownNewAlbum">
+                    <a class="helpTitle">• Como posso importar fotografias?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(1)" id="helpViewer1">
+                    <div id="dropdownContent1" class="dropdownContentNewAlbum">
+                        <a>Para importar fotografias basta clicar no botão "Importar Fotografias"
+                            e selecionar o método de importação desejado. Assim que selecionado o método
+                            desejado, as fotografias importadas encontrar-se-ão disponibilzadas no previewer
+                            à esquerda no seu ecrã.
+                        </a>
+
                     </div>
                 </div>
-                <div class="dropdownMemento">
-                    <a class="helpTitle">• Como posso editar um álbum já criado?</a>
+                <div class="dropdownNewAlbum">
+                    <a class="helpTitle">• Como funciona a filtração das fotografias?</a>
                     <img src="Recursos/dropdown.png" onclick="toggleHelpSection(2)" id="helpViewer2">
-                    <div id="dropdownContent2" class="dropdownContentMemento">
-                        <a>Para editar um álbum já criado basta clicar no botão "editar" 
-                            que se encontra dentro do álbum a que pretendo fazer alterações.
+                    <div id="dropdownContent2" class="dropdownContentNewAlbum">
+                        <a>A filtração das fotografias pode ser personalizada pelo utilizador, tendo este a possiblidade
+                            de filtrar os seus retratos por localização, evento e/ou data. **O mesmo pode ainda eliminar
+                            as fotografias que não pretende que sejam incluídas no album, individualmente.**
                         </a>
                     </div>
                 </div>
-                <div class="dropdownMemento">
-                    <a class="helpTitle">• Como posso partilhar um álbum já criado?</a>
+                <div class="dropdownNewAlbum">
+                    <a class="helpTitle">• Como posso apagar fotografias duplicadas?</a>
                     <img src="Recursos/dropdown.png" onclick="toggleHelpSection(3)" id="helpViewer3">
-                    <div id="dropdownContent3" class="dropdownContentMemento">
-                        <a>Para partilhar um ábum já criado basta clicar no botão "partilhar"
-                            que se encontra dentro do álbum que pretendo partilhar.
+                    <div id="dropdownContent3" class="dropdownContentNewAlbum">
+                        <a>Para apagar as fotografias que se encontram duplicadas ou repetidas mais do que
+                            uma vez, basta clicar no botão "Remover Duplicadas". Este botão só se torna vísivel
+                            e ativo após importar fotografias e apenas quando existem duplicadas.
                         </a>
                     </div>
                 </div>
-                <div class="dropdownMemento">
-                    <a class="helpTitle">• Como posso aceder ao meu perfil?</a>
+                <div class="dropdownNewAlbum">
+                    <a class="helpTitle">• Como faço para guardar/descartar o álbum?</a>
                     <img src="Recursos/dropdown.png" onclick="toggleHelpSection(4)" id="helpViewer4">
-                    <div id="dropdownContent4" class="dropdownContentMemento">
-                        <a>Para aceder ao seu perfil basta clicar no botão "perfil"
-                            que se encontra no canto superior direito do seu ecrã.
-                        </a>
-                    </div>
-                </div>
-                <div class="dropdownMemento">
-                    <a class="helpTitle">• Como posso aceder às definições?</a>
-                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(5)" id="helpViewer5">
-                    <div id="dropdownContent5" class="dropdownContentMemento">
-                        <a>Para aceder às definições basta clicar no botão "definições"
-                            que se encontra no canto superior direito do seu ecrã.
-                        </a>
-                    </div>
-                </div>
-                <div class="dropdownMemento">
-                    <a class="helpTitle">• Como posso sair da minha conta?</a>
-                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(6)" id="helpViewer6">
-                    <div id="dropdownContent6" class="dropdownContentMemento">
-                        <a>Para sair da sua conta basta clicar no botão "logout"
-                            que se encontra no canto inferior esquerdo do seu ecrã.
+                    <div id="dropdownContent4" class="dropdownContentNewAlbum">
+                        <a>De forma a guardar o álbum que acabou de criar, apenas precisa de clicar no botão "Guardar
+                            Álbum". Se, por outro lado, não está satisfeito com o resultado ou apenas mudou de ideias, 
+                            basta clilcar no botão "Descartar" e será imediatamente redirecionado para a página principal.
                         </a>
                     </div>
                 </div>
