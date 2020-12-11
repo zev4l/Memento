@@ -11,13 +11,23 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="Estilos/estilos.css">
         <script src="Scripts/login.js"></script>
-        <script src="Scripts/photos.js"></script>
+        <!-- <script src="Scripts/photos.js"></script>
         <script src="Scripts/newAlbum.js"></script>
         <script src="Scripts/memento.js"></script>
-        <script src="Scripts/profile.js"></script>
+        <script src="Scripts/profile.js"></script> -->
         <script src="Scripts/settings.js"></script>
         <script src="Scripts/help.js"></script>
         <link rel="icon" type="image/png" href="Recursos/favicon.png"/>
+
+        <script>
+            
+            var backgroundColor = document.querySelector(":root");
+            if(currentAccount.darkmode == true){
+                backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+            }
+
+
+        </script>
 
         <title>Settings</title>
     </head>

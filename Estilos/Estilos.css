@@ -27,6 +27,7 @@
     margin-right: auto;
     position: relative;
     overflow: hidden;
+    transition: all 200ms linear;
 }
 
 #dimmer, #dimmer2 {
@@ -282,6 +283,7 @@ body {
     line-height: 70px;
     cursor: pointer;
     background-color: var(--CONFIRMATIONBOX);
+    display: none;
 }
 
 #registerButton {

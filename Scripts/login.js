@@ -32,22 +32,22 @@ class Account {
         this.password = password,
         this.email = email,
         this.albums = [],
-        this.sharedPhotos = 0
+        this.sharedPhotos = 0,
+        this.darkmode = false
     }
 }
 
-window.onload = initial
 
-function initial() {
-
+window.addEventListener("load",function(){
     if (location.href.includes("memento.html")) {
 
         menuElementToggle()
         document.getElementById("loginButton").addEventListener("click", openLoginBox);
         document.getElementById("registerButton").addEventListener("click", openRegisterBox);
-
     }
-}
+
+});
+
 
 /**
  * Guarda os dados na localStorage, igualando-os aos dados das variáveis atuais

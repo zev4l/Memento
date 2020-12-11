@@ -20,6 +20,14 @@ function userSettings() {
     let stgsEmail = document.querySelector("#stgsEmail");
 
     stgsEmail.innerText = currentAccount.email;
+
+    if (currentAccount.darkmode == true) {
+        document.getElementById("darkModeSwitch").checked = "1"
+        // Alteração da variável em si está no login pois este é partilhado por todas as páginas
+        var backgroundColor = document.querySelector(":root");
+        backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+        
+    }
 }
 
 function initial() {
@@ -361,10 +369,14 @@ function darkMode() {
 
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
         darkModeSwitch.checked = "1";
+        currentAccount.darkmode = true;
+        updateData()
 
     } else {
 
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(100, 94, 255)");
+        currentAccount.darkmode = false;
+        updateData()
     }
 
 

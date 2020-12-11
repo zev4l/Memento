@@ -16,6 +16,16 @@
         <link rel="icon" type="image/png" href="Recursos/favicon.png"/>
 
         <script>
+            
+            var backgroundColor = document.querySelector(":root");
+            if(currentAccount.darkmode == true){
+                backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
+            }
+
+
+        </script>
+
+        <script>
             function goBack() {
             window.history.back();
             }
