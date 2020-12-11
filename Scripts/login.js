@@ -373,10 +373,11 @@ function signOutHandler() {
 
 function login2Register() {
     closeLoginBox();
-    openRegisterBox();
+
+    setTimeout(openRegisterBox, 200)
 }
 
 function register2Login() {
     closeRegisterBox();
-    openLoginBox();
+    setTimeout(openLoginBox, 200)
 }
