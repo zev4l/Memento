@@ -59,6 +59,7 @@
             </div>
 
             <!-- Nome de utilizar ao lado do botão perfil -->
+            <a id="loggedInAs">Sessão iniciada como:</a>
             <a id="userNameHome"></a>
             
             <!-- Botão Perfil -->
@@ -67,7 +68,7 @@
             <!-- Botão Definições -->
             <a href="settings.html"><img id="settingsButton" src="Recursos/settingsIcon.png"></a>
             
-            <!-- Botão Ajuda-->
+            <!-- Botão Ajuda (abre em popup) -->
             <img id="helpButton" src ="Recursos/help.png" onclick="openHelpBox()">
 
             <!-- Caixa de Login (abre em popup) -->
@@ -79,7 +80,7 @@
                     <h1 class="loginTitle">Entrar</h1>
                     
                     <label for="username"><b>Nome de Utilizador:</b></label>
-                    <input type="text" maxlength="30" size="10" placeholder="Escrever nome..." name="username" required>
+                    <input type="text" maxlength="9" size="10" placeholder="Escrever nome..." name="username" required>
                     
                     <label for="password"><b>Palavra-passe:</b></label> 
                     <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
@@ -159,10 +160,9 @@
                 <img id="albumViewerEdit" src="Recursos/editIcon.png">
                 <img id="albumViewerShare" src="Recursos/shareIcon.png">
                 <div id="albumViewerSlider">
-
-
                 </div>
             </div>
+
             <!-- Permite ao utilizador visualizar uma foto que se encontra no álbum -->
             <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
 
@@ -194,7 +194,6 @@
                 <img id="exportConfirmationImage" src="Recursos/check.png">
             </div>
 
-                        <!-- Caixa de Ajuda (abre em popup)-->
             <!-- Caixa de Ajuda (abre em popup)-->
             <div id="helpBox">
                 <!-- Botão para fechar a caixa que se encontra aberta -->

@@ -30,8 +30,6 @@
                 backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
             }
 
-
-
         </script>
 
         <title>Settings</title>
@@ -52,12 +50,13 @@
             <!-- Botão que permite voltar à página anterior (Memento) -->
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
 
-            <!-- Botão Ajuda-->
-            <a href="notAvailable.html"> <img id="helpButton" src ="Recursos/help.png"></a>
+            <!-- Botão Ajuda (abre em popup) -->
+            <img id="helpButton" src ="Recursos/help.png" onclick="openHelpBox()">
 
             <!-- Tabela que apresenta os dados pessoais do utilizador (nome de utiilizador, email e palavra-pase) -->
             <div id="settingsInformation">
                 <a id="settingsAvatarContainer" class="acrylic" ><img id="settingsAvatar" src="Recursos/Avatares/defaultAvatar.png"></a>
+                <a id="changeAvatar" onclick="openChangeAvatarBox()">Editar <img id="editAvatarIcon" src="Recursos/editIcon2.png"></a>
                 <table id="settingsTable">
                     <tr>
                         <th id="settingsUserName">Nome de utilizador:</th>
@@ -135,6 +134,71 @@
                     <!-- Botão que confirma a mudança de palavra-passe, altera na localStorage e fecha a changePasswordBox -->
                     <button type="button" class="formButton" id="changePasswordSubmit" onclick="changePasswordHandler()">Confirmar</button>
                 </form>
+            </div>
+
+            <!-- Caixa de mudança de avatar (abre em popup) -->
+            <div id="changeAvatarBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeChangeAvatarBox()">
+                <form id="changeEmailForm" autocomplete="off">
+                    <div id="escolhaAvatar"><h3>Selecione o avatar</h3>
+                        <img src="./Recursos/Avatares/1.png" class="avatar">
+                        <img src="./Recursos/Avatares/2.png" class="avatar">
+                        <img src="./Recursos/Avatares/3.png" class="avatar">
+                        <img src="./Recursos/Avatares/4.png" class="avatar">
+                        <img src="./Recursos/Avatares/5.png" class="avatar">
+                        <img src="./Recursos/Avatares/6.png" class="avatar">
+                        <img src="./Recursos/Avatares/7.png" class="avatar">
+                        <img src="./Recursos/Avatares/8.png" class="avatar">
+                        <img src="./Recursos/Avatares/9.png" class="avatar">
+                        <img src="./Recursos/Avatares/10.png" class="avatar">
+                        <img src="./Recursos/Avatares/11.png" class="avatar">
+                        <img src="./Recursos/Avatares/12.png" class="avatar">
+                    </div>
+
+                    <button type="button" class="formButton" id="changePasswordSubmit" onclick="changePasswordHandler()">Confirmar</button>
+                </form>
+            </div>
+
+            <!-- Caixa de Ajuda (abre em popup)-->
+            <div id="helpBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
+                <div class="dropdownSettings">
+                    <a class="helpTitle">• Como mudar o meu nome de utilizador?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(1)" id="helpViewer1">
+                    <div id="dropdownContent1" class="dropdownContentSettings">
+                        <a>Para mudar o nome de utilizador basta clicar no botão <img class="helpIcon" src="Recursos/editIcon2.png">
+                            que se apresenta na mesma linha do seu nome de utilizador atual.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownSettings">
+                    <a class="helpTitle">• Como mudar o meu o email?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(2)" id="helpViewer2">
+                    <div id="dropdownContent2" class="dropdownContentSettings">
+                        <a>Para mudar o email basta clicar no botão <img class="helpIcon" src="Recursos/editIcon2.png">
+                            que se apresenta na mesma linha do seu email atual.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownSettings">
+                    <a class="helpTitle">• Como mudar a minha a palavra-passe?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(3)" id="helpViewer3">
+                    <div id="dropdownContent3" class="dropdownContentSettings">
+                        <a>Para mudar a palavra-passe basta clicar no botão "Mudar a palavra-pase". É necessário
+                            que tenha conhecimento da sua palavra-pase atual para efetuar esta alteração.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownSettings">
+                    <a class="helpTitle">• Como faço para mudar o meu avatar?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(4)" id="helpViewer4">
+                    <div id="dropdownContent4" class="dropdownContentSettings">
+                        <a>Para mudar o avatar basta carregar no botão "Editar <img class="helpIcon" src="Recursos/editIcon2.png">"
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- BACKGROUND  -->

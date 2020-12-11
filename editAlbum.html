@@ -27,8 +27,6 @@
                 backgroundColor.style.setProperty("--HELP", "rgb(29, 28, 28)");
             }
 
-
-
         </script>
         
         <title>Memento</title>
@@ -47,8 +45,8 @@
             <!-- Botão que permite voltar à página anterior (Memento) -->
             <a href="memento.html"><img class="backArrow" src="Recursos/backArrow.png"></a>
 
-            <!-- Botão Ajuda-->
-            <a href="notAvailable.html"> <img id="helpButton" src ="Recursos/help.png"></a>
+            <!-- Botão Ajuda (abre em popup) -->
+            <img id="helpButton" src ="Recursos/help.png" onclick="openHelpBox()">
 
             <div id="createNewAlbum">
                 <!-- Total de fotografias -->
@@ -74,9 +72,9 @@
                 <!-- Botão que permite remover fotos que apresentam má qualidade -->
                 <a id="removeWorse" class="acrylic" onclick="removeWorseHandler()">Remover Fotos de Má Qualidade</a>
                 <!-- Botão que permite apagar álbum -->
-                <a id="deleteAlbumButton" class="acrylic" onclick="openDeleteWarningBox()">Apagar Album</a>
+                <a id="deleteAlbumButton" class="acrylic" onclick="openDeleteWarningBox()">Apagar Álbum</a>
                 <!-- Botão para guardar alterações feitas ao álbum -->
-                <a id="editSaveAlbumButton" class="acrylic" onclick="saveAlbum()">Guardar Album</a>
+                <a id="editSaveAlbumButton" class="acrylic" onclick="saveAlbum()">Guardar Álbum</a>
                 <!-- Botão que permite importar fotografias para o álbum a ser editado -->
                 <a id="editImportButton" class="acrylic" onclick="openImportBox()">Importar Fotografias</a>
             </div>
@@ -119,6 +117,56 @@
             
             <!-- Caixa de confirmação de álbum editado (informa  o utilizar que o álbum foi editado com sucesso) -->
             <div id="successBox" onclick="openSuccessBox()"><img src="Recursos/check.png"><h1>Álbum editado com sucesso!</h1></div>
+            
+            <!-- Caixa de Ajuda (abre em popup)-->
+            <div id="helpBox">
+                <!-- Botão para fechar a caixa que se encontra aberta -->
+                <img class="cross" src="Recursos/cross.png" onclick="closeHelpBox()">
+                <div class="dropdownEditAlbum">
+                    <a class="helpTitle">• Como posso adicionar fotografias?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(1)" id="helpViewer1">
+                    <div id="dropdownContent1" class="dropdownContentEditAlbum">
+                        <a>Para adicionar mais fotografias ao állbum, basta clicar no botão "Importar Fotografias"
+                            e selecionar o método de importação desejado. Assim que selecionado o método
+                            desejado, as fotografias importadas serão adicionadas ao álbum e econtrar-se-ão 
+                            disponíveis para preview.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownEditAlbum">
+                    <a class="helpTitle">• Como posso apagar fotografias duplicadas?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(2)" id="helpViewer2">
+                    <div id="dropdownContent2" class="dropdownContentEditAlbum">
+                        <a>Para apagar as fotografias que se encontram duplicadas ou repetidas mais do que
+                            uma vez, basta clicar no botão "Remover Duplicadas". Este botão só se encontra 
+                            ativo quando existem fotografias, de facto, duplicadas/repetidas.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownEditAlbum">
+                    <a class="helpTitle">• Como posso remover as de má qualidade?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(3)" id="helpViewer3">
+                    <div id="dropdownContent3" class="dropdownContentEditAlbum">
+                        <a>Para remover as fotografias que que apressentam má qualidade (resolução insuficiente
+                            ou falta de incidência de luz), basta clicar no botão "Remover Fotos de Má Qualidade".
+                            Este botão só se encontra ativo quando existem, de facto, fotografias que apresentam
+                            má qualidade.
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdownEditAlbum">
+                    <a class="helpTitle">• Como faço para guardar/apagar o álbum?</a>
+                    <img src="Recursos/dropdown.png" onclick="toggleHelpSection(4)" id="helpViewer4">
+                    <div id="dropdownContent4" class="dropdownContentEditAlbum">
+                        <a>De forma a guardar o álbum que acabou de editar, apenas precisa de clicar no botão "Guardar
+                            Álbum". Por outro lado, se a sua intenção for apagar o álbum, basta clicar no botão "Apagar
+                            Álbum".
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
 
             <!-- BACKGROUND  -->
             <div class="area" >

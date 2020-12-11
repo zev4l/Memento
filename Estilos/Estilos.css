@@ -97,11 +97,27 @@ body {
     left: 15px;
 }
 
-#userNameHome {
-    width: 100px;
+#loggedInAs {
     position: absolute;
-    top: 40px;
-    left: 120px;
+    top: 45px;
+    right: 215px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#userNameHome {
+    position: absolute;
+    top: 65px;
+    right: 215px;
+    color: white;
+    font-size: 30px;
+    text-align: right;
+    font-weight: bold;
+    width: 230px;
+    overflow: hidden;
 }
 
 #unavailable {          /* TIRAR ANTES DE ACABAR */
@@ -289,7 +305,8 @@ body {
     margin-top: 5%;
 }
 
-#loginBox, #registerBox, #importBox, #exportBox, #changePasswordBox, #changeUserNameBox, #changeEmailBox {
+#loginBox, #registerBox, #importBox, #exportBox, #changePasswordBox
+, #changeUserNameBox, #changeEmailBox, #changeAvatarBox {
     display: none;
     position: absolute;
     border: solid 10px white;
@@ -307,25 +324,6 @@ body {
     color: white;
 }
 
-/*
-#escolhaAvatar{
-    display: none;
-    height: 210px;
-    width: 250px;
-    position: relative;
-    left: 35px;
-    height: 60%;
-    display:none;
-}
-
-.avatar {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-*/
-
 #loginBox {
     height: 51%;
 }
@@ -334,9 +332,11 @@ body {
     display: block;
     cursor: pointer;
     font-weight: bold;
+    text-decoration: underline;
 }
 
-#loginForm, #registerForm, #changePasswordForm, #changeUserNameForm, #changeEmailForm {
+#loginForm, #registerForm, #changePasswordForm, #changeUserNameForm, 
+#changeEmailForm, #changeAvatarBox {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -451,6 +451,22 @@ body {
     width: 100%;
 }
 
+#escolhaAvatar{
+    width: 80%;
+    overflow: hidden;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 8%;
+    font-size: 25px;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
 #profileStatsTable {
     color: white;
     display:block;
@@ -507,6 +523,23 @@ body {
     width: 100%;
 }
 
+#changeAvatar {
+    position: absolute;
+    margin-top: 32%;
+    margin-left: 17.5%;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#editAvatarIcon {
+    position: absolute;
+    width: 28px;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
 #settingsTable {
     text-align: left;
     color: white;
@@ -531,6 +564,11 @@ body {
 #changeUserNameBox, #changeEmailBox {
     width: 25%;
     height: 40%;
+}
+
+#changeAvatarBox {
+    width: 28%;
+    height: 55%;
 }
 
 #settingsPassword {
@@ -1110,7 +1148,7 @@ input[type="checkbox"] {
     transition: all 200ms linear;
 }
 
-.dropdownMemento, .dropdownNewAlbum {
+.dropdownMemento, .dropdownNewAlbum, .dropdownEditAlbum, .dropdownSettings {
     position: relative;
     margin-top: 50px;
     width: 100%;
@@ -1118,11 +1156,12 @@ input[type="checkbox"] {
     transition: all 200ms linear;
 }
 
-.dropdownNewAlbum {
+.dropdownNewAlbum, .dropdownEditAlbum {
     margin-top: 70px;
 }
 
-.dropdownContentMemento, .dropdownContentNewAlbum {
+.dropdownContentMemento, .dropdownContentNewAlbum, .dropdownContentEditAlbum,
+.dropdownContentSettings {
     position: absolute;
     width: 85%;
     height: 310%;
@@ -1136,11 +1175,12 @@ input[type="checkbox"] {
     pointer-events: none;
 }
 
-.dropdownContentNewAlbum {
+.dropdownContentNewAlbum, .dropdownContentEditAlbum {
     height: 450%;
 }
 
-.dropdownContentMemento a, .dropdownContentNewAlbum a {
+.dropdownContentMemento a, .dropdownContentNewAlbum a, .dropdownContentEditAlbum a,
+.dropdownContentSettings a {
     font-size: 22px;
     text-decoration: none;
     text-align: justify;
@@ -1158,8 +1198,6 @@ input[type="checkbox"] {
     width: 28px;
     margin-bottom: -5px;
 }
-
-
 
 /*--------------------------------------------------------------------
 ---------------------------- BACKGROUND ------------------------------

@@ -294,6 +294,8 @@ function menuElementToggle() {
         document.getElementById("settingsButton").style.display = "none"
         document.getElementById("profileButton").style.display = "none"
         document.getElementById("userNameHome").style.display = "none"
+        document.getElementById("loggedInAs").style.display = "none"
+        document.getElementById("userNameHome").style.display = "none"
         document.getElementById("loginButton").style.display = "block"
         document.getElementById("registerButton").style.display = "block"
 
@@ -315,6 +317,8 @@ function menuElementToggle() {
         document.getElementById("logoutButton").style.display = "block"
         document.getElementById("settingsButton").style.display = "block"
         document.getElementById("profileButton").style.display = "block"
+        document.getElementById("userNameHome").style.display = "block"
+        document.getElementById("loggedInAs").style.display = "block"
         document.getElementById("userNameHome").style.display = "block"
 
         let logo = document.querySelector("#logo")

@@ -361,6 +361,36 @@ function showNotification(text) {
     },3000)
 }
 
+function openChangeAvatarBox() {
+
+    let changeAvatarBox = document.getElementById("changeAvatarBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changeAvatarBox.style.display = "block";
+    dimmer.style.display = "block"
+
+    setTimeout(function() {
+        dimmer.style.opacity = "1"
+        changeAvatarBox.style.opacity = "1"
+        
+    },200)
+}
+
+function closeChangeAvatarBox() {
+
+    let changeAvatarBox = document.getElementById("changeAvatarBox");
+    let dimmer = document.getElementById("dimmer")
+
+    changeAvatarBox.style.opacity= "0";
+    dimmer.style.opacity = "0";
+
+    setTimeout(function() {
+        changeAvatarBox.style.display = "none"
+        dimmer.style.display="none"
+        
+    },200)
+}
+
 function darkMode() {
 
     var darkModeSwitch = document.getElementById("darkModeSwitch").checked;

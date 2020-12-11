@@ -184,6 +184,9 @@ function fillAlbums() {
         newDiv.appendChild(shareButton)
 
         albumBox.appendChild(newDiv)
+
+        let userNameHome = document.querySelector("#userNameHome");
+        userNameHome.innerText = currentAccount.username;
     }
 }
 
