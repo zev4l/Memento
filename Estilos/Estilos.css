@@ -401,6 +401,10 @@ body {
     justify-content: center;
 }
 
+.albumButton:hover {
+    transform: scale(1.05);
+}
+
 #newAlbumButton {
     color: white;
     text-decoration: none;

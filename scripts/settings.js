@@ -398,7 +398,6 @@ function darkMode() {
     var backgroundColor = document.querySelector(":root");
         
     if(darkModeSwitch){
-
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
         backgroundColor.style.setProperty("--NOTIFICATION", "rgb(26, 23, 23)");
         backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(29, 28, 28)");
@@ -409,7 +408,6 @@ function darkMode() {
         updateData()
 
     } else {
-
         backgroundColor.style.setProperty("--BACKGROUND1", "rgb(100, 94, 255)");
         backgroundColor.style.setProperty("--NOTIFICATION", "rgb(82, 76, 252)");
         backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(97, 92, 255, 0.55)");
@@ -418,6 +416,5 @@ function darkMode() {
         currentAccount.darkmode = false;
         updateData()
     }
-
 
 }
