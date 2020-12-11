@@ -20,7 +20,7 @@
         <script>
             
             var backgroundColor = document.querySelector(":root");
-            if(currentAccount.darkmode == true){
+            if(currentAccount && currentAccount.darkmode == true){
                 backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
                 backgroundColor.style.setProperty("--NOTIFICATION", "rgb(26, 23, 23)");
                 backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(29, 28, 28)");
@@ -191,7 +191,7 @@
                 <a onclick="exportHandler()"><img class="logo" src="Recursos/pinterest.png"></a>
                 <h2>Download (.zip):</h2>
                 <!-- Local -->
-                <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
+                <img class="logo" onclick="exportHandler('download')" src="Recursos/download.png">
                 <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
                 <img id="exportConfirmationImage" src="Recursos/check.png">
             </div>
