@@ -795,7 +795,14 @@ input[type="checkbox"] {
     margin: auto;
     margin-bottom: 5%;
     margin-top: 5%;
+}
 
+#albumViewerSlider div h4{
+    width: 160px;
+    transition: 200ms ease;
+    cursor: pointer;
+    margin: auto;
+    display: relative;
 }
 
 #albumViewerSlider div:hover {
@@ -814,6 +821,21 @@ input[type="checkbox"] {
     color: white;
     text-align: center;
     margin-bottom: 0px;
+    display: block;
+}
+
+#albumViewerEdit, #albumViewerShare {
+    position: absolute;
+    right: 5px;
+    width: 40px;
+    z-index: 3;
+    cursor: pointer;
+    right: 70px;
+    top: 50px;
+}
+
+#albumViewerEdit {
+    right: 150px;
 }
 
 #deleteAlbumButton, #editRemoveDuplicatesButton, #editImportButton, #removeWorse, #editSaveAlbumButton {

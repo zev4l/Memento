@@ -17,6 +17,9 @@ function openAlbumViewer(event) {
     let albumViewerTitle = document.querySelector("#albumViewerTitle")
     let albumViewerPictureCount = document.querySelector("#albumViewerPictureCount")
 
+    let editButton = document.querySelector("#albumViewerEdit")
+    let shareButton = document.querySelector("#albumViewerShare")
+
     let currentAlbum = null
 
     
@@ -33,7 +36,7 @@ function openAlbumViewer(event) {
 
     // PREENCHER ALBUMVIEWER
 
-        // Remover Anteriores
+    // Remover Anteriores
     while (albumViewerSlider.lastElementChild) {
         albumViewerSlider.removeChild(albumViewerSlider.lastElementChild);
     }
@@ -44,15 +47,31 @@ function openAlbumViewer(event) {
 
         let newDiv = document.createElement("div");
         let newImg = document.createElement("img");
+        let date = document.createElement("h4")
             
 
         newImg.setAttribute("src", currentPicture.path);
         newImg.addEventListener("click", openPhotoViewer)
+        date.innerText = currentPicture.date
     
         newDiv.appendChild(newImg)
+        newDiv.appendChild(date)
         albumViewerSlider.appendChild(newDiv)
     
     }
+
+    // COLOCAR BOTÕES
+
+
+    editButton.addEventListener("click", function() {
+
+        albumToEdit = sessionStorage.setItem('albumToEdit', currentAlbum.name);
+        location.href = "editAlbum.html"
+    })
+
+
+    shareButton.addEventListener("click", function() {openExportBox(currentAlbum.name)})
+
 
     // ABRIR ALBUMVIEWER
     dimmer.style.display = "block"
@@ -171,6 +190,7 @@ function fillAlbums() {
 function openExportBox(albumName) {
     let exportBox = document.getElementById("exportBox");
     let dimmer = document.getElementById("dimmer")
+    let dimmer2 = document.getElementById("dimmer2")
     let photoCount = exportBox.querySelector("span")
     let currentAlbum = null
     
@@ -184,8 +204,10 @@ function openExportBox(albumName) {
 
     exportBox.style.display = "block";
     dimmer.style.display = "block"
+    dimmer2.style.display = "block"
 
     setTimeout(function() {
+        dimmer2.style.opacity = "1"
         dimmer.style.opacity = "1"
         exportBox.style.opacity = "1"
         
@@ -195,13 +217,23 @@ function openExportBox(albumName) {
 function closeExportBox() {
     let exportBox = document.getElementById("exportBox");
     let dimmer = document.getElementById("dimmer")
+    let dimmer2 = document.getElementById("dimmer2")
+    let albumViewer = document.getElementById("albumViewer")
 
     exportBox.style.opacity= "0";
-    dimmer.style.opacity = "0";
+
+    if (albumViewer.style.display != "block") {
+        dimmer.style.opacity = "0";
+    }
+
+    dimmer2.style.opacity = "0"
     
     setTimeout(function() {
         exportBox.style.display = "none"
-        dimmer.style.display="none"
+        if (albumViewer.style.display != "block") {
+            dimmer.style.display="none"
+        }
+        dimmer2.style.display = "none"
         
     },200)
 }
