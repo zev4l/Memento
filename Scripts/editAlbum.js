@@ -66,55 +66,55 @@ function previewUpdater(scope){
         
         }
 
-        selectedPhotos = [...currentPhotos]
+        // selectedPhotos = [...currentPhotos]
 
         actionToggler()
 
     }
 
-    if (scope=="filtered") {
-        // remover fotos que estavam lá antes
+    // if (scope=="filtered") {
+    //     // remover fotos que estavam lá antes
 
-        while (previewBox.lastElementChild) {
-            previewBox.removeChild(previewBox.lastElementChild);
-        }
-
-        
-        let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
-        let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
-        let selectedDate = dateSelector.value
-
-        selectedPhotos = []
+    //     while (previewBox.lastElementChild) {
+    //         previewBox.removeChild(previewBox.lastElementChild);
+    //     }
 
         
-        for (let i = 0; i < currentPhotos.length; i++) {
-            let currentPicture = currentPhotos[i];
+    //     let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
+    //     let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
+    //     let selectedDate = dateSelector.value
+
+    //     selectedPhotos = []
+
+        
+    //     for (let i = 0; i < currentPhotos.length; i++) {
+    //         let currentPicture = currentPhotos[i];
 
 
-            if((selectedLocation == "Localização..." || currentPicture.local == selectedLocation) && 
-            (selectedEvent == "Evento..." || currentPicture.event == selectedEvent) && 
-            (selectedDate == "" || currentPicture.date == selectedDate)) {
+    //         if((selectedLocation == "Localização..." || currentPicture.local == selectedLocation) && 
+    //         (selectedEvent == "Evento..." || currentPicture.event == selectedEvent) && 
+    //         (selectedDate == "" || currentPicture.date == selectedDate)) {
      
-                let newDiv = document.createElement("div");
-                let newImg = document.createElement("img");
+    //             let newDiv = document.createElement("div");
+    //             let newImg = document.createElement("img");
                     
                
-                newImg.setAttribute("src", currentPicture.path);
-                newImg.addEventListener("click", openPhotoViewer)
+    //             newImg.setAttribute("src", currentPicture.path);
+    //             newImg.addEventListener("click", openPhotoViewer)
             
-                newDiv.appendChild(newImg)
-                previewBox.appendChild(newDiv)
+    //             newDiv.appendChild(newImg)
+    //             previewBox.appendChild(newDiv)
 
-                selectedPhotos.push(currentPicture)
+    //             selectedPhotos.push(currentPicture)
 
             
-            }
+    //         }
         
-        }
+    //     }
 
-        counter.innerHTML = selectedPhotos.length
+    //     counter.innerHTML = selectedPhotos.length
 
-    }
+    // }
 }
 
 function openImportBox() {
@@ -330,6 +330,8 @@ function removeWorseHandler() {
 }
 
 function removeWorse() {
+
+    console.trace()
     
     for (let i = 0; i < currentPhotos.length; i++) {
         if (currentPhotos[i].flags.includes("bad_quality")) {
@@ -368,7 +370,7 @@ function saveAlbum() {
                 currentAlbum = currentAccount.albums[i]
                 currentAlbum.name = selectedName
                 currentAlbum.photos = []
-                currentAlbum.photos = [...selectedPhotos]
+                currentAlbum.photos = [...currentPhotos]
             }
         }
 
@@ -519,6 +521,12 @@ function openConfirmationBox(text, button1Text, button2Text, button1Function) {
     let button2 = document.querySelector("#confirmationButton2")
     let dimmer = document.getElementById("dimmer")
 
+    recreateNode(button1, false)
+    recreateNode(button2, false)
+
+    button1 = document.querySelector("#confirmationButton1")
+    button2 = document.querySelector("#confirmationButton2")
+
     confirmationText.innerText = text
     button1.innerText = button1Text
     button2.innerText = button2Text
@@ -534,6 +542,7 @@ function openConfirmationBox(text, button1Text, button2Text, button1Function) {
         
         
     },200)
+
 }   
 
 function closeConfirmationBox() {
@@ -549,6 +558,8 @@ function closeConfirmationBox() {
         
 
     },200)
+
+    previewUpdater("regular")
 }
 
 function showNotification(text) {
@@ -624,24 +635,40 @@ function removeSelectedHandler() {
 
 function removeSelected() {
     let selectedDivs = document.getElementsByClassName("selected")
-    let selectedPaths = []
-    
+    let photosPreview = document.querySelector("#photosPreview")
+    let indexesToRemove = []
+    let index;
 
     for (let i = 0; i < selectedDivs.length; i++) {
-        src = selectedDivs[i].children[0].src
-        selectedPaths.push(src.substr(src.indexOf("Recursos/Imagens/")))
+        index = Array.prototype.indexOf.call(photosPreview.children, selectedDivs[i]);
+        indexesToRemove.push(index)
     }
 
-    for (let i = 0; i < currentPhotos.length; i++) {
-        if (selectedPaths.includes(currentPhotos[i].path)) {
-            currentPhotos.splice(i, 1)
-        }
+    console.log(selectedDivs)
+
+    indexesToRemove.sort((a, b) => b - a)
+
+    for (let i = 0; i < indexesToRemove.length; i++) {
+        currentPhotos.splice(indexesToRemove[i], 1)
     }
+
+    console.log(indexesToRemove)
+
 
     selection = true
     toggleSelection()
     closeConfirmationBox()
-    previewUpdater("regular") // OR FILTERED???
-
+    previewUpdater("regular")
     
 }
+
+function recreateNode(el, withChildren) {
+    if (withChildren) {
+      el.parentNode.replaceChild(el.cloneNode(true), el);
+    }
+    else {
+      var newEl = el.cloneNode(false);
+      while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
+      el.parentNode.replaceChild(newEl, el);
+    }
+  }
