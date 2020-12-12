@@ -122,12 +122,6 @@ body {
     overflow: hidden;
 }
 
-#unavailable {          /* TIRAR ANTES DE ACABAR */
-    position: absolute;
-    width: 30%;
-    left: 35%;
-}
-
 .logo {
     width: 65px;
     position: relative;

@@ -2,10 +2,6 @@
 / Grupo: 23, Número: 54975, Nome: Miguel Lages, PL: 12 /
 / Grupo: 23, Número: 53469, Nome: Pedro Luís, PL: 12 */
 
-/*eslint-env es6*/
-/*eslint-env browser*/
-// Impede alguns erros fáceis de cometer.
-
 function openAlbumViewer(event) {
     let currentAlbumName = event.target.innerText
 
@@ -296,7 +292,7 @@ function openConfirmationBox(text, button1Text, button2Text, button1Function) {
         
         
     },200)
-}   
+}
 
 function closeConfirmationBox() {
     let confirmationBox = document.querySelector("#confirmationBox")

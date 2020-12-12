@@ -217,9 +217,7 @@ function registerHandler() {
 
 }
 
-/*function escolheAvatar(){
 
-}*/
 
 // Funções Ajudantes
 
