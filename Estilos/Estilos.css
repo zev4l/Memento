@@ -120,22 +120,17 @@ body {
     overflow: hidden;
 }
 
-#unavailable {          /* TIRAR ANTES DE ACABAR */
-    position: absolute;
-    width: 30%;
-    left: 35%;
-}
-
 .logo {
-    width: 50px;
+    width: 65px;
     position: relative;
-    padding: 5%;
+    padding-right: 10px;
+    padding-left: 10px;
     cursor: pointer;
-    transition: 600ms ease;  
+    transition: 600ms ease;
 }
 
 .logo:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 #profileButton {
@@ -789,7 +784,13 @@ input[type="checkbox"] {
     opacity: 0;
     background-color: black;
     transition: 600ms ease;
+    object-fit: cover;
 }   
+
+#albumPhotoViewer img {
+    max-width: 800px;
+    max-width: 600px;
+}
 
 #albumPhotoViewer {
     max-height: 570px;
@@ -799,6 +800,8 @@ input[type="checkbox"] {
 #selectedPhoto {
     display: block;
     transition: 300ms ease;
+    object-fit: cover;
+    max-width: 800px;
 }
 
 #albumViewer {
@@ -866,6 +869,7 @@ input[type="checkbox"] {
     height: 120px;
 
 }
+
 
 #albumViewerTitle, #albumViewerPictureCount {
     position: relative;

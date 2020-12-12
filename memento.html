@@ -20,7 +20,7 @@
         <script>
             
             var backgroundColor = document.querySelector(":root");
-            if(currentAccount.darkmode == true){
+            if(currentAccount && currentAccount.darkmode == true){
                 backgroundColor.style.setProperty("--BACKGROUND1", "rgb(43, 39, 39)");
                 backgroundColor.style.setProperty("--NOTIFICATION", "rgb(26, 23, 23)");
                 backgroundColor.style.setProperty("--ALBUMVIEWER", "rgb(29, 28, 28)");
@@ -108,24 +108,6 @@
             
                     <label for="password"><b>Palavra-passe:</b></label>
                     <input type="password" placeholder="Escrever palavra-passe..." name="password" required>
-
-                    <!-- WIP -->
-                    <!-- <button id="registerSubmit" class="formButton" onclick="escolheAvatar()">Escolhe o teu Avatar</button>
-                    <div id="escolhaAvatar"><h3>Escolhe o teu Avatar</h3>
-                
-                        <img src="./Recursos/Avatares/1.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/2.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/3.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/4.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/5.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/6.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/7.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/8.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/9.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/10.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/11.png" alt ="Avatar" class="avatar">
-                        <img src="./Recursos/Avatares/12.png" alt ="Avatar" class="avatar">
-                    </div> -->
                     
                     <!-- Botão para para verificar os dados do utilizador, registar/criar a contra e efetuar o login ou mostrar mensagens de erro -->
                     <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Registar</button>
@@ -163,8 +145,10 @@
                 </div>
             </div>
 
+            
             <!-- Permite ao utilizador visualizar uma foto que se encontra no álbum -->
             <div id="albumPhotoViewer"><img id="selectedPhoto"><img class="cross" src="Recursos/cross.png" onclick="closePhotoViewer()"></div>
+            
 
             <!-- Caixa de de partilha de fotografias (abre em popup) -->
             <div id="exportBox">
@@ -189,7 +173,7 @@
                 <a onclick="exportHandler()"><img class="logo" src="Recursos/pinterest.png"></a>
                 <h2>Download (.zip):</h2>
                 <!-- Local -->
-                <img class="logo" onclick="exportHandler('download')" src="Recursos/upload.png">
+                <img class="logo" onclick="exportHandler('download')" src="Recursos/download.png">
                 <h2 id="exportConfirmation">Fotografias Partilhadas!</h2>
                 <img id="exportConfirmationImage" src="Recursos/check.png">
             </div>

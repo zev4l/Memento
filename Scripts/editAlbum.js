@@ -325,14 +325,9 @@ function saveAlbum() {
     let validInput = detailsForm.reportValidity();
     let albumNameTaken = duplicateAlbumCheck()
 
-    // let locationSelector = document.querySelector("#newAlbumLocation")
-    // let eventSelector = document.querySelector("#newAlbumEvent")
-    // let dateSelector = document.querySelector("#newAlbumDate")
+
     let nameInput = document.querySelector("#newAlbumName")
 
-    // let selectedLocation = locationSelector.options[locationSelector.selectedIndex].text;
-    // let selectedEvent = eventSelector.options[eventSelector.selectedIndex].text;
-    // let selectedDate = dateSelector.value
     let selectedName = nameInput.value
 
 
